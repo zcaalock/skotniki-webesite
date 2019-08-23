@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LeftMenu from './pages/LeftMenu'
+import Home from './pages/Home'
+import Localisation from './pages/Localisation'
+import Typ1 from './pages/Typ1'
+import BottomMenu from './pages/BottomMenu'
+import Reservations from './pages/Reservations'
+
+//AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
+
+class App extends React.Component {
+  state = { activeItem: 'galeria' }
+
+  renderPages() {
+    if(this.state.activeItem === 'galeria') return <Home />
+    if(this.state.activeItem === 'informacje') return <Localisation />
+    if(this.state.activeItem === 'plany domów') return <Typ1 />
+    if(this.state.activeItem === 'rezerwacje') return <Reservations />
+  }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  render() {
+    return (
+      <div className="AppContainer">
+        <LeftMenu />
+        <div className='contentContainer'>
+          {this.renderPages()}
+          <BottomMenu handleItemClick={this.handleItemClick} state={this.state} />
+        </div>
+        <div className='rightBar'>
+          <div style={{height: '50px', backgroundColor: 'rgb(208, 209, 211)'}}></div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

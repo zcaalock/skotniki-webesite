@@ -1,0 +1,124 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #efefef;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.AppContainer {
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 0px !important;
+  margin: 0px
+}
+
+.title {
+  position: absolute;
+  background-color: #efefef;
+  width: 100%;
+  height: 50px;
+  padding-top: 15px;
+  padding-left: 60px;
+  z-index: 10;
+}
+
+.contentContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column
+}
+
+.pageContent {  
+  height: 85vh;
+  background-color: white;
+  overflow: hidden; 
+  position: relative;
+}
+
+.homeGallery {  
+  padding-top: 50px;
+  position: absolute;
+  bottom: 0;  
+  width: 100%;
+  
+  
+}
+
+.leftMenu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 15%;
+  min-width: 215px
+}
+
+.rightBar {
+  width: 10%; 
+  display: flex;
+  background-color: #517A42;
+  flex-direction: column 
+}
+
+.menuGreenBar {
+  height: 50px;
+  width: 100%;
+  background-color: #517A42
+}
+
+.menuLogo {
+  width: 90%;
+  margin: 0 auto 0 auto
+  
+  }
+
+  .menuTop {
+    height: 85vh;
+  }
+
+  .menuBottomLeft {
+    height: 15vh;
+    padding-left: 20px;
+    text-align: left;
+    background-color: #D0D1D3;
+    padding-top: 20px
+  }
+
+  .menuBottom {
+    padding-left: 65px;
+    margin-top: auto;
+    margin-bottom: auto
+  }  
+
+  .localisation {
+    display: flex;
+    flex-direction: row; 
+    height: 100%;   
+    
+  }
+
+  .localisationText {    
+    width: 50%;
+    overflow: auto;    
+  }
+
+  .localisationMap {
+    width: 50%;
+    padding: 15px    
+  }
+
+  .plans {    
+    padding-top: 50px;
+    text-align: center;
+    width: 50%;
+
+  }
+
+  .imageAuto {
+   height: 94%;
+   padding: 15px
+  }
+
+  .plansAuto {
+    width: 100%;
+    padding: 15px
+  }
