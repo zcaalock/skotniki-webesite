@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios'
 import LeftMenu from './pages/LeftMenu'
 import Home from './pages/Home'
 import Localisation from './pages/Localisation'
@@ -8,6 +8,7 @@ import BottomMenu from './pages/BottomMenu'
 import Reservations from './pages/Reservations'
 
 //AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
+axios.defaults.baseURL = 'http://przyspacerowej.pl'
 
 class App extends React.Component {
   state = { activeItem: 'galeria' }

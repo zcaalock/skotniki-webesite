@@ -20,7 +20,7 @@ class Reservations extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://przyspacerowej.pl/wp-json/wp/v2/reservations')
+    axios.get('/wp-json/wp/v2/reservations')
       .then(res => this.setState({
         tableData: res.data,
         isLoaded: 'true'
