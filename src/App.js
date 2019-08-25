@@ -8,7 +8,7 @@ import BottomMenu from './pages/BottomMenu'
 import Reservations from './pages/Reservations'
 
 //AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
-// axios.defaults.baseURL = 'http://przyspacerowej.pl'
+axios.defaults.baseURL = 'http://przyspacerowej.pl'
 
 class App extends React.Component {
   state = { activeItem: 'galeria' }
