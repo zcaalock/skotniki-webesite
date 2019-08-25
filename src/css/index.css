@@ -11,9 +11,10 @@ body {
 
 .AppContainer {
   display: flex !important;
+  margin: auto;
   flex-direction: row !important;
   padding: 0px !important;  
-  margin: auto;
+  
   background-color: #efefef !important;
 }
 

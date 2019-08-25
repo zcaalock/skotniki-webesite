@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+//import axios from 'axios'
 import { Placeholder } from 'semantic-ui-react'
 import { Table } from 'semantic-ui-react'
 
@@ -7,90 +7,100 @@ class Reservations extends React.Component {
   state = {
     tableData: [],
     isLoaded: 'false',
-    // db :[
-    //   {id: 1, name: 'A1', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 2, name: 'A2', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 3, name: 'A3', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 4, name: 'A4', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 5, name: 'A5', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 6, name: 'A6', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 7, name: 'A7', plot: '200m2', pum: '127m2', price: 'TBA' },
+    db :[
+      {id: 1, name: 'A1', plot: '200m2', pum: '127m2', price: 'TBA' },
+      {id: 2, name: 'A2', plot: '200m2', pum: '127m2', price: 'TBA' },
+      {id: 3, name: 'A3', plot: '200m2', pum: '127m2', price: 'TBA' },
+      {id: 4, name: 'A4', plot: '200m2', pum: '127m2', price: 'TBA' },
+      {id: 5, name: 'A5', plot: '200m2', pum: '127m2', price: 'TBA' },
+      {id: 6, name: 'A6', plot: '200m2', pum: '127m2', price: 'TBA' },
+      {id: 7, name: 'A7', plot: '200m2', pum: '127m2', price: 'TBA' },
 
-    // ]
+    ]
   }
 
-  componentDidMount() {
-    axios.get('/wp-json/wp/v2/reservations')
-      .then(res => this.setState({
-        tableData: res.data,
-        isLoaded: 'true'
-      }))
-      .catch(err => console.log(err))
-  }
+  // componentDidMount() {
+  //   axios.get('/wp-json/wp/v2/reservations')
+  //     .then(res => this.setState({
+  //       tableData: res.data,
+  //       isLoaded: 'true'
+  //     }))
+  //     .catch(err => console.log(err))
+  // }
 
   renderTable() {
-    if (this.state.isLoaded === 'true') return this.state.tableData.map(data => {
-      //console.log('item: ', data.acf)
+    // if (this.state.isLoaded === 'true') return this.state.tableData.map(data => {
+    //   //console.log('item: ', data.acf)
+    //   return (
+    //     <Table.Row key={data.id}>
+    //       <Table.Cell >{data.acf.name}</Table.Cell>
+    //       <Table.Cell>{data.acf.plot}</Table.Cell>
+    //       <Table.Cell>{data.acf.pum}</Table.Cell>
+    //       <Table.Cell>{data.acf.price}</Table.Cell>
+    //       <Table.Cell><a href='/'>PDF</a></Table.Cell>
+    //     </Table.Row>
+    //   )
+    // })
+
+   return this.state.db.map(data => {      
       return (
         <Table.Row key={data.id}>
-          <Table.Cell >{data.acf.name}</Table.Cell>
-          <Table.Cell>{data.acf.plot}</Table.Cell>
-          <Table.Cell>{data.acf.pum}</Table.Cell>
-          <Table.Cell>{data.acf.price}</Table.Cell>
-          <Table.Cell><a href='/'>PDF</a></Table.Cell>
+          <Table.Cell >{data.name}</Table.Cell>
+          <Table.Cell>{data.plot}</Table.Cell>
+          <Table.Cell>{data.pum}</Table.Cell>
+          <Table.Cell>{data.price}</Table.Cell>
+          <Table.Cell>PDF</Table.Cell>
+          {/* <Table.Cell><a href='/'>PDF</a></Table.Cell> */}
         </Table.Row>
       )
     })
 
-    return (
-      <>
-        <Table.Row>
-          <Table.Cell colSpan='5'>
-            <Placeholder>
-              <Placeholder.Line length='full' />
-            </Placeholder>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell colSpan='5'>
-            <Placeholder>
-              <Placeholder.Line length='very long' />
-            </Placeholder>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell colSpan='5'>
-            <Placeholder>
-              <Placeholder.Line length='long' />
-            </Placeholder>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell colSpan='5'>
-            <Placeholder>
-              <Placeholder.Line length='medium' />
-            </Placeholder>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell colSpan='5'>
-            <Placeholder>
-              <Placeholder.Line length='short' />
-            </Placeholder>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell colSpan='5'>
-            <Placeholder>
-              <Placeholder.Line length='very short' />
-            </Placeholder>
-          </Table.Cell>
-        </Table.Row>
-      </>
-
-
-
-    )
+    // return (
+    //   <>
+    //     <Table.Row>
+    //       <Table.Cell colSpan='5'>
+    //         <Placeholder>
+    //           <Placeholder.Line length='full' />
+    //         </Placeholder>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //     <Table.Row>
+    //       <Table.Cell colSpan='5'>
+    //         <Placeholder>
+    //           <Placeholder.Line length='very long' />
+    //         </Placeholder>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //     <Table.Row>
+    //       <Table.Cell colSpan='5'>
+    //         <Placeholder>
+    //           <Placeholder.Line length='long' />
+    //         </Placeholder>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //     <Table.Row>
+    //       <Table.Cell colSpan='5'>
+    //         <Placeholder>
+    //           <Placeholder.Line length='medium' />
+    //         </Placeholder>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //     <Table.Row>
+    //       <Table.Cell colSpan='5'>
+    //         <Placeholder>
+    //           <Placeholder.Line length='short' />
+    //         </Placeholder>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //     <Table.Row>
+    //       <Table.Cell colSpan='5'>
+    //         <Placeholder>
+    //           <Placeholder.Line length='very short' />
+    //         </Placeholder>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //   </>
+    //)
   }
 
   render() {
