@@ -1,15 +1,20 @@
+#root {
+  background-color: #bfbfbf
+}
+
 body {
+  
   margin: 0px;
-  padding: 0px;
-  background-color: #efefef;
+  padding: 0px;  
   font-family: 'Open Sans', sans-serif !important;
 }
 
 .AppContainer {
   display: flex !important;
   flex-direction: row !important;
-  padding: 0px !important;
-  margin: 0px
+  padding: 0px !important;  
+  margin: auto;
+  background-color: #efefef !important;
 }
 
 .title {
@@ -24,7 +29,8 @@ body {
 
 .contentContainer {
   display: flex;
-  width: 100%;
+  width:100%;
+  max-width: 1400px;
   flex-direction: column
 }
 

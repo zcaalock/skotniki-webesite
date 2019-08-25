@@ -1,7 +1,97 @@
 import React from 'react'
-import { Icon, Table } from 'semantic-ui-react'
+import axios from 'axios'
+import { Placeholder } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class Reservations extends React.Component {
+  state = {
+    tableData: [],
+    isLoaded: 'false',
+    // db :[
+    //   {id: 1, name: 'A1', plot: '200m2', pum: '127m2', price: 'TBA' },
+    //   {id: 2, name: 'A2', plot: '200m2', pum: '127m2', price: 'TBA' },
+    //   {id: 3, name: 'A3', plot: '200m2', pum: '127m2', price: 'TBA' },
+    //   {id: 4, name: 'A4', plot: '200m2', pum: '127m2', price: 'TBA' },
+    //   {id: 5, name: 'A5', plot: '200m2', pum: '127m2', price: 'TBA' },
+    //   {id: 6, name: 'A6', plot: '200m2', pum: '127m2', price: 'TBA' },
+    //   {id: 7, name: 'A7', plot: '200m2', pum: '127m2', price: 'TBA' },
+
+    // ]
+  }
+
+  componentDidMount() {
+    axios.get('http://przyspacerowej.pl/wp-json/wp/v2/reservations')
+      .then(res => this.setState({
+        tableData: res.data,
+        isLoaded: 'true'
+      }))
+      .catch(err => console.log(err))
+  }
+
+  renderTable() {
+    if (this.state.isLoaded === 'true') return this.state.tableData.map(data => {
+      //console.log('item: ', data.acf)
+      return (
+        <Table.Row key={data.id}>
+          <Table.Cell >{data.acf.name}</Table.Cell>
+          <Table.Cell>{data.acf.plot}</Table.Cell>
+          <Table.Cell>{data.acf.pum}</Table.Cell>
+          <Table.Cell>{data.acf.price}</Table.Cell>
+          <Table.Cell><a href='/'>PDF</a></Table.Cell>
+        </Table.Row>
+      )
+    })
+
+    return (
+      <>
+        <Table.Row>
+          <Table.Cell colSpan='5'>
+            <Placeholder>
+              <Placeholder.Line length='full' />
+            </Placeholder>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell colSpan='5'>
+            <Placeholder>
+              <Placeholder.Line length='very long' />
+            </Placeholder>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell colSpan='5'>
+            <Placeholder>
+              <Placeholder.Line length='long' />
+            </Placeholder>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell colSpan='5'>
+            <Placeholder>
+              <Placeholder.Line length='medium' />
+            </Placeholder>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell colSpan='5'>
+            <Placeholder>
+              <Placeholder.Line length='short' />
+            </Placeholder>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell colSpan='5'>
+            <Placeholder>
+              <Placeholder.Line length='very short' />
+            </Placeholder>
+          </Table.Cell>
+        </Table.Row>
+      </>
+
+
+
+    )
+  }
 
   render() {
 
@@ -16,7 +106,7 @@ class Reservations extends React.Component {
               <Table celled striped>
                 <Table.Header>
                   <Table.Row>
-                    <Table.HeaderCell colSpan='3'>Etap 1</Table.HeaderCell>
+                    <Table.HeaderCell colSpan='5'>Etap 1</Table.HeaderCell>
                   </Table.Row>
                   <Table.Row>
                     <Table.HeaderCell >Nr domu</Table.HeaderCell>
@@ -26,122 +116,24 @@ class Reservations extends React.Component {
                     <Table.HeaderCell >Rzut kondygnacji</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
-
                 <Table.Body>
-                  <Table.Row>
-                    <Table.Cell >A1</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A2</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A3</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A4</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A5</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A6</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A7</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A8</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A9</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A10</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A11</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A12</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A13</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A14</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A15</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell >A16</Table.Cell>
-                    <Table.Cell>200 m2</Table.Cell>
-                    <Table.Cell>126 m2</Table.Cell>
-                    <Table.Cell>650 000zł</Table.Cell>
-                    <Table.Cell><a href='/'>PDF</a></Table.Cell>
-                  </Table.Row>
+                  {
+                    // this.state.tableData.map(data => {
+                    //   return (
+                    //     <Table.Row key={data.id}>
+                    //       <Table.Cell >{data.acf.name}</Table.Cell>
+                    //       <Table.Cell>{data.acf.plot}</Table.Cell>
+                    //       <Table.Cell>{data.acf.pum}</Table.Cell>
+                    //       <Table.Cell>{data.acf.price}</Table.Cell>
+                    //       <Table.Cell><a href='/'>PDF</a></Table.Cell>
+                    //     </Table.Row>
+                    //   )
+                    // })
+                    this.renderTable()
+                  }
                 </Table.Body>
               </Table>
+
             </div>
           </div>
           <div className="plans">
@@ -151,6 +143,7 @@ class Reservations extends React.Component {
       </div>
     )
   }
+
 }
 
 export default Reservations
