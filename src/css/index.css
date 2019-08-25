@@ -9,92 +9,37 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
-.AppContainer {
-  display: flex !important;
-  margin: auto;
-  flex-direction: row !important;
-  padding: 0px !important;  
-  
-  background-color: #efefef !important;
-}
-
-.title {
-  position: absolute;
-  background-color: #efefef;
-  width: 100%;
-  height: 50px;
-  padding-top: 15px;
-  padding-left: 60px;
-  z-index: 10;
-}
-
-.contentContainer {
-  display: flex;
-  width:100%;
-  max-width: 1400px;
-  flex-direction: column
-}
-
-.pageContent {  
-  height: 85vh;
-  background-color: white;
-  overflow: hidden; 
-  position: relative;
-}
-
-.homeGallery {  
-  padding-top: 50px;
-  position: absolute;
-  bottom: 0;  
-  width: 100%;
-  
-  
-}
-
-.leftMenu {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 15%;
-  min-width: 215px
-}
-
-.rightBar {
-  width: 10%; 
-  display: flex;
-  background-color: #517A42;
-  flex-direction: column 
-}
-
-.menuGreenBar {
-  height: 50px;
-  width: 100%;
-  background-color: #517A42
-}
-
-.menuLogo {
-  width: 90%;
-  margin: 0 auto 0 auto
-  
+@media(min-width: 980px) {
+  .AppContainer {
+    display: flex !important;
+    margin: auto;
+    flex-direction: row !important;
+    padding: 0px !important;  
+    
+    background-color: #efefef !important;
   }
 
-  .menuTop {
+  .pageContent {  
     height: 85vh;
+    background-color: white;
+    overflow: hidden; 
+    position: relative;
   }
 
-  .menuBottomLeft {
-    height: 15vh;
-    padding-left: 20px;
-    text-align: left;
-    background-color: #D0D1D3;
-    padding-top: 20px
+  .leftMenu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 15%;
+    min-width: 215px
   }
 
-  .menuBottom {
-    padding-left: 65px;
-    margin-top: auto;
-    margin-bottom: auto
-  }  
+  .contentContainer {
+    display: flex;
+    width:100%;
+    max-width: 1400px;
+    flex-direction: column
+  }
 
   .localisation {
     display: flex;
@@ -113,19 +58,205 @@ body {
     padding: 15px    
   }
 
-  .plans {    
+  .menuBottomLeft {
+    height: 15vh;
+    padding-left: 20px;
+    text-align: left;
+    background-color: #D0D1D3;
+    padding-top: 20px
+  }
+
+  .rightBar {
+    width: 10%; 
+    display: flex;
+    background-color: #517A42;
+    flex-direction: column 
+  }
+
+  .menuBottom {
+    padding-left: 65px;
+    margin-top: auto;
+    margin-bottom: auto
+  }  
+
+  .homeGallery {  
+    padding-top: 50px;
+    position: absolute;
+    bottom: 0;  
+    width: 100%;   
+  }
+
+  .imageAuto {
+    height: 94%;
+    padding: 15px
+   }
+ 
+   .plansAuto {
+     width: 100%;
+     padding: 15px
+   }
+
+   .plans {    
     padding-top: 50px;
     text-align: center;
     width: 50%;
 
   }
 
-  .imageAuto {
-   height: 94%;
-   padding: 15px
+  .infoText {
+    padding: 100px 63px 25px !important;
   }
 
-  .plansAuto {
+  .map{
+    padding-top: 49px;
     width: 100%;
-    padding: 15px
+    height: 100%;
   }
+}
+
+@media(max-width: 980px) {
+  .AppContainer {
+    display: flex !important;
+    margin: auto;
+    flex-direction: column !important;
+    padding: 0px !important;  
+    
+    background-color: #efefef !important;
+  }
+
+  .pageContent {      
+    background-color: white;
+    overflow: hidden; 
+    position: relative;
+    order: 2
+  }
+
+  .leftMenu {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%
+  }
+
+  .contentContainer {
+    display: flex;
+    width:100%;
+    flex-direction: column
+  }
+
+  .localisation {
+    display: flex;
+    flex-direction: column; 
+    height: 100%;   
+    
+  }
+
+  .localisationText { 
+    height: 50vh;   
+    width: 100%;
+    overflow: auto;    
+  }
+
+  .localisationMap {
+    height: 50vh;
+    width: 100%;
+    padding: 15px    
+  }
+
+  .menuBottom {
+    min-width: 350px;
+    padding-left: 0px;    
+  }
+  
+  .menuBottom a {
+    
+    padding: 10px !important
+  }
+  .rightBar {
+    display: none !important;
+    width: 10%; 
+    display: flex;
+    background-color: #517A42;
+    flex-direction: column 
+  }
+  .homeGallery {  
+    padding-top: 50px;    
+    bottom: 0;  
+    width: 100%;    
+  }
+
+  .imageAuto {
+    width: 50%;
+    padding: 15px
+   }
+ 
+   .plansAuto {
+     width: 100%;
+     padding: 10px
+   }
+
+   .plans {        
+    text-align: center;
+    width: 100%;
+  }
+
+  .infoText {
+    padding: 100px 60px 10px !important;
+  }
+
+  .map{
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+.title {
+  position: absolute;
+  background-color: #efefef;
+  width: 100%;
+  height: 50px;
+  padding-top: 15px;
+  padding-left: 60px;
+  z-index: 10;
+}
+
+
+
+
+
+
+
+
+
+
+
+.menuGreenBar {
+  height: 50px;
+  width: 100%;
+  background-color: #517A42
+}
+
+.menuLogo {
+  width: 90%;
+  margin: 0 auto 0 auto
+  
+  }
+
+  .menuTop {
+    height: 85vh;
+  }
+
+ 
+
+  
+
+  
+
+  
+
+  
+
+  

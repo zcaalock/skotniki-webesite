@@ -21,7 +21,7 @@ class Localistation extends React.Component {
             <div className='title'>
               <h3>Informacje</h3>
             </div>
-            <div style={{ padding: '100px 63px 25px 63px' }}>
+            <div className='infoText'>
               <b>Osiedle Przy Spacerowej II</b>
               <br />
               <br />
@@ -54,7 +54,10 @@ class Localistation extends React.Component {
             </div>
           </div>
           <div className="localisationMap">
-            <div style={{ height: '100%', width: '100%', paddingTop: '49px' }}>
+            <div 
+            className="map"
+            //style={{ height: '100%', width: '100%', paddingTop: '49px' }}
+            >
               <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk' }}
                 defaultCenter={this.props.center}
