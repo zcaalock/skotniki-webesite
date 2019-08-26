@@ -22,7 +22,7 @@ class Reservations extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/wp-json/wp/v2/reservations')
+    axios.get('/wp-json/wp/v2/reservations?per_page=20')
       .then(res => this.setState({
         tableData: res.data,
         tableDataObject: _.sortBy(res.data.map(data => {
@@ -39,7 +39,7 @@ class Reservations extends React.Component {
   }
 
   renderTable() {
-    console.log('state: ', this.state.tableDataObject)    
+    console.log('state: ', this.state.tableData)    
     if (this.state.isLoaded === 'true') {
       return this.state.tableDataObject.map(data => {
         return (
