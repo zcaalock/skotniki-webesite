@@ -15,7 +15,6 @@ class LeftMenu extends React.Component {
           tel. +48 509 192 091
           <br/>
           tel. +48 12 628 08 00
-
           </div>
       </div>
     )
