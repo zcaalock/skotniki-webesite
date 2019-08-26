@@ -147,7 +147,7 @@ class Reservations extends React.Component {
             </div>
           </div>
           <div className="plans">
-            <img className='plansAuto' src="/img/plany_mapa_kolor.png" alt="Typ A - lewy" />
+            <img className='plansAuto' src="/img/plany_mapa_kolor.jpg" alt="Typ A - lewy" />
           </div>
         </div>
       </div>
