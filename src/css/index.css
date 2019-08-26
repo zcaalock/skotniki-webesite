@@ -113,10 +113,10 @@ body {
     width: 50%;
   }
 
-  .devImages {    
+  .devImages { 
+    width: 45%;  
     padding-top: 50px;
-    text-align: center;
-    width: 50%;
+    text-align: center;    
     display: flex;
     flex-direction: column
   }
