@@ -17,15 +17,20 @@ export default class BottomMenu extends Component {
             onClick={this.props.handleItemClick}
           />
           <Menu.Item
-            name='plany domów'
-            active={activeItem === 'plany domów'}
+            name='plany'
+            active={activeItem === 'plany'}
             onClick={this.props.handleItemClick}
           />          
           <Menu.Item
             name='rezerwacje'
             active={activeItem === 'rezerwacje'}
             onClick={this.props.handleItemClick}
-          />            
+          /> 
+          <Menu.Item
+            name='inwestor'
+            active={activeItem === 'inwestor'}
+            onClick={this.props.handleItemClick}
+          />              
         </Menu>       
       </div>
     )

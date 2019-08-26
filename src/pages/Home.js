@@ -7,11 +7,11 @@ class Home extends React.Component {
   render() {
     const images = [
       {
-        original: 'http://przyspacerowej.pl/wp-content/uploads/2019/08/v18a.jpg'
+        original: 'http://przyspacerowej.pl/wp-content/uploads/2019/08/v19a.jpg'
         //thumbnail: 'http://lorempixel.com/250/150/nature/1/',
       },
       {
-        original: 'http://przyspacerowej.pl/wp-content/uploads/2019/08/v19a.jpg'
+        original: 'http://przyspacerowej.pl/wp-content/uploads/2019/08/v18a.jpg'
         //thumbnail: 'http://lorempixel.com/250/150/nature/2/'
       },
       {

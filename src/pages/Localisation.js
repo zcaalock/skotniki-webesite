@@ -1,5 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
+import PdfUlotka from '../documents/ulotka_etap2.pdf'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -33,7 +34,7 @@ class Localistation extends React.Component {
             <br />
               <br />
               <br />
-              <br />
+              
               <b>Atuty domów Przy Spacerowej II</b>
               <br />
               <br />
@@ -43,7 +44,7 @@ class Localistation extends React.Component {
               <li>funkcjonalny i komfortowy układ pomieszczeń (dwie pełne, wysokie kondygnacje, bez tzw. „skosów”)</li>
               <br />
               <br />
-              <br />              
+                           
               <b>Oferta domów Przy Spacerowej kierowana jest do osób:</b>
               <br />
               <br />
@@ -51,7 +52,10 @@ class Localistation extends React.Component {
               <li>które oczekują większej prywatności i komfortu, jakiego nie może zapewnić mieszkanie w bloku wielorodzinnym, </li>
               <li>osób preferujących dom w granicach administracyjnych Krakowa z uwagi na prestiż, dogodny dojazd do pracy, szkoły, możliwość korzystania z miejskiej oferty kulturalnej i rozrywkowej, </li>
               <li>poszukujących domu przystępnego cenowo i ekonomicznego w utrzymaniu</li>
+              <br />
+              <a href={PdfUlotka} target="_blank" rel="noopener noreferrer">Zobacz Ulotkę</a>
             </div>
+            
           </div>
           <div className="localisationMap">
             <div 

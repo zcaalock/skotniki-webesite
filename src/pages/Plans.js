@@ -1,13 +1,13 @@
 import React from 'react'
-import PdfALewy from '../documents/plany_domow_A_lewy.pdf';
-import PdfBLewy from '../documents/plany_domów_B_lewy.pdf'
+import PdfALewy from '../documents/segment-lewy.pdf';
+import PdfAPrawy from '../documents/segment-prawy.pdf'
 
 class Typ1 extends React.Component {
   state = { itemSelected: 'a' }
 
   downloadPDF(){
     if (this.state.itemSelected === 'a') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a>
-    if (this.state.itemSelected === 'b') return <a href={PdfBLewy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a>
+    if (this.state.itemSelected === 'b') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a>
   }
 
   handleStyle(item) {
@@ -62,10 +62,10 @@ class Typ1 extends React.Component {
             <br />
               <br />
               <br />
-              <div onClick={() => this.handleClick('a')} style={this.handleStyle('a')}><b>Plan domu: lewy</b></div>
+              <div onClick={() => this.handleClick('a')} style={this.handleStyle('a')}><b>Plan domu: segment lewy</b></div>
               <br />
               <br />
-              <div onClick={() => this.handleClick('b')} style={this.handleStyle('b')}><b>Plan domu: prawy</b></div>              
+              <div onClick={() => this.handleClick('b')} style={this.handleStyle('b')}><b>Plan domu: segment prawy</b></div>              
             </div>
           </div>
           <div className="plans">

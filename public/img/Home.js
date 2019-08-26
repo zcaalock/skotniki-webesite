@@ -5,11 +5,11 @@ class Home extends React.Component {
   render() {
     const images = [
       {
-        original: 'img/v18a (Duży).jpg'
+        original: 'img/v19a (Duży).jpg'
         //thumbnail: 'http://lorempixel.com/250/150/nature/1/',
       },
       {
-        original: 'img/v19a (Duży).jpg'
+        original: 'img/v18a (Duży).jpg'
         //thumbnail: 'http://lorempixel.com/250/150/nature/2/'
       },
       {

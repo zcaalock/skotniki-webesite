@@ -1,6 +1,6 @@
 import React from 'react'
 //import axios from 'axios'
-import { Placeholder } from 'semantic-ui-react'
+//import { Placeholder } from 'semantic-ui-react'
 import { Table } from 'semantic-ui-react'
 
 class Reservations extends React.Component {

@@ -20,7 +20,7 @@ body {
   }
 
   .pageContent {  
-    height: 85vh;
+    height: 80vh;
     background-color: white;
     overflow: hidden; 
     position: relative;
@@ -30,7 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 15%;
+    width: 35%;
     min-width: 215px
   }
 
@@ -59,7 +59,7 @@ body {
   }
 
   .menuBottomLeft {
-    height: 15vh;
+    height: 20vh;
     padding-left: 20px;
     text-align: left;
     background-color: #D0D1D3;
@@ -90,6 +90,17 @@ body {
     height: 94%;
     padding: 15px
    }
+
+   .imageAutoWidth {
+     width: 100%;
+     padding: 15px
+   }
+
+   .imageAutoHeight {
+    height: 45%;
+    padding: 15px;
+    margin: auto
+  }
  
    .plansAuto {
      width: 100%;
@@ -100,7 +111,14 @@ body {
     padding-top: 50px;
     text-align: center;
     width: 50%;
+  }
 
+  .devImages {    
+    padding-top: 50px;
+    text-align: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column
   }
 
   .infoText {
@@ -186,9 +204,14 @@ body {
   }
 
   .imageAuto {
-    width: 50%;
+    width: 100%;
     padding: 15px
    }
+
+   .imageAutoHeight {
+    height: 45%;
+    padding: 15px
+  }
  
    .plansAuto {
      width: 100%;
@@ -198,6 +221,20 @@ body {
    .plans {        
     text-align: center;
     width: 100%;
+  }
+  
+
+  .devImages {    
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column
+  }
+
+  .imageAutoHeight {
+     padding: 15px;
+     width: 100%
   }
 
   .infoText {
@@ -246,7 +283,7 @@ body {
   }
 
   .menuTop {
-    height: 85vh;
+    height: 80vh;
   }
 
  
