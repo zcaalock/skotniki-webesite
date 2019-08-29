@@ -1,10 +1,32 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
 import PdfUlotka from '../documents/ulotka_etap2.pdf'
+import _ from 'lodash'
+import axios from 'axios'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Localistation extends React.Component {
+
+  state = {
+    itemSelected: 'a',
+    pageData: [],
+    isLoaded: 'false'
+  }
+
+  componentDidMount() {
+    axios.get('/wp-json/wp/v2/skotniki2')
+      .then(res => this.setState({
+        pageData: _.keyBy(res.data.map(data => {
+          return {
+            name: data.title.rendered,
+            content: data.content
+          }
+        }), 'name'),
+        isLoaded: 'true'
+      }))
+      .catch(err => console.log(err))
+  }
 
   static defaultProps = {
     center: {
@@ -14,8 +36,9 @@ class Localistation extends React.Component {
     zoom: 16
   };
   render() {
-
+    if (this.state.pageData.plany_domow)
     return (
+      
       <div className='pageContent'>
         <div className='localisation'>
           <div className="localisationText">
@@ -23,7 +46,7 @@ class Localistation extends React.Component {
               <h3>Informacje</h3>
             </div>
             <div className='infoText'>
-              <b>Osiedle Przy Spacerowej II</b>
+              {/* <b>Osiedle Przy Spacerowej II</b>
               <br />
               <br />
               To zespół nowoczesnych i komfortowych domów jednorodzinnych, zlokalizowanych w rejonie ulic Spacerowej i Trockiego w Krakowie. Osiedle położone jest w odległości około 6 km od Rynku Głównego, w południowo – zachodniej części Krakowa, w Skotnikach wchodzących w skład dzielnicy VII-Dębniki
@@ -52,7 +75,8 @@ class Localistation extends React.Component {
               <li>które oczekują większej prywatności i komfortu, jakiego nie może zapewnić mieszkanie w bloku wielorodzinnym, </li>
               <li>osób preferujących dom w granicach administracyjnych Krakowa z uwagi na prestiż, dogodny dojazd do pracy, szkoły, możliwość korzystania z miejskiej oferty kulturalnej i rozrywkowej, </li>
               <li>poszukujących domu przystępnego cenowo i ekonomicznego w utrzymaniu</li>
-              <br />
+              <br /> */}
+              <div dangerouslySetInnerHTML={{ __html: this.state.pageData.informacje.content.rendered }}></div>
               <a href={PdfUlotka} target="_blank" rel="noopener noreferrer">Zobacz Ulotkę</a>
             </div>
             
@@ -78,6 +102,7 @@ class Localistation extends React.Component {
         </div>
       </div>
     )
+    return <div>loading...</div>
   }
 }
 

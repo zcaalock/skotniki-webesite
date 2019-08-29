@@ -1,7 +1,29 @@
 import React from 'react'
+import _ from 'lodash'
+import axios from 'axios'
 
 class Developer extends React.Component {
-  state = { itemSelected: 'wawrzynca' }
+
+  state = {
+    itemSelected: 'a',
+    pageData: [],
+    isLoaded: 'false',
+    itemSelected: 'wawrzynca'
+  }
+
+  componentDidMount() {
+    axios.get('/wp-json/wp/v2/skotniki2')
+      .then(res => this.setState({
+        pageData: _.keyBy(res.data.map(data => {
+          return {
+            name: data.title.rendered,
+            content: data.content
+          }
+        }), 'name'),
+        isLoaded: 'true'
+      }))
+      .catch(err => console.log(err))
+  }  
 
   handleStyle(item) {
     if (this.state.itemSelected === item) return { color: '#21BA45', cursor: 'pointer' }
@@ -36,7 +58,7 @@ class Developer extends React.Component {
   }
 
   render() {
-
+    if (this.state.pageData.wawrzynca)
     return (
       <div className='pageContent'>
         <div className='localisation'>
@@ -48,22 +70,26 @@ class Developer extends React.Component {
               <div onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></div>
               <br />
               
-              To inwestycja mieszkaniowa zrealizowana na krakowskim Kazimierzu. W dawnej, pochodzącej z 1914 roku Elektrowni Miejskiej przy ul. Św. Wawrzyńca 19, powstaje nowoczesny kompleks apartamentów. Zabytkowe obiekty są modernizowane i przekształcane w taki sposób, aby nie naruszyć spójności ich oryginalnego projektu. Adaptacja postindustrialnych zabudowań odznacza się wysokim stopniem oryginalności i idealnie wpisuje się w charakter zrewitalizowanego otoczenia architektonicznego Kwartału Świętego Wawrzyńca.
+              {/* To inwestycja mieszkaniowa zrealizowana na krakowskim Kazimierzu. W dawnej, pochodzącej z 1914 roku Elektrowni Miejskiej przy ul. Św. Wawrzyńca 19, powstaje nowoczesny kompleks apartamentów. Zabytkowe obiekty są modernizowane i przekształcane w taki sposób, aby nie naruszyć spójności ich oryginalnego projektu. Adaptacja postindustrialnych zabudowań odznacza się wysokim stopniem oryginalności i idealnie wpisuje się w charakter zrewitalizowanego otoczenia architektonicznego Kwartału Świętego Wawrzyńca.
             <br />
+              <br /> */}
+              <div dangerouslySetInnerHTML={{ __html: this.state.pageData.wawrzynca.content.rendered }}></div>
               <br />
               <br />
               <div onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></div>
               <br />
+              <div dangerouslySetInnerHTML={{ __html: this.state.pageData.skotniki1.content.rendered }}></div>
               
-              To zespół nowoczesnych i komfortowych domów jednorodzinnych, zlokalizowanych przy ulicy Spacerowej 101 w Krakowie. Osiedle położone jest w Skotnikach, aktualnie bardzo prężnie rozwijającej się części Krakowa. W ofercie znajduje się 12 domów o powierzchni użytkowej od 105 do 109 m2, każdy z garażem i dużym ogrodem.
+              {/* To zespół nowoczesnych i komfortowych domów jednorodzinnych, zlokalizowanych przy ulicy Spacerowej 101 w Krakowie. Osiedle położone jest w Skotnikach, aktualnie bardzo prężnie rozwijającej się części Krakowa. W ofercie znajduje się 12 domów o powierzchni użytkowej od 105 do 109 m2, każdy z garażem i dużym ogrodem.
               <br />
+              <br /> */}
               <br />
               <br />
               <div onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></div>
               <br />
-              
-              To zespół nowoczesnych i komfortowych domów jednorodzinnych, zlokalizowanych przy ulicy Tynieckiej  w Krakowie. Osiedle położone jest w dzielnicy Dębniki – Kostrze, malowniczej cześć Krakowa przez którą przebiega trasa rowerowa do Tyńca. W naszej ofercie znajduje się 13 domów o powierzchni użytkowej od 154 do 175 m2, każdy z garażem i dużym ogrodem.
-
+{/*               
+              To zespół nowoczesnych i komfortowych domów jednorodzinnych, zlokalizowanych przy ulicy Tynieckiej  w Krakowie. Osiedle położone jest w dzielnicy Dębniki – Kostrze, malowniczej cześć Krakowa przez którą przebiega trasa rowerowa do Tyńca. W naszej ofercie znajduje się 13 domów o powierzchni użytkowej od 154 do 175 m2, każdy z garażem i dużym ogrodem. */}
+              <div dangerouslySetInnerHTML={{ __html: this.state.pageData.tyniecka.content.rendered }}></div>
 
             </div>
           </div>
@@ -73,6 +99,7 @@ class Developer extends React.Component {
         </div>
       </div>
     )
+    return <div>loading...</div>
   }
 }
 
