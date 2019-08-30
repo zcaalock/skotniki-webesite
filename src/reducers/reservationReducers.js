@@ -4,14 +4,15 @@ import _ from 'lodash'
 export default (state = {}, action) => {
   switch (action.type) {
     
-    case types.FETCH_PAGES:
-      return {...state, ..._.orderBy(_.keyBy(action.payload.map(data => {
+    case types.FETCH_RESERVATIONS:
+      return {...state, ..._.sortBy(action.payload.map(data => {
         return {
-          id: data.title.rendered,
-          content: data.content,
-          title: data.acf.menutitle
+          name: data.acf.name,
+          plot: data.acf.plot,
+          pum: data.acf.pum,
+          price: data.acf.price
         }
-      }), 'id'),'id')    
+      }),'name')  
     }
     default:
       return state

@@ -4,6 +4,7 @@ import thunk from 'redux-thunk'
 
 import pagesReducers from './pagesReducers'
 import appStateReducers from './appStateReducers'
+import reservationReducers from './reservationReducers'
 
 
 const initialState ={}
@@ -12,6 +13,7 @@ const middleware = [thunk]
 
 const reducers = combineReducers({
   pages: pagesReducers,
+  reservations: reservationReducers,
   appState: appStateReducers
 })
 

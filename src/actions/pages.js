@@ -7,6 +7,6 @@ export const fetchPages = () => async dispatch => {
   //console.log('pages res: ', responce)
   
   await dispatch({type: types.FETCH_PAGES, payload: responce.data})
-  await dispatch(editState('false', 'loading'))
+  await dispatch(editState('false', 'loading'))  
   
 }

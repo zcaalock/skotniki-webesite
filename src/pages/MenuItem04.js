@@ -1,7 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import { connect } from 'react-redux'
 import { editState } from '../actions/appState'
+
 import _ from 'lodash'
 import { Placeholder } from 'semantic-ui-react'
 import { Table } from 'semantic-ui-react'
@@ -14,27 +14,14 @@ class MenuItem04 extends React.Component {
   }
 
   componentDidMount() {
-    this.props.editState('Wybierz Dom', 'activeItem')
-    axios.get('/wp-json/wp/v2/reservations?per_page=20')
-      .then(res => this.setState({
-        tableData: res.data,
-        tableDataObject: _.sortBy(res.data.map(data => {
-          return {
-            name: data.acf.name,
-            plot: data.acf.plot,
-            pum: data.acf.pum,
-            price: data.acf.price
-          }
-        }),'name'),
-        isLoaded: 'true'
-      }))
-      .catch(err => console.log(err))
+    this.props.editState('66%', 'widthStop')
+    this.props.editState('Wybierz Dom', 'activeItem')    
   }
 
   renderTable() {
-    console.log('state: ', this.state.tableData)    
-    if (this.state.isLoaded === 'true') {
-      return this.state.tableDataObject.map(data => {
+    //console.log('state: ', this.state.tableData)    
+    if (this.props.appState.reservationLoading === 'false') {
+      return this.props.reservations.map(data => {
         return (
           <Table.Row key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
@@ -101,7 +88,7 @@ class MenuItem04 extends React.Component {
 
 const mapStateToPrps = (state) => {
   return {
-    pages: _.keyBy(Object.values(state.pages), 'id'),
+    reservations: Object.values(state.reservations),
     appState: state.appState}
 }
 

@@ -2,10 +2,11 @@ import React from 'react'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import GoogleMapReact from 'google-map-react';
-import { Placeholder } from 'semantic-ui-react'
+
 
 import PdfUlotka from '../documents/ulotka_etap2.pdf'
 import { editState } from '../actions/appState'
+import ContentPlaceholder from '../components/ContentPlaceholder'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -13,6 +14,7 @@ class MenuItem02 extends React.Component {
 
   componentDidMount() {
     this.props.editState('Prezentacja', 'activeItem')
+    this.props.editState('31%', 'widthStop')
   }
 
   static defaultProps = {
@@ -33,18 +35,7 @@ class MenuItem02 extends React.Component {
     )
     return (
       <div className='infoText'>
-        <Placeholder>
-          <Placeholder.Header image>
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Header>
-          <Placeholder.Paragraph>
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Paragraph>
-        </Placeholder>
+        <ContentPlaceholder/>
       </div>
     )
   }
@@ -56,7 +47,7 @@ class MenuItem02 extends React.Component {
         <div className='localisation'>
           <div className="localisationText">
             <div className='title'>
-              <h3>Informacje</h3>
+              <h3>Prezentacja</h3>
             </div>
             {this.renderContent()}
           </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editState } from '../actions/appState'
 
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/css/image-gallery.css"
@@ -7,8 +8,10 @@ import "react-image-gallery/styles/css/image-gallery.css"
 
 
 class MenuItem01 extends React.Component {
+  componentDidMount() {
+    this.props.editState('13%', 'widthStop')
+  }
 
-  
   render() {
     const images = [
       {
@@ -28,11 +31,16 @@ class MenuItem01 extends React.Component {
       <div className='pageContent'>
         <div className='title'><h3>Galeria</h3></div>
         <div className='homeGallery'>
-        <ImageGallery showThumbnails={false} showBullets={true} items={images}/>
+          <ImageGallery showThumbnails={false} showBullets={true} items={images} />
         </div>
       </div>
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    appState: state.appState
+  }
+}
 
-export default connect(null) (MenuItem01)
+export default connect(mapStateToProps, { editState })(MenuItem01)

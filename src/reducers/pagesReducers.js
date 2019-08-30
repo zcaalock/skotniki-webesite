@@ -5,13 +5,13 @@ export default (state = {}, action) => {
   switch (action.type) {
     
     case types.FETCH_PAGES:
-      return {...state, ..._.orderBy(_.keyBy(action.payload.map(data => {
+      return {...state, ..._.sortBy(action.payload.map(data => {
         return {
           id: data.title.rendered,
           content: data.content,
           title: data.acf.menutitle
         }
-      }), 'id'),'id')    
+      }), 'id')    
     }
     default:
       return state

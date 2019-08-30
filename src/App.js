@@ -14,6 +14,7 @@ import MenuItem03 from './pages/MenuItem03'
 import BottomMenu from './pages/BottomMenu'
 import MenuItem04 from './pages/MenuItem04'
 import MenuItem05 from './pages/MenuItem05'
+import MenuItem06 from './pages/MenuItem06'
 
 
 //AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
@@ -38,13 +39,16 @@ class App extends React.Component {
                 <Route exact path="/MenuItem03" component={MenuItem03} />
                 <Route exact path="/MenuItem04" component={MenuItem04} />
                 <Route exact path="/MenuItem05" component={MenuItem05} />
+                <Route exact path="/MenuItem06" component={MenuItem06} />
               </Route>
               <BottomMenu handleItemClick={this.handleItemClick} state={this.state} />
             </Router>
           </div>
-          <div className='rightBar'>
+          {/* <div className='rightBar'>
             <div style={{ height: '50px', backgroundColor: 'rgb(208, 209, 211)' }}></div>
-          </div>
+            <div style={{ height: 'calc(80vh - 50px)', backgroundColor: 'white' }}></div>
+            <div style={{ height: '7vh', backgroundColor: '#517A42' }}></div>
+          </div> */}
         </Provider>
       </div>
     );

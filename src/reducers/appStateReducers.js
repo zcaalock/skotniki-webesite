@@ -1,10 +1,13 @@
 import * as types from '../actions/types'
 
-const appState ={
+const appState = {
   activeItem: 'Galeria',
   loading: 'true',
-  rservationLoading: 'true'
-  
+  reservationLoading: 'true',
+  widthStart: '0',
+  widthStop: '100%',
+  zIndex: '10'
+
 }
 
 export default (state = appState, action) => {
