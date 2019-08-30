@@ -1,5 +1,5 @@
 #root {
-  background-color: #bfbfbf
+  background-color: white
 }
 
 body {
@@ -15,7 +15,7 @@ body {
     margin: auto;
     flex-direction: row !important;
     padding: 0px !important;  
-    
+    max-width: 1920px;
     background-color: #efefef !important;
   }
 
@@ -30,15 +30,14 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 35%;
+    width: 20%;
     max-width: 500px;
     min-width: 215px
   }
 
   .contentContainer {
     display: flex;
-    width:100%;
-    max-width: 1400px;
+    width:75%;    
     flex-direction: column
   }
 
@@ -69,7 +68,7 @@ body {
   }
 
   .rightBar {
-    width: 10%; 
+    width: 5%; 
     display: flex;
     background-color: #517A42;
     flex-direction: column 
@@ -89,7 +88,7 @@ body {
   }
 
   .imageAuto {
-    height: 94%;
+    height: 90%;
     padding: 15px
    }
 

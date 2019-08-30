@@ -1,9 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/css/image-gallery.css"
 
-class Home extends React.Component {
+
+
+class MenuItem01 extends React.Component {
+
+  
   render() {
     const images = [
       {
@@ -30,4 +35,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default connect(null) (MenuItem01)

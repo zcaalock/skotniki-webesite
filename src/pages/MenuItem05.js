@@ -2,10 +2,9 @@ import React from 'react'
 import _ from 'lodash'
 import axios from 'axios'
 
-class Developer extends React.Component {
+class MenuItem05 extends React.Component {
 
-  state = {
-    itemSelected: 'a',
+  state = {    
     pageData: [],
     isLoaded: 'false',
     itemSelected: 'wawrzynca'
@@ -103,4 +102,4 @@ class Developer extends React.Component {
   }
 }
 
-export default Developer
+export default MenuItem05

@@ -1,12 +1,19 @@
 import React from 'react';
+import { Router, Route } from 'react-router-dom'
 import axios from 'axios'
+
+import history from './history'
+
+import { Provider } from 'react-redux'
+import store from './reducers/index'
+
 import LeftMenu from './pages/LeftMenu'
-import Home from './pages/Home'
-import Localisation from './pages/Localisation'
-import Plans from './pages/Plans'
+import MenuItem01 from './pages/MenuItem01'
+import MenuItem02 from './pages/MenuItem02'
+import MenuItem03 from './pages/MenuItem03'
 import BottomMenu from './pages/BottomMenu'
-import Reservations from './pages/Reservations'
-import Developer from './pages/Developer'
+import MenuItem04 from './pages/MenuItem04'
+import MenuItem05 from './pages/MenuItem05'
 
 
 //AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
@@ -15,26 +22,30 @@ axios.defaults.baseURL = 'http://przyspacerowej.pl'
 class App extends React.Component {
   state = { activeItem: 'galeria' }
 
-  renderPages() {
-    if(this.state.activeItem === 'galeria') return <Home />
-    if(this.state.activeItem === 'informacje') return <Localisation />
-    if(this.state.activeItem === 'plany') return <Plans />
-    if(this.state.activeItem === 'rezerwacje') return <Reservations />
-    if(this.state.activeItem === 'inwestor') return <Developer />
-  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render() {
     return (
       <div className="AppContainer">
-        <LeftMenu />
-        <div className='contentContainer'>
-          {this.renderPages()}
-          <BottomMenu handleItemClick={this.handleItemClick} state={this.state} />
-        </div>
-        <div className='rightBar'>
-          <div style={{height: '50px', backgroundColor: 'rgb(208, 209, 211)'}}></div>
-        </div>
+        <Provider store={store}>
+          <LeftMenu />
+          <div className='contentContainer'>
+            <Router history={history}>
+              <Route>
+                <Route exact path="/" component={MenuItem01} />
+                <Route exact path="/MenuItem01" component={MenuItem01} />
+                <Route exact path="/MenuItem02" component={MenuItem02} />
+                <Route exact path="/MenuItem03" component={MenuItem03} />
+                <Route exact path="/MenuItem04" component={MenuItem04} />
+                <Route exact path="/MenuItem05" component={MenuItem05} />
+              </Route>
+              <BottomMenu handleItemClick={this.handleItemClick} state={this.state} />
+            </Router>
+          </div>
+          <div className='rightBar'>
+            <div style={{ height: '50px', backgroundColor: 'rgb(208, 209, 211)' }}></div>
+          </div>
+        </Provider>
       </div>
     );
   }

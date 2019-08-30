@@ -1,27 +1,20 @@
 import React from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { editState } from '../actions/appState'
 import _ from 'lodash'
 import { Placeholder } from 'semantic-ui-react'
 import { Table } from 'semantic-ui-react'
 
-class Reservations extends React.Component {
+class MenuItem04 extends React.Component {
   state = {
     tableData: [],
     isLoaded: 'false',
     placeholder: ['full', 'very long', 'long', 'medium', 'short', 'very short']
-    // db :[
-    //   {id: 1, name: 'A1', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 2, name: 'A2', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 3, name: 'A3', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 4, name: 'A4', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 5, name: 'A5', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 6, name: 'A6', plot: '200m2', pum: '127m2', price: 'TBA' },
-    //   {id: 7, name: 'A7', plot: '200m2', pum: '127m2', price: 'TBA' },
-
-    // ]
   }
 
   componentDidMount() {
+    this.props.editState('Wybierz Dom', 'activeItem')
     axios.get('/wp-json/wp/v2/reservations?per_page=20')
       .then(res => this.setState({
         tableData: res.data,
@@ -106,4 +99,10 @@ class Reservations extends React.Component {
 
 }
 
-export default Reservations
+const mapStateToPrps = (state) => {
+  return {
+    pages: _.keyBy(Object.values(state.pages), 'id'),
+    appState: state.appState}
+}
+
+export default connect(mapStateToPrps, {editState})(MenuItem04)
