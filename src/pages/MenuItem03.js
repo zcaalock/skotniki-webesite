@@ -7,6 +7,11 @@ import PdfAPrawy from '../documents/segment-prawy.pdf'
 import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
 
+import LZero from '../components/Maps/LZero'
+import LOne from '../components/Maps/LOne'
+import PZero from '../components/Maps/PZero'
+import POne from '../components/Maps/POne'
+
 class MenuItem03 extends React.Component {
   state = {
     segmentLeftZero: 'true',
@@ -17,8 +22,8 @@ class MenuItem03 extends React.Component {
 
   componentDidMount() {
     this.props.editState('Twój Dom', 'activeItem')
-    this.props.editState('33%', 'widthStop')
-    this.props.editState('Parter', 'secondaryTitle')
+    this.props.editState('32%', 'widthStop')
+    this.props.editState('Segment L: Parter', 'secondaryTitle')
   }
   downloadPDF() {
     if (this.state.segmentLeftZero === 'true' || this.state.segmentLeftOne === 'true') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a>
@@ -43,48 +48,29 @@ class MenuItem03 extends React.Component {
   }
 
   renderPlans() {
-    if (this.state.segmentLeftZero === 'true') return (
-      <>
-        <div data-position="left center" data-tooltip="Miejsce na taras" style={{ position: 'absolute', width: '50px', height: '50px', top: '83px', left: '233px' }}></div>
-        <img className='imageAuto' src="/img/plany_domow/A_lewy_plan_parter.png" alt="Typ A - lewy" />
-      </>)
-    if (this.state.segmentLeftOne === 'true') return (
-      <>
-        <div data-position="left center" data-tooltip="Miejsce na taras" style={{ position: 'absolute', width: '50px', height: '50px', top: '83px', left: '233px' }}></div>
-        <img className='imageAuto' src="/img/plany_domow/A_lewy_plan_pietro.png" alt="Typ A - lewy" />
-      </>)
-    if (this.state.segmentRightZero === 'true') return (
-      <>
-        <div data-position="left center" data-tooltip="Miejsce na taras" style={{ position: 'absolute', width: '50px', height: '50px', top: '83px', left: '233px' }}></div>
-        <img className='imageAuto' src="/img/plany_domow/A_prawy_plan_parter.png" alt="Typ A - lewy" />
-      </>)
-    if (this.state.segmentRightOne === 'true') return (
-      <>
-        <div data-position="left center" data-tooltip="Miejsce na taras" style={{ position: 'absolute', width: '50px', height: '50px', top: '83px', left: '233px' }}></div>
-        <img className='imageAuto' src="/img/plany_domow/A_prawy_plan_pietro.png" alt="Typ A - lewy" />
-      </>)
-
-
-
+    if (this.state.segmentLeftZero === 'true') return <LZero />
+    if (this.state.segmentLeftOne === 'true') return <LOne />
+    if (this.state.segmentRightZero === 'true') return <PZero/>
+    if (this.state.segmentRightOne === 'true') return <POne />
   }
 
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div style={{ padding: '50px 63px 25px 63px' }}>
         <div style={{ display: 'flex', height: '50px', backgroundColor: '#EFEFEF' }}>
-          <div style={{width: '47.5%', display: 'flex'}}>
-          <div className='imgMenu' ><b>Segment L : </b></div>
-          <div className='imgMenu' onClick={() => this.handleClick('segmentLeftZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentLeftZero)}><b> Parter</b></div>
-          <div className='imgMenu' onClick={() => this.handleClick('segmentLeftOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentLeftOne)}><b> Piętro</b></div>
+          <div style={{ width: '47.5%', display: 'flex' }}>
+            <div className='imgMenu' ><b>Segment L : </b></div>
+            <div className='imgMenu' onClick={() => this.handleClick('segmentLeftZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentLeftZero)}><b> Parter</b></div>
+            <div className='imgMenu' onClick={() => this.handleClick('segmentLeftOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentLeftOne)}><b> Piętro</b></div>
           </div>
-          <div style={{width: '5%', backgroundColor: 'white'}}></div>
-          <div style={{width: '47.5%', display: 'flex'}}>
-          <div className='imgMenu' ><b>Segment P : </b></div>
-          <div className='imgMenu' onClick={() => this.handleClick('segmentRightZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentRightZero)}><b> Parter</b></div>
-          <div className='imgMenu' onClick={() => this.handleClick('segmentRightOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentRightOne)}><b> Piętro</b></div>
+          <div style={{ width: '5%', backgroundColor: 'white' }}></div>
+          <div style={{ width: '47.5%', display: 'flex' }}>
+            <div className='imgMenu' ><b>Segment P : </b></div>
+            <div className='imgMenu' onClick={() => this.handleClick('segmentRightZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentRightZero)}><b> Parter</b></div>
+            <div className='imgMenu' onClick={() => this.handleClick('segmentRightOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentRightOne)}><b> Piętro</b></div>
           </div>
         </div>
-        <div style={{paddingTop: '20px'}} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>
+        <div style={{ paddingTop: '20px' }} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>
         <br />
         <br />
 
@@ -106,7 +92,7 @@ class MenuItem03 extends React.Component {
 
           </div>
           <div className="plans">
-            {this.renderPlans()}
+            {this.renderPlans()}            
             <div>{this.downloadPDF()}</div>
           </div>
         </div>

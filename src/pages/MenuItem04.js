@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { editState } from '../actions/appState'
 
-import _ from 'lodash'
+import Area from '../components/Maps/Area'
 import { Placeholder } from 'semantic-ui-react'
 import { Table } from 'semantic-ui-react'
 
@@ -14,9 +14,13 @@ class MenuItem04 extends React.Component {
   }
 
   componentDidMount() {
-    this.props.editState('50%', 'widthStop')
+    this.props.editState('48%', 'widthStop')
     this.props.editState('Wybierz Dom', 'activeItem')
     this.props.editState('Plan Osiedla', 'secondaryTitle')    
+  }
+
+  selectArea(id) {
+    if(this.props.appState.secondaryTitle === id) return {backgroundColor: '#efefef'}
   }
 
   renderTable() {
@@ -24,7 +28,7 @@ class MenuItem04 extends React.Component {
     if (this.props.appState.reservationLoading === 'false') {
       return this.props.reservations.map(data => {
         return (
-          <Table.Row key={data.name}>
+          <Table.Row style={this.selectArea(data.name)} id={data.name} key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
             <Table.Cell>{data.plot}</Table.Cell>
             <Table.Cell>{data.pum}</Table.Cell>
@@ -76,7 +80,8 @@ class MenuItem04 extends React.Component {
             </div>
           </div>
           <div className="plans">
-            <img className='plansAuto' src="/img/plany_mapa_kolor.jpg" alt="Typ A - lewy" />
+            {/* <img className='plansAuto' src="/img/plany_mapa_kolor.jpg" alt="Typ A - lewy" /> */}
+            <Area />
           </div>
         </div>
       </div>

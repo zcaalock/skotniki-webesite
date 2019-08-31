@@ -9,6 +9,23 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+@media(min-width: 1540px){
+  .image-gallery-image img {
+    height: auto !important;
+    width: 100% !important
+  }
+  
+}
+
+@media(max-width: 1540px){
+  .image-gallery-image img {
+    height: 80vh;
+    width: auto !important
+  }
+  
+}
+
+
 @media(min-width: 1150px) {
   .AppContainer {
     display: flex !important;
@@ -116,7 +133,7 @@ body {
   .homeGallery {  
     position: absolute;
     bottom: 0;  
-    width: 100%;   
+     
   }
 
   
@@ -146,6 +163,10 @@ body {
     
     text-align: center;
     width: 50%;
+  }
+
+  .plans div {
+    margin: auto
   }
 
   .devImages { 
