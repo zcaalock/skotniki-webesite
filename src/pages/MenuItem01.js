@@ -9,7 +9,9 @@ import "react-image-gallery/styles/css/image-gallery.css"
 
 class MenuItem01 extends React.Component {
   componentDidMount() {
-    this.props.editState('13%', 'widthStop')
+    this.props.editState('0%', 'widthStop')
+    this.props.editState('Galeria', 'activeItem')
+    this.props.editState('', 'secondaryTitle')
   }
 
   render() {
@@ -28,8 +30,7 @@ class MenuItem01 extends React.Component {
       }
     ]
     return (
-      <div className='pageContent'>
-        <div className='title'><h3>Galeria</h3></div>
+      <div className='pageContent'>        
         <div className='homeGallery'>
           <ImageGallery showThumbnails={false} showBullets={true} items={images} />
         </div>

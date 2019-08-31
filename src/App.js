@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import store from './reducers/index'
 
 import LeftMenu from './pages/LeftMenu'
+import PageTitle from './components/PageTitle'
 import MenuItem01 from './pages/MenuItem01'
 import MenuItem02 from './pages/MenuItem02'
 import MenuItem03 from './pages/MenuItem03'
@@ -32,6 +33,7 @@ class App extends React.Component {
           <LeftMenu />
           <div className='contentContainer'>
             <Router history={history}>
+              <PageTitle/>
               <Route>
                 <Route exact path="/" component={MenuItem01} />
                 <Route exact path="/MenuItem01" component={MenuItem01} />
@@ -44,11 +46,6 @@ class App extends React.Component {
               <BottomMenu handleItemClick={this.handleItemClick} state={this.state} />
             </Router>
           </div>
-          {/* <div className='rightBar'>
-            <div style={{ height: '50px', backgroundColor: 'rgb(208, 209, 211)' }}></div>
-            <div style={{ height: 'calc(80vh - 50px)', backgroundColor: 'white' }}></div>
-            <div style={{ height: '7vh', backgroundColor: '#517A42' }}></div>
-          </div> */}
         </Provider>
       </div>
     );

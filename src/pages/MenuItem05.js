@@ -9,7 +9,9 @@ class MenuItem05 extends React.Component {
   state = { itemSelected: 'wawrzynca' }
 
   componentDidMount() {
-    this.props.editState('86%', 'widthStop')
+    this.props.editState('68%', 'widthStop')
+    this.props.editState('Doświadczenie', 'activeItem')
+    this.props.editState('Wawrzyńca 19', 'secondaryTitle')
   }
 
   handleStyle(item) {
@@ -47,8 +49,13 @@ class MenuItem05 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false')
       return (
-        <div style={{ padding: '100px 63px 25px 63px' }}>
-          <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
+        <div style={{ padding: '48px 63px 25px 63px'}}>
+          <div style={{ display: 'flex', height: '50px', backgroundColor: '#EFEFEF'  }}>
+              <div className='imgMenu' onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></div>
+              <div className='imgMenu' onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></div>
+              <div className='imgMenu' onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></div>
+            </div>
+          <div style={{paddingTop: '20px'}} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
         </div>
       )
     return <div style={{ padding: '100px 63px 25px 63px' }}><ContentPlaceholder /></div>
@@ -60,17 +67,11 @@ class MenuItem05 extends React.Component {
       <div className='pageContent'>
         <div className='localisation'>
           <div className="localisationText">
-            <div className='title'>
-              <h3>Plany domów</h3>
-            </div>
+          
             {this.renderContent()}
           </div>
           <div className="devImages">
-            <div style={{ display: 'flex', height: '50px' }}>
-              <div className='imgMenu' onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></div>
-              <div className='imgMenu' onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></div>
-              <div className='imgMenu' onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></div>
-            </div>
+            
             {this.renderImg()}
           </div>
         </div>

@@ -45,13 +45,15 @@ class BottomMenu extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className='menuBottom'>
-          <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#517A42'} zIndex={this.props.appState.zIndex} />
+    return (      
+        <div style={{display: 'flex'}}>
+          <div className='menuBottom'>
+          <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} />
           {this.renderMenu()}
         </div>
-      </div>
+        <div style={{backgroundColor: '#517A42', width: '30%'}}></div>
+        </div>
+      
     )
   }
 }

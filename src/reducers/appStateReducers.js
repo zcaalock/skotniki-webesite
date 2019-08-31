@@ -2,9 +2,10 @@ import * as types from '../actions/types'
 
 const appState = {
   activeItem: 'Galeria',
+  secondaryTitle: '',
   loading: 'true',
   reservationLoading: 'true',
-  widthStart: '0',
+  widthStart: '100%',
   widthStop: '100%',
   zIndex: '10'
 

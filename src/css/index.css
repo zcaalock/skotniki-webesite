@@ -20,7 +20,7 @@ body {
   }
 
   .pageContent {  
-    height: 80vh;
+    height: calc(80vh - 50px);
     background-color: white;
     overflow: hidden; 
     position: relative;
@@ -93,7 +93,8 @@ body {
     display: flex;
     height: 7vh;
     position: relative;
-    display: flex
+    display: flex;
+    background-color: #517A42 !important  
   } 
 
   .menuItem {
@@ -113,7 +114,6 @@ body {
    
 
   .homeGallery {  
-    padding-top: 50px;
     position: absolute;
     bottom: 0;  
     width: 100%;   
@@ -143,30 +143,31 @@ body {
    }
 
    .plans {    
-    padding-top: 50px;
+    
     text-align: center;
     width: 50%;
   }
 
   .devImages { 
-    width: 45%;      
+    width: 50%;      
     padding-top: 50px;
     text-align: center;    
     display: flex;
     flex-direction: column
   }
 
-  .imgMenu{
+  .imgMenu{    
     margin: auto
+      
   }
 
   .infoText {
-    padding: 100px 63px 25px !important;
+    padding: 50px 63px 25px !important;
     
   }
 
   .map{
-    padding-top: 49px;
+    
     width: 100%;
     height: 100%;
   }
@@ -222,7 +223,8 @@ body {
 
   .menuBottom {
     min-width: 350px;
-    padding-left: 0px;    
+    padding-left: 0px;
+    background-color: #517A42 !important    
   }
   
   
@@ -287,7 +289,7 @@ body {
 
 
 .title {
-  position: absolute;
+  display: flex;
   background-color: #efefef;
   width: 100%;
   height: 50px;
@@ -296,14 +298,9 @@ body {
   z-index: 10;
 }
 
-
-
-
-
-
-
-
-
+.titleItem {
+  width: calc(50% - 10px)
+}
 
 
 .menuGreenBar {

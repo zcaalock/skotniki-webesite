@@ -14,7 +14,8 @@ class MenuItem02 extends React.Component {
 
   componentDidMount() {
     this.props.editState('Prezentacja', 'activeItem')
-    this.props.editState('31%', 'widthStop')
+    this.props.editState('15%', 'widthStop')
+    this.props.editState('Mapa', 'secondaryTitle')
   }
 
   static defaultProps = {
@@ -45,10 +46,7 @@ class MenuItem02 extends React.Component {
     return (
       <div className='pageContent' >
         <div className='localisation'>
-          <div className="localisationText">
-            <div className='title'>
-              <h3>Prezentacja</h3>
-            </div>
+          <div className="localisationText">            
             {this.renderContent()}
           </div>
           <div className="localisationMap">
