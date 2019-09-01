@@ -21,7 +21,7 @@ div ::-webkit-scrollbar {
   
 }
 
-@media screen and (min-width: 1150px) and (max-width: 1540px){
+@media screen and (min-width: 903px) and (max-width: 1540px){
   .image-gallery-image img {
     height: 80vh;
     width: auto !important
@@ -30,7 +30,7 @@ div ::-webkit-scrollbar {
 }
 
 
-@media(min-width: 1150px) {
+@media(min-width: 903px) {
   .mobileBottomBar {
     display: none !important
   }
@@ -258,7 +258,7 @@ div ::-webkit-scrollbar {
 
   
   
-  @media(max-width: 1150px) {
+  @media(max-width: 903px) {
 
     
 
@@ -347,7 +347,7 @@ div ::-webkit-scrollbar {
   
   }
   
-  @media only screen and (min-width : 400px) {
+  @media only screen and (min-width : 420px) and (max-width : 850px)  {
     .mobileBottomBar {
       display: none !important
     }
