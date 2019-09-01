@@ -7,6 +7,8 @@ const appState = {
   reservationLoading: 'true',
   widthStart: '100%',
   widthStop: '100%',
+  heightStart: '0%',
+  heightStop: '0%',
   zIndex: '10'
 
 }

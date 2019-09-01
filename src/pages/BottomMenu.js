@@ -27,33 +27,27 @@ class BottomMenu extends Component {
     ]
   }
 
-  handleClick(activeItem, id) {
-    //if(activeItem==='Galeria')this.props.editState('13%', 'widthStop')
-    //if(activeItem==='Prezentacja')this.props.editState('31%', 'widthStop')
-    //if(activeItem==='Twój Dom')this.props.editState('47%', 'widthStop')
-    //if(activeItem==='Wybierz Dom')this.props.editState('66%', 'widthStop')
-    //if(activeItem==='Doświadczenie')this.props.editState('86%', 'widthStop')
-    //if (activeItem === 'Kontakt') this.props.editState('100%', 'widthStop')
+  handleClick(id) {    
     history.push(`/${id}`)
   }
 
   renderMenu() {
     const pages = this.state.menuNames
     return pages.map(page => {
-      return <div onClick={() => this.handleClick(page.title, page.id)} key={page.id} className='menuItem'><h4>{page.title}</h4></div>
+      return <div onClick={() => this.handleClick(page.id)} key={page.id} className='menuItem'><h4>{page.title}</h4></div>
     })
   }
 
   render() {
-    return (      
-        <div style={{display: 'flex'}}>
-          <div className='menuBottom'>
+    return (
+      <div className='bottomeNavBar'>
+        <div className='menuBottom'>
           <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} />
           {this.renderMenu()}
         </div>
-        <div style={{backgroundColor: '#517A42', width: '30%'}}></div>
-        </div>
-      
+        <div style={{ backgroundColor: '#517A42', width: '30%' }}></div>
+      </div>
+
     )
   }
 }

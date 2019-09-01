@@ -17,12 +17,15 @@ import MenuItem04 from './pages/MenuItem04'
 import MenuItem05 from './pages/MenuItem05'
 import MenuItem06 from './pages/MenuItem06'
 
+import MobileMenu from './pages/mobile/MobileMenu'
+import MobileBottomBar from './pages/mobile/MobileBottomBar'
+
 
 //AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
 axios.defaults.baseURL = 'http://przyspacerowej.pl'
 
 class App extends React.Component {
-  state = { activeItem: 'galeria' }
+  
 
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -33,6 +36,7 @@ class App extends React.Component {
           <LeftMenu />
           <div className='contentContainer'>
             <Router history={history}>
+            <MobileMenu />
               <PageTitle/>
               <Route>
                 <Route exact path="/" component={MenuItem01} />
@@ -43,7 +47,8 @@ class App extends React.Component {
                 <Route exact path="/MenuItem05" component={MenuItem05} />
                 <Route exact path="/MenuItem06" component={MenuItem06} />
               </Route>
-              <BottomMenu handleItemClick={this.handleItemClick} state={this.state} />
+              <BottomMenu />
+            <MobileBottomBar />  
             </Router>
           </div>
         </Provider>

@@ -9,6 +9,10 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+div ::-webkit-scrollbar {
+  display: none;
+}
+
 @media(min-width: 1540px){
   .image-gallery-image img {
     height: auto !important;
@@ -17,7 +21,7 @@ body {
   
 }
 
-@media(max-width: 1540px){
+@media screen and (min-width: 1150px) and (max-width: 1540px){
   .image-gallery-image img {
     height: 80vh;
     width: auto !important
@@ -27,6 +31,13 @@ body {
 
 
 @media(min-width: 1150px) {
+  .mobileBottomBar {
+    display: none !important
+  }
+  .mobileNavBar {
+    display: none
+  }
+
   .AppContainer {
     display: flex !important;
     margin: auto;
@@ -87,13 +98,15 @@ body {
     overflow: auto;    
   }
 
-  .localisationText::-webkit-scrollbar {
-    display: none;
-}
+  
 
   .localisationMap {
     width: 50%;
     padding: 15px    
+  }
+
+  .bottomeNavBar{
+    display: flex !important
   }
 
   .menuBottomLeft {
@@ -194,12 +207,6 @@ body {
   }
 }
 
-@media(max-width: 1150px) {
-  
-}
-
-
-
 .title {
   display: flex;
   background-color: #efefef;
@@ -211,6 +218,11 @@ body {
 }
 
 .titleItem {
+  width: calc(50% - 10px)
+}
+
+.titleItemSecondary {
+  text-align: center;
   width: calc(50% - 10px)
 }
 
@@ -234,7 +246,70 @@ body {
  
 
   
+  @media(max-width: 1150px) {
 
+    .image-gallery-image img {
+      height: auto;
+      width: 100%
+    }
+
+    .leftMenu {
+      display: none
+    }
+
+    .bottomeNavBar {
+      display: none
+    }
+
+    .mobileNavBar{
+      display: flex;
+      width: 100%;
+
+    padding: 15px;
+    position: absolute;
+    z-index: 10;
+    background-color: #efefef;      
+    }
+
+    .mobileMenu {
+      margin-top: -15px;
+      padding-left: 5px;
+    }
+
+    .menuItem {
+      cursor: pointer;
+      z-index: 9;
+      padding: 15px;
+      margin: auto
+    }
+
+    .titleItemSecondary {
+      display: none
+    }
+
+    .pageContent {  
+      height: calc(87vh - 50px);
+      background-color: white;
+      padding: 18px;
+      overflow-y: scroll; 
+      position: relative;
+    }
+  
+     
+    .pageContent div {
+      animation: fadein 1s;   
+    }
+    
+    @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+    }
+  
+  }
   
 
   

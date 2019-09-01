@@ -23,6 +23,7 @@ class MenuItem03 extends React.Component {
   componentDidMount() {
     this.props.editState('Twój Dom', 'activeItem')
     this.props.editState('32%', 'widthStop')
+    this.props.editState('49.98%', 'heightStop')
     this.props.editState('Segment L: Parter', 'secondaryTitle')
   }
   downloadPDF() {

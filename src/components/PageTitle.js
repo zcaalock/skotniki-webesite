@@ -8,7 +8,7 @@ export class PageTitle extends Component {
     return (
       <div className='title'>
         <div className='titleItem' ><h3>{this.props.appState.activeItem}</h3></div>
-        <div className='titleItem' style={{textAlign: 'center'}} ><h3>{this.props.appState.secondaryTitle}</h3></div>
+        <div className='titleItemSecondary'><h3>{this.props.appState.secondaryTitle}</h3></div>
       </div>
     )
   }
