@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { Spring } from 'react-spring/renderprops'
 import history from '../../history'
 import { editState } from '../../actions/appState'
 import { fetchPages } from '../../actions/pages'
 import { fetchReservations } from '../../actions/reservations'
 import GreenSpringMobile from '../../components/GreenSpringMobile'
+import CollapseMenuMobile from '../../components/CollapseMenuMobile'
 
 
 class BottomMenu extends Component {
@@ -25,7 +26,9 @@ class BottomMenu extends Component {
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
     ],
-    showMenu: 'false'
+    showMenu: 'false',
+    width: '50px',
+    height: '50px'
   }
 
   handleClick(id) {    
@@ -41,7 +44,7 @@ class BottomMenu extends Component {
 
   showMenuText(){
     if (this.state.showMenu === 'true') return {display: 'block'}
-    if (this.state.showMenu === 'false') return {display: 'none'}
+    if (this.state.showMenu === 'false') return {display: 'block'}
   }
 
   collapseMenu(){
@@ -50,20 +53,35 @@ class BottomMenu extends Component {
   }
 
   toggleMenu() {
-    if (this.state.showMenu === 'true') this.setState({showMenu: 'false'})
-    if (this.state.showMenu === 'false') this.setState({showMenu: 'true'})
+    if (this.state.showMenu === 'true') this.setState({showMenu: 'false', width: '50px', height: '50px'})
+    if (this.state.showMenu === 'false') this.setState({showMenu: 'true', width: `${window.innerWidth}px`, height: '320px'})
   }
 
+  
+  
+
   render() {
+    console.log('window: ', window.innerWidth)
     return (
-      <div className='mobileNavBar' style={this.collapseMenu()}>
-        <div onClick={()=>this.toggleMenu()}><h3><i className='bars icon'/></h3></div>
+      <Spring 
+      from= {{ width: '50px', height: '50px', overflow: 'hidden' }}
+      to= {{ width: this.state.width, height: this.state.height, }}>
+        
+     
+    
+    {props  => <div className='mobileNavBar' style={props}>
+      <div onClick={()=>this.toggleMenu()}><h3>
+        <div style={{top: '0', left: '0', width: '50px',height: '50px', position: "absolute", backgroundColor: '#517A42', zIndex: -1}}></div>
+        <i className='bars icon'/></h3></div>
         <div className='mobileMenu' style={this.showMenuText()}>
           <GreenSpringMobile heightStart={this.props.appState.heightStart} heightStop={this.props.appState.heightStop} height={'100%'} color={'#517A42'} />
           {this.renderMenu()}
         </div>
         {/* <div style={{ backgroundColor: '#517A42', width: '30%' }}></div> */}
-      </div>
+    </div> }
+
+
+    </Spring>
 
     )
   }

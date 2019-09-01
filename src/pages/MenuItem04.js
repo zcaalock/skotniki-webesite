@@ -15,7 +15,7 @@ class MenuItem04 extends React.Component {
 
   componentDidMount() {
     this.props.editState('48%', 'widthStop')
-    this.props.editState('63.64%', 'heightStop')
+    this.props.editState('66.64%', 'heightStop')
     this.props.editState('Wybierz Dom', 'activeItem')
     this.props.editState('Plan Osiedla', 'secondaryTitle')    
   }

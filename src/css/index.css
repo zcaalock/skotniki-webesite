@@ -190,10 +190,7 @@ div ::-webkit-scrollbar {
     flex-direction: column
   }
 
-  .imgMenu{    
-    margin: auto
-      
-  }
+  
 
   .infoText {
     padding: 50px 63px 25px !important;
@@ -216,6 +213,8 @@ div ::-webkit-scrollbar {
     background-color: #EFEFEF 
   }
 }
+
+
 
 .title {
   display: flex;
@@ -253,10 +252,15 @@ div ::-webkit-scrollbar {
     height: 80vh;
   }
 
- 
+  .imgMenu{    
+    margin: auto !important         
+  }  
 
   
+  
   @media(max-width: 1150px) {
+
+    
 
     .imageAutoWidth {
       width: 100%;
@@ -286,17 +290,16 @@ div ::-webkit-scrollbar {
 
     .bottomeNavBar {
       display: none
-    }
+    }    
 
     .mobileNavBar{
       display: flex;
       width: 100%;
       margin-bottom: -50px;
-
-    padding: 15px;
-    position: absolute;
-    z-index: 10;
-    background-color: #efefef;      
+      padding: 15px;
+      position: relative;
+      z-index: 10;
+      background-color: #efefef;      
     }
 
     .mobileMenu {
@@ -339,9 +342,24 @@ div ::-webkit-scrollbar {
           opacity:1;
       }
     }
+
+    
   
   }
   
+  @media only screen and (min-width : 400px) {
+    .mobileBottomBar {
+      display: none !important
+    }
+  
+    .pageContent {  
+      height: calc(95vh - 50px) !important;
+      background-color: white;
+      padding: 18px;
+      overflow-y: scroll; 
+      position: relative;
+    }
+  }
 
   
 
