@@ -4,7 +4,7 @@ import ImageMapper from 'react-image-mapper';
 import { editState } from '../../actions/appState'
 
 
-const URL = "http://skotniki2.herokuapp.com/img/plany_domow/A_prawy_plan_parter.png"
+const URL = "img/plany_domow/A_prawy_plan_parter.png"
   const MAP = {
     name: "my-map",
     areas: [      

@@ -15,7 +15,7 @@ class MenuItem04 extends React.Component {
 
   componentDidMount() {
     this.props.editState('48%', 'widthStop')
-    this.props.editState('66.64%', 'heightStop')
+    this.props.editState('63.64%', 'heightStop')
     this.props.editState('Wybierz Dom', 'activeItem')
     this.props.editState('Plan Osiedla', 'secondaryTitle')    
   }
@@ -59,7 +59,7 @@ class MenuItem04 extends React.Component {
         <div className='localisation'>
           <div className="localisationText">
             
-            <div style={{ padding: '50px 63px 25px 63px' }}>
+            <div className='infoText'>
               <Table celled striped>
                 <Table.Header>
                   <Table.Row>

@@ -10,7 +10,7 @@ class MenuItem05 extends React.Component {
 
   componentDidMount() {
     this.props.editState('68%', 'widthStop')
-    this.props.editState('83.3%', 'heightStop')
+    this.props.editState('80.3%', 'heightStop')
     this.props.editState('Doświadczenie', 'activeItem')
     this.props.editState('Wawrzyńca 19', 'secondaryTitle')
   }
@@ -50,16 +50,16 @@ class MenuItem05 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false')
       return (
-        <div style={{ padding: '48px 63px 25px 63px'}}>
-          <div style={{ display: 'flex', height: '50px', backgroundColor: '#EFEFEF'  }}>
+        <div className='infoText'>
+          <div className='devNavButtons' style={{marginBottom: '20px'}}>
               <div className='imgMenu' onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></div>
               <div className='imgMenu' onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></div>
               <div className='imgMenu' onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></div>
             </div>
-          <div style={{paddingTop: '20px'}} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
+          <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
         </div>
       )
-    return <div style={{ padding: '100px 63px 25px 63px' }}><ContentPlaceholder /></div>
+    return <div className='infoText'><ContentPlaceholder /></div>
   }
 
   render() {

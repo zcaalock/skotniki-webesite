@@ -23,7 +23,7 @@ class MenuItem03 extends React.Component {
   componentDidMount() {
     this.props.editState('Twój Dom', 'activeItem')
     this.props.editState('32%', 'widthStop')
-    this.props.editState('49.98%', 'heightStop')
+    this.props.editState('47.98%', 'heightStop')
     this.props.editState('Segment L: Parter', 'secondaryTitle')
   }
   downloadPDF() {
@@ -51,13 +51,20 @@ class MenuItem03 extends React.Component {
   renderPlans() {
     if (this.state.segmentLeftZero === 'true') return <LZero />
     if (this.state.segmentLeftOne === 'true') return <LOne />
-    if (this.state.segmentRightZero === 'true') return <PZero/>
+    if (this.state.segmentRightZero === 'true') return <PZero />
     if (this.state.segmentRightOne === 'true') return <POne />
+  }
+
+  renderMobilePlans() {
+    if (this.state.segmentLeftZero === 'true') return <img className='imageAutoWidth' src='/img/plany_domow/A_lewy_plan_pietro.png' />
+    if (this.state.segmentLeftOne === 'true') return <img className='imageAutoWidth' src='/img/plany_domow/A_lewy_plan_parter.png' />
+    if (this.state.segmentRightZero === 'true') return <img className='imageAutoWidth' src='/img/plany_domow/A_prawy_plan_pietro.png' />
+    if (this.state.segmentRightOne === 'true') return <img className='imageAutoWidth' src='/img/plany_domow/A_prawy_plan_parter.png' />
   }
 
   renderContent() {
     if (this.props.appState.loading === 'false') return (
-      <div style={{ padding: '50px 63px 25px 63px' }}>
+      <div className='infoText'>
         <div style={{ display: 'flex', height: '50px', backgroundColor: '#EFEFEF' }}>
           <div style={{ width: '47.5%', display: 'flex' }}>
             <div className='imgMenu' ><b>Segment L : </b></div>
@@ -72,15 +79,9 @@ class MenuItem03 extends React.Component {
           </div>
         </div>
         <div style={{ paddingTop: '20px' }} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>
-        <br />
-        <br />
-
-        <br />
-        <br />
-
       </div>
     )
-    return <div style={{ padding: '100px 63px 25px 63px' }}><ContentPlaceholder /></div>
+    return <div className='infoText'><ContentPlaceholder /></div>
   }
 
   render() {
@@ -93,7 +94,11 @@ class MenuItem03 extends React.Component {
 
           </div>
           <div className="plans">
-            {this.renderPlans()}            
+            {this.renderPlans()}
+            <div>{this.downloadPDF()}</div>
+          </div>
+          <div className='mobilePlans'>
+            {this.renderMobilePlans()}
             <div>{this.downloadPDF()}</div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import ImageMapper from 'react-image-mapper';
 import { connect } from 'react-redux'
 import { editState } from '../../actions/appState'
 
-const URL = "http://skotniki2.herokuapp.com/img/plany_domow/A_lewy_plan_pietro.png"
+const URL = "img/plany_domow/A_lewy_plan_pietro.png"
   const MAP = {
     name: "my-map",
     areas: [
