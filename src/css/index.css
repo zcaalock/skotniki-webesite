@@ -119,6 +119,7 @@ div ::-webkit-scrollbar {
 
   .menuBottom {    
     width: 70%;
+    min-width: 650px;
     margin: 0;
     display: flex;
     height: 7vh;
@@ -209,8 +210,17 @@ div ::-webkit-scrollbar {
 
   .devNavButtons {
     display: flex; 
-    height: 50px; 
-    background-color: #EFEFEF 
+  }
+
+  .legalInfo {
+    display: flex;
+    padding-left:15px;
+    padding-right:15px;
+    width: 80%;    
+    position: absolute;
+    bottom: 0;
+    justify-content: space-between;
+    font-size: 10px
   }
 }
 
@@ -253,27 +263,39 @@ div ::-webkit-scrollbar {
   }
 
   .imgMenu{    
-    margin: auto !important         
-  }  
+    margin: auto !important;
+    padding-bottom: 5px         
+  }
+  
+  .ui.button {
+    margin: 3px
+  }
 
   
   
   @media(max-width: 903px) {
 
-    
+    .legalInfo {
+      display: none
+    }
 
     .imageAutoWidth {
       width: 100%;
       padding: 15px
     }
 
-    .devNavButtons {
-      display: none
+    .imageAutoHeight {
+      padding-top: 10px;
+      height: auto;
+      width: 100%
     }
 
-    .devImages {
-      display: none
+    .devNavButtons {
+      display: flex; 
+      flex-direction: column
     }
+
+    
 
     .plans {
       display: none

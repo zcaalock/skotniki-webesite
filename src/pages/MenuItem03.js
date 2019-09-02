@@ -65,17 +65,21 @@ class MenuItem03 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText'>
-        <div style={{ display: 'flex', height: '50px', backgroundColor: '#EFEFEF' }}>
-          <div style={{ width: '47.5%', display: 'flex' }}>
-            <div className='imgMenu' ><b>Segment L : </b></div>
-            <div className='imgMenu' onClick={() => this.handleClick('segmentLeftZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentLeftZero)}><b> Parter</b></div>
-            <div className='imgMenu' onClick={() => this.handleClick('segmentLeftOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentLeftOne)}><b> Piętro</b></div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div>
+            <div className='imgMenu' ><b>Dom typ L : </b></div>
+            <div style={{ width: '47.5%', display: 'flex' }}>
+              <button className='ui button' onClick={() => this.handleClick('segmentLeftZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentLeftZero)}><b> Parter</b></button>
+              <button className='ui button' onClick={() => this.handleClick('segmentLeftOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentLeftOne)}><b> Piętro</b></button>
+            </div>
           </div>
-          <div style={{ width: '5%', backgroundColor: 'white' }}></div>
+          {/* <div style={{ width: '5%', backgroundColor: 'white' }}></div> */}
+          <div>
+          <div className='imgMenu' ><b>Dom typ P : </b></div>
           <div style={{ width: '47.5%', display: 'flex' }}>
-            <div className='imgMenu' ><b>Segment P : </b></div>
-            <div className='imgMenu' onClick={() => this.handleClick('segmentRightZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentRightZero)}><b> Parter</b></div>
-            <div className='imgMenu' onClick={() => this.handleClick('segmentRightOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentRightOne)}><b> Piętro</b></div>
+            <button className='ui button' onClick={() => this.handleClick('segmentRightZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentRightZero)}><b> Parter</b></button>
+            <button className='ui button' onClick={() => this.handleClick('segmentRightOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentRightOne)}><b> Piętro</b></button>
+          </div>
           </div>
         </div>
         <div style={{ paddingTop: '20px' }} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>

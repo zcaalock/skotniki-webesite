@@ -16,6 +16,7 @@ import BottomMenu from './pages/BottomMenu'
 import MenuItem04 from './pages/MenuItem04'
 import MenuItem05 from './pages/MenuItem05'
 import MenuItem06 from './pages/MenuItem06'
+import LegalInfoBar from './pages/LegalInfoBar'
 
 import MobileMenu from './pages/mobile/MobileMenu'
 import MobileBottomBar from './pages/mobile/MobileBottomBar'
@@ -48,7 +49,8 @@ class App extends React.Component {
                 <Route exact path="/MenuItem06" component={MenuItem06} />
               </Route>
               <BottomMenu />
-            <MobileBottomBar />  
+            <MobileBottomBar />
+            <LegalInfoBar />  
             </Router>
           </div>
         </Provider>

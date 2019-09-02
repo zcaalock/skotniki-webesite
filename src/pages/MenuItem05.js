@@ -52,9 +52,9 @@ class MenuItem05 extends React.Component {
       return (
         <div className='infoText'>
           <div className='devNavButtons' style={{marginBottom: '20px'}}>
-              <div className='imgMenu' onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></div>
-              <div className='imgMenu' onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></div>
-              <div className='imgMenu' onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></div>
+              <button className='ui button' onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></button>
+              <button className='ui button' onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></button>
+              <button className='ui button' onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></button>
             </div>
           <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
         </div>

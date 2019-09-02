@@ -6,7 +6,7 @@ import { editState } from '../../actions/appState'
 import { fetchPages } from '../../actions/pages'
 import { fetchReservations } from '../../actions/reservations'
 import GreenSpringMobile from '../../components/GreenSpringMobile'
-import CollapseMenuMobile from '../../components/CollapseMenuMobile'
+
 
 
 class BottomMenu extends Component {
