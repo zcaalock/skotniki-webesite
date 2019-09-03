@@ -20,14 +20,14 @@ class MenuItem02 extends React.Component {
 
   renderContent() {
     if (this.props.appState.loading === 'false') return (
-      <div className='infoText'>
+      <div className='infoText' >
         <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem06.content.rendered }}></div>
         
       </div>
 
     )
     return (
-      <div className='infoText'>
+      <div className='infoText'style={{width: '50%'}}>
         <ContentPlaceholder/>
       </div>
     )
@@ -38,14 +38,14 @@ class MenuItem02 extends React.Component {
     return (
       <div className='pageContent' >
         <div className='localisation'>
-          <div className="localisationText">
+          
             
             {this.renderContent()}
           </div>
-          <div className="localisationMap">
+          {/* <div className="localisationMap">
             
-          </div>
-        </div>
+          </div> */}
+        
       </div>
     )
   }

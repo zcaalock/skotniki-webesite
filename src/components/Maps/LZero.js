@@ -30,7 +30,7 @@ class LZero extends React.Component {
     
   render() {
     return (
-      <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Segment L: Parter')} style={{margin: 'auto'}} imgWidth={594} width={430} src={URL} map={MAP}/>
+      <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Segment L: Parter')} style={{margin: 'auto'}} imgWidth={594} width={this.props.width} src={URL} map={MAP}/>
       
     )
   }

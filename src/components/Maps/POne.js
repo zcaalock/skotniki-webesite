@@ -29,7 +29,7 @@ class POne extends React.Component {
   render() {
     return (
       
-      <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Segment P: Piętro')} style={{margin: 'auto'}} imgWidth={594} width={430} src={URL} map={MAP}/>
+      <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Segment P: Piętro')} style={{margin: 'auto'}} imgWidth={594} width={this.props.width} src={URL} map={MAP}/>
     )
   }
 }

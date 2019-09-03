@@ -3,7 +3,21 @@ import ImageMapper from 'react-image-mapper';
 import { connect } from 'react-redux'
 import { editState } from '../../actions/appState'
 
-const URL = "http://skotniki2.herokuapp.com/img/plany_mapa_kolor.jpg"
+ 
+
+class Area extends React.Component {
+
+  onLeave(text) {
+    this.props.editState(text, 'secondaryTitle')
+  }
+
+  onEnter(area){
+    this.props.editState(area.name, 'secondaryTitle')
+    
+  }  
+
+  render() {
+    const URL = "http://skotniki2.herokuapp.com/img/plany_mapa_kolor.jpg"
   const MAP = {
     name: "my-map",
     areas: [
@@ -24,20 +38,7 @@ const URL = "http://skotniki2.herokuapp.com/img/plany_mapa_kolor.jpg"
       { name: "A15", coords:[950,563,988,794,1067,780,1045,562], shape:"poly", fillColor: "#efefef61" },
       { name: "A16", coords:[1070,779,1176,761,1174,562,1048,562], shape:"poly", fillColor: "#efefef61" }
     ]
-  }  
-
-class Area extends React.Component {
-
-  onLeave(text) {
-    this.props.editState(text, 'secondaryTitle')
-  }
-
-  onEnter(area){
-    this.props.editState(area.name, 'secondaryTitle')
-    
-  }
-
-  render() {
+  } 
     return (
       
       <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Plan Osiedla')} style={{margin: 'auto'}} imgWidth={1252} width={600} src={URL} map={MAP}/>

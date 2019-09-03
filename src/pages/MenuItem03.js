@@ -50,10 +50,10 @@ class MenuItem03 extends React.Component {
   }
 
   renderPlans() {
-    if (this.state.segmentLeftZero === 'true') return <LZero />
-    if (this.state.segmentLeftOne === 'true') return <LOne />
-    if (this.state.segmentRightZero === 'true') return <PZero />
-    if (this.state.segmentRightOne === 'true') return <POne />
+    if (this.state.segmentLeftZero === 'true') return <LZero width={400} />
+    if (this.state.segmentLeftOne === 'true') return <LOne width={400} />
+    if (this.state.segmentRightZero === 'true') return <PZero width={400} />
+    if (this.state.segmentRightOne === 'true') return <POne width={400} />
   }
 
   renderMobilePlans() {
@@ -63,27 +63,33 @@ class MenuItem03 extends React.Component {
     if (this.state.segmentRightOne === 'true') return <img className='imageAutoWidth' src='/img/plany_domow/A_prawy_plan_parter.png' alt='prawy parter' />
   }
 
+  renderButtons() {
+    return <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '45px' }}>
+    <div>
+      <div className='imgMenu' ><b>Dom typ L : </b></div>
+      <div style={{ display: 'flex' }}>
+        <button className='ui button' onClick={() => this.handleClick('segmentLeftZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentLeftZero)}><b> Parter</b></button>
+        <button className='ui button' onClick={() => this.handleClick('segmentLeftOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentLeftOne)}><b> Piętro</b></button>
+      </div>
+    </div>
+    {/* <div style={{ width: '5%', backgroundColor: 'white' }}></div> */}
+    <div>
+      <div className='imgMenu' ><b>Dom typ P : </b></div>
+      <div style={{display: 'flex' }}>
+        <button className='ui button' onClick={() => this.handleClick('segmentRightZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentRightZero)}><b> Parter</b></button>
+        <button className='ui button' onClick={() => this.handleClick('segmentRightOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentRightOne)}><b> Piętro</b></button>
+      </div>
+    </div>
+  </div>
+  }
+
+
+
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText'>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div>
-            <div className='imgMenu' ><b>Dom typ L : </b></div>
-            <div style={{ width: '47.5%', display: 'flex' }}>
-              <button className='ui button' onClick={() => this.handleClick('segmentLeftZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentLeftZero)}><b> Parter</b></button>
-              <button className='ui button' onClick={() => this.handleClick('segmentLeftOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentLeftOne)}><b> Piętro</b></button>
-            </div>
-          </div>
-          {/* <div style={{ width: '5%', backgroundColor: 'white' }}></div> */}
-          <div>
-          <div className='imgMenu' ><b>Dom typ P : </b></div>
-          <div style={{ width: '47.5%', display: 'flex' }}>
-            <button className='ui button' onClick={() => this.handleClick('segmentRightZero', 'Segment L: Parter')} style={this.handleStyle(this.state.segmentRightZero)}><b> Parter</b></button>
-            <button className='ui button' onClick={() => this.handleClick('segmentRightOne', 'Segment L: Piętro')} style={this.handleStyle(this.state.segmentRightOne)}><b> Piętro</b></button>
-          </div>
-          </div>
-        </div>
-        <div style={{ paddingTop: '20px' }} dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>
+
+        <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>
       </div>
     )
     return <div className='infoText'><ContentPlaceholder /></div>
@@ -94,18 +100,18 @@ class MenuItem03 extends React.Component {
       <div className='pageContent'>
         <div className='localisation'>
           <div className="localisationText">
-
             {this.renderContent()}
-
           </div>
           <div className="plans">
+            {this.renderButtons()}
             {this.renderPlans()}
             <div>{this.downloadPDF()}</div>
           </div>
           <div className='mobilePlans'>
+            {this.renderButtons()}
             {this.renderMobilePlans()}
             <div>{this.downloadPDF()}</div>
-          </div>
+          </div>          
         </div>
       </div>
     )
