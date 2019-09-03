@@ -13,6 +13,7 @@ class MenuItem01 extends React.Component {
     this.props.editState('15.66%', 'heightStop')
     this.props.editState('Galeria', 'activeItem')
     this.props.editState('', 'secondaryTitle')
+    this.props.editState('show', 'ui')
   }
 
   render() {

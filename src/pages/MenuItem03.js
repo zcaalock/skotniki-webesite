@@ -25,6 +25,7 @@ class MenuItem03 extends React.Component {
     this.props.editState('32%', 'widthStop')
     this.props.editState('47.98%', 'heightStop')
     this.props.editState('Segment L: Parter', 'secondaryTitle')
+    this.props.editState('hide', 'ui')
   }
   downloadPDF() {
     if (this.state.segmentLeftZero === 'true' || this.state.segmentLeftOne === 'true') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a>

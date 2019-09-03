@@ -18,6 +18,7 @@ class MenuItem02 extends React.Component {
     this.props.editState('15%', 'widthStop')
     this.props.editState('33.32%', 'heightStop')
     this.props.editState('Mapa', 'secondaryTitle')
+    this.props.editState('hide', 'ui')
   }
 
   static defaultProps = {
@@ -42,15 +43,10 @@ class MenuItem02 extends React.Component {
       </div>
     )
   }
-
-  toggleUi(){
-   if(this.props.appState.ui === 'show') this.props.editState('hide', 'ui')
-   if(this.props.appState.ui === 'hide') this.props.editState('show', 'ui')
-  }
-
+  
   render() {
     return (
-      <div onClick={()=> this.toggleUi()} className='pageContent' >
+      <div className='pageContent' >
         <div className='localisation'>
           <div className="localisationText">            
             {this.renderContent()}

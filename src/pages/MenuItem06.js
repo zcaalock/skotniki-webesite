@@ -13,6 +13,7 @@ class MenuItem02 extends React.Component {
     this.props.editState('86%', 'widthStop')
     this.props.editState('100%', 'heightStop')
     this.props.editState('', 'secondaryTitle')
+    this.props.editState('hide', 'ui')
   }
 
   
