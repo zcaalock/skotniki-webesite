@@ -95,7 +95,7 @@ div ::-webkit-scrollbar {
   .localisationText {    
     width: 50%;
     min-width: 480px;
-    overflow: auto;    
+    overflow: auto   
   }
 
   
@@ -210,6 +210,7 @@ div ::-webkit-scrollbar {
 
   .devNavButtons {
     display: flex; 
+    margin: auto
   }
 
   .legalInfo {
@@ -292,10 +293,14 @@ div ::-webkit-scrollbar {
 
     .devNavButtons {
       display: flex; 
-      flex-direction: column
+      flex-direction: column;
+      margin: auto
     }
 
-    
+    .infoText {
+      
+    padding-bottom: 20px 
+    }
 
     .plans {
       display: none

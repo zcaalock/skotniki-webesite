@@ -56,12 +56,8 @@ class BottomMenu extends Component {
     if (this.state.showMenu === 'true') this.setState({showMenu: 'false', width: '50px', height: '50px'})
     if (this.state.showMenu === 'false') this.setState({showMenu: 'true', width: `${window.innerWidth}px`, height: '320px'})
   }
-
   
-  
-
-  render() {
-    console.log('window: ', window.innerWidth)
+  render() {    
     return (
       <Spring 
       from= {{ width: '50px', height: '50px', overflow: 'hidden' }}

@@ -12,6 +12,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class MenuItem02 extends React.Component {
 
+  
   componentDidMount() {
     this.props.editState('Prezentacja', 'activeItem')
     this.props.editState('15%', 'widthStop')
@@ -42,10 +43,14 @@ class MenuItem02 extends React.Component {
     )
   }
 
+  toggleUi(){
+   if(this.props.appState.ui === 'show') this.props.editState('hide', 'ui')
+   if(this.props.appState.ui === 'hide') this.props.editState('show', 'ui')
+  }
 
   render() {
     return (
-      <div className='pageContent' >
+      <div onClick={()=> this.toggleUi()} className='pageContent' >
         <div className='localisation'>
           <div className="localisationText">            
             {this.renderContent()}

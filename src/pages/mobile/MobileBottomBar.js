@@ -1,8 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+
+
 
 class MobileBottomBar extends React.Component {
-  render() {
-    return (
+
+  uiCheck() {
+    if(this.props.appState.ui === 'show' && window.innerWidth<904) return (
       <div className='mobileBottomBar' style={{display: 'flex', position: 'absolute', bottom: '0'}}>
         <div style={{width: '36%', padding: '10px', backgroundColor: '#efefef'}}>
           <img className='menuLogo' src="/img/logo.png" alt="Skotniki logo" />
@@ -15,7 +20,20 @@ class MobileBottomBar extends React.Component {
           </div>
       </div>
     )
+
+    return <div></div>
+  }
+  render() {
+    return (
+      <div>{this.uiCheck()}</div>
+    )
   }
 }
 
-export default MobileBottomBar
+const mapStateToProps = (state) => {
+  return {    
+    appState: state.appState
+  }
+}
+
+export default connect(mapStateToProps)(MobileBottomBar)

@@ -51,11 +51,6 @@ class MenuItem05 extends React.Component {
     if (this.props.appState.loading === 'false')
       return (
         <div className='infoText'>
-          <div className='devNavButtons' style={{marginBottom: '20px'}}>
-              <button className='ui button' onClick={() => this.handleClick('wawrzynca')} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></button>
-              <button className='ui button' onClick={() => this.handleClick('skotniki')} style={this.handleStyle('skotniki')}><b>Osiedle przy Spacerowej</b></button>
-              <button className='ui button' onClick={() => this.handleClick('tyniecka')} style={this.handleStyle('tyniecka')}><b>Osiedle przy Tynieckiej</b></button>
-            </div>
           <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
         </div>
       )
@@ -68,11 +63,15 @@ class MenuItem05 extends React.Component {
       <div className='pageContent'>
         <div className='localisation'>
           <div className="localisationText">
-          
+
             {this.renderContent()}
           </div>
           <div className="devImages">
-            
+            <div className='devNavButtons' style={{ marginBottom: '20px' }}>
+              <button className='ui button' onClick={() => {this.handleClick('wawrzynca'); this.props.editState('Wawrzyńca 19', 'secondaryTitle')}} style={this.handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></button>
+              <button className='ui button' onClick={() => {this.handleClick('skotniki'); this.props.editState('Spacerowa 101', 'secondaryTitle')}} style={this.handleStyle('skotniki')}><b>Spacerowa 101</b></button>
+              <button className='ui button' onClick={() => {this.handleClick('tyniecka'); this.props.editState('Tyniecka 159', 'secondaryTitle')}} style={this.handleStyle('tyniecka')}><b>Tyniecka 159</b></button>
+            </div>
             {this.renderImg()}
           </div>
         </div>
