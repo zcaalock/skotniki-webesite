@@ -21,7 +21,7 @@ class BottomMenu extends Component {
       { title: 'Galeria', id: 'MenuItem01' },
       { title: 'Prezentacja', id: 'MenuItem02' },
       { title: 'Twój Dom', id: 'MenuItem03' },
-      { title: 'Wybierz Dom', id: 'MenuItem04' },
+      { title: 'Zarezerwuj', id: 'MenuItem04' },
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
     ]
