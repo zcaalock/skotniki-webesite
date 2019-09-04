@@ -34,7 +34,7 @@ class BottomMenu extends Component {
   renderMenu() {
     const pages = this.state.menuNames
     return pages.map(page => {
-      return <div onClick={() => this.handleClick(page.id)} key={page.id} className='menuItem'><h4>{page.title}</h4></div>
+      return <div onClick={() => this.handleClick(page.id)} key={page.id} className='menuItem'>{page.title}</div>
     })
   }
 
