@@ -45,7 +45,8 @@ class BottomMenu extends Component {
           <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} />
           {this.renderMenu()}
         </div>
-        <div style={{ backgroundColor: '#517A42', width: '30%' }}></div>
+        <div style={{ backgroundColor: 'rgba(81, 122, 66, 0.79)', width: '30%' }}></div>
+  } 
       </div>
 
     )

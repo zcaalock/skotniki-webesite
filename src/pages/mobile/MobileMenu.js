@@ -67,10 +67,10 @@ class BottomMenu extends Component {
     
     {props  => <div className='mobileNavBar' style={props}>
       <div onClick={()=>this.toggleMenu()}><h3>
-        <div style={{top: '0', left: '0', width: '50px',height: '50px', position: "absolute", backgroundColor: '#517A42', zIndex: -1}}></div>
+        <div style={{top: '0', left: '0', width: '50px',height: '50px', position: "absolute", backgroundColor: 'rgb(115, 147, 103)', zIndex: -1}}></div>
         <i className='bars icon'/></h3></div>
         <div className='mobileMenu' style={this.showMenuText()}>
-          <GreenSpringMobile heightStart={this.props.appState.heightStart} heightStop={this.props.appState.heightStop} height={'100%'} color={'#517A42'} />
+          <GreenSpringMobile heightStart={this.props.appState.heightStart} heightStop={this.props.appState.heightStop} height={'100%'} color={'rgb(115, 147, 103)'} />
           {this.renderMenu()}
         </div>
         {/* <div style={{ backgroundColor: '#517A42', width: '30%' }}></div> */}

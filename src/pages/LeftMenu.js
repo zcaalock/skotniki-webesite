@@ -6,7 +6,7 @@ class LeftMenu extends React.Component {
       <div className='leftMenu'>
         <div className='menuTop'>
           <div className='menuGreenBar'></div>
-          <img className='menuLogo' src="/img/logo.png" alt="Skotniki logo" />
+          <img className='menuLogo' src="/img/logo.svg" alt="Skotniki logo" />
         </div>
         <div className='menuBottomLeft'>
           <h3>Kontakt</h3>

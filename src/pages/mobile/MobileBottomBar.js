@@ -12,7 +12,7 @@ class MobileBottomBar extends React.Component {
         <div style={{width: '36%', padding: '10px', backgroundColor: '#efefef'}}>
           <img className='menuLogo' src="/img/logo.png" alt="Skotniki logo" />
         </div>
-        <div style={{backgroundColor: '#517A42', padding: '10px', width: '64%'}}>
+        <div style={{backgroundColor: 'rgba(81, 122, 66, 0.79)', padding: '10px', width: '64%'}}>
           <strong>Kontakt</strong><br/> 
           biuro@przyspacerowej.pl<br/>          
           tel. +48 883 986 666<br/>

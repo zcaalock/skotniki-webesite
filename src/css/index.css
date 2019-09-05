@@ -126,7 +126,8 @@ div ::-webkit-scrollbar {
     height: 7vh;
     position: relative;
     display: flex;
-    background-color: #517A42 !important  
+    /* background-color: #517A42 !important   */
+    background-color: rgba(81, 122, 66, 0.79)
   } 
 
   .menuItem {
@@ -224,6 +225,13 @@ div ::-webkit-scrollbar {
     justify-content: space-between;
     font-size: 10px
   }
+
+  .menuLogo {
+    width: 90%;
+    padding: 40px 20px 20px 20px;
+    margin: 0 auto 0 auto
+    
+    }
 }
 
 
@@ -251,14 +259,10 @@ div ::-webkit-scrollbar {
 .menuGreenBar {
   height: 50px;
   width: 100%;
-  background-color: #517A42
+  background-color: rgba(81, 122, 66, 0.79) 
 }
 
-.menuLogo {
-  width: 90%;
-  margin: 0 auto 0 auto
-  
-  }
+
 
   .menuTop {
     height: 80vh;
@@ -276,6 +280,13 @@ div ::-webkit-scrollbar {
   
   
   @media(max-width: 903px) {
+
+    .menuLogo {
+      width: 90%;
+      padding: 0;
+      margin: 0 auto 0 auto
+      
+      }
 
     .legalInfo {
       display: none
