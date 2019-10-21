@@ -7,9 +7,9 @@ export default (state = {}, action) => {
     case types.FETCH_PAGES:
       return {...state, ..._.sortBy(action.payload.map(data => {
         return {
-          id: data.title.rendered,
+          id: data.menuOrder,
           content: data.content,
-          title: data.acf.menutitle
+          title: data.name
         }
       }), 'id')    
     }

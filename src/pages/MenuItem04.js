@@ -1,6 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { editState } from '../actions/appState'
+import { fetchReservations } from '../actions/reservations'
+import _ from 'lodash'
+
+import PdfALewy from '../documents/segment-lewy.pdf'
+import PdfAPrawy from '../documents/segment-prawy.pdf'
 
 import Area from '../components/Maps/Area'
 import { Placeholder } from 'semantic-ui-react'
@@ -14,6 +19,7 @@ class MenuItem04 extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchReservations()
     this.props.editState('false', 'menuHide')
     this.props.editState('48%', 'widthStop')
     this.props.editState('66.64%', 'heightStop')
@@ -29,14 +35,15 @@ class MenuItem04 extends React.Component {
   renderTable() {
     //console.log('state: ', this.state.tableData)    
     if (this.props.appState.reservationLoading === 'false') {
-      return this.props.reservations.map(data => {
+      let reservations = _.reject(this.props.reservations, {status: 'blocked'})
+      return reservations.map(data => {
         return (
           <Table.Row style={this.selectArea(data.name)} id={data.name} key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
             <Table.Cell>{data.plot}</Table.Cell>
             <Table.Cell>{data.pum}</Table.Cell>
             <Table.Cell>{data.price}</Table.Cell>
-            <Table.Cell><a href='/'>PDF</a></Table.Cell>
+            <Table.Cell><a href={PdfALewy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a></Table.Cell>
           </Table.Row>
         )
       })
@@ -64,9 +71,9 @@ class MenuItem04 extends React.Component {
             <div className='infoText'>
               <Table celled striped>
                 <Table.Header>
-                  <Table.Row>
+                  {/* <Table.Row>
                     <Table.HeaderCell colSpan='5'>Etap 1</Table.HeaderCell>
-                  </Table.Row>
+                  </Table.Row> */}
                   <Table.Row>
                     <Table.HeaderCell >Nr domu</Table.HeaderCell>
                     <Table.HeaderCell >Pow. działki [m2]</Table.HeaderCell>
@@ -99,4 +106,4 @@ const mapStateToPrps = (state) => {
     appState: state.appState}
 }
 
-export default connect(mapStateToPrps, {editState})(MenuItem04)
+export default connect(mapStateToPrps, {editState, fetchReservations})(MenuItem04)

@@ -33,7 +33,7 @@ class MenuItem02 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText'>
-        <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem02.content.rendered }}></div>
+        <div dangerouslySetInnerHTML={{ __html: this.props.pages[1].content }}></div>
         <a href={PdfUlotka} target="_blank" rel="noopener noreferrer">Zobacz Ulotkę</a>
       </div>
 

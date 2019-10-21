@@ -4,16 +4,13 @@ import { connect } from 'react-redux'
 import history from '../history'
 import { editState } from '../actions/appState'
 import { fetchPages } from '../actions/pages'
-import { fetchReservations } from '../actions/reservations'
 import GreenSpring from '../components/GeenSpring'
 
 
 class BottomMenu extends Component {
 
   componentDidMount() {
-    this.props.fetchPages()
-    this.props.fetchReservations()
-
+    this.props.fetchPages() 
   }
 
   state = {
@@ -21,7 +18,7 @@ class BottomMenu extends Component {
       { title: 'Galeria', id: 'MenuItem01' },
       { title: 'Prezentacja', id: 'MenuItem02' },
       { title: 'Twój Dom', id: 'MenuItem03' },
-      { title: 'Zarezerwuj', id: 'MenuItem04' },
+      { title: 'Dostępne Domy', id: 'MenuItem04' },
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
     ]
@@ -51,7 +48,7 @@ class BottomMenu extends Component {
           {this.renderMenu()}
         </div>
         <div style={{ backgroundColor: 'rgba(81, 122, 66, 0.79)', width: '30%' }}></div>
-  } 
+   
       </div>
 
     )
@@ -65,4 +62,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { editState, fetchPages, fetchReservations })(BottomMenu)
+export default connect(mapStateToProps, { editState, fetchPages })(BottomMenu)

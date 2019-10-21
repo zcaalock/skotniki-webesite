@@ -53,7 +53,7 @@ class MenuItem05 extends React.Component {
     if (this.props.appState.loading === 'false')
       return (
         <div className='infoText'>
-          <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem05.content.rendered }}></div>
+          <div dangerouslySetInnerHTML={{ __html: this.props.pages[4].content }}></div>
         </div>
       )
     return <div className='infoText'><ContentPlaceholder /></div>

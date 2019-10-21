@@ -24,7 +24,7 @@ import MobileBottomBar from './pages/mobile/MobileBottomBar'
 
 
 //AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
-axios.defaults.baseURL = 'http://przyspacerowej.pl'
+axios.defaults.baseURL = 'https://europe-west2-przyspacerowej.cloudfunctions.net/api/'
 
 class App extends React.Component {
   

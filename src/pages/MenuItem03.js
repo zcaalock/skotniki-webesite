@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import _ from 'lodash'
-import PdfALewy from '../documents/segment-lewy.pdf';
+import PdfALewy from '../documents/segment-lewy.pdf'
 import PdfAPrawy from '../documents/segment-prawy.pdf'
 import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
@@ -51,10 +51,10 @@ class MenuItem03 extends React.Component {
   }
 
   renderPlans() {
-    if (this.state.segmentLeftZero === 'true') return <LZero width={400} />
-    if (this.state.segmentLeftOne === 'true') return <LOne width={400} />
-    if (this.state.segmentRightZero === 'true') return <PZero width={400} />
-    if (this.state.segmentRightOne === 'true') return <POne width={400} />
+    if (this.state.segmentLeftZero === 'true') return <LZero width={350} />
+    if (this.state.segmentLeftOne === 'true') return <LOne width={350} />
+    if (this.state.segmentRightZero === 'true') return <PZero width={350} />
+    if (this.state.segmentRightOne === 'true') return <POne width={350} />
   }
 
   renderMobilePlans() {
@@ -90,7 +90,7 @@ class MenuItem03 extends React.Component {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText'>
 
-        <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem03.content.rendered }}></div>
+        <div dangerouslySetInnerHTML={{ __html: this.props.pages[2].content }}></div>
       </div>
     )
     return <div className='infoText'><ContentPlaceholder /></div>

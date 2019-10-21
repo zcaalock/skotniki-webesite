@@ -1,5 +1,5 @@
 #root {
-  background-color: white
+  background-color: rgba(115, 147, 103, 0.04)
 }
 
 body {
@@ -63,7 +63,7 @@ div ::-webkit-scrollbar {
     margin: auto;
     flex-direction: row !important;
     padding: 0px !important;  
-    max-width: 1920px;
+    max-width: 1600px;
     background-color: white !important;
   }
 
@@ -238,8 +238,7 @@ div ::-webkit-scrollbar {
   .legalInfo {
     display: flex;
     padding-left:15px;
-    padding-right:15px;
-    width: 80%;    
+    padding-right:15px;      
     position: absolute;
     bottom: 0;
     justify-content: space-between;

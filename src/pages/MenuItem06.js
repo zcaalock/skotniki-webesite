@@ -22,7 +22,7 @@ class MenuItem02 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText' >
-        <div dangerouslySetInnerHTML={{ __html: this.props.pages.menuItem06.content.rendered }}></div>
+        <div dangerouslySetInnerHTML={{ __html: this.props.pages[5].content }}></div>
         
       </div>
 
