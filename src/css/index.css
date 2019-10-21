@@ -25,9 +25,18 @@ div ::-webkit-scrollbar {
   .image-gallery-image img {
     height: 80vh;
     width: auto !important
+  } 
+  
+}
+
+@media (max-width: 1200px){
+  .landingText {
+    font-size: 2rem !important
   }
   
 }
+
+
 
 
 @media(min-width: 903px) {
@@ -36,6 +45,17 @@ div ::-webkit-scrollbar {
   }
   .mobileNavBar {
     display: none
+  }
+
+  .landingText {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    width: 100%;
+    background: #ffffffde;
+    text-align: center;
+    height: 100px;
+    font-size: 4rem;
   }
 
   .AppContainer {
@@ -107,7 +127,7 @@ div ::-webkit-scrollbar {
   }
 
   .bottomeNavBar{
-    display: flex !important
+    display: flex
   }
 
   .menuBottomLeft {
@@ -399,6 +419,8 @@ div ::-webkit-scrollbar {
       position: relative;
     }
   }
+
+  
 
   
 

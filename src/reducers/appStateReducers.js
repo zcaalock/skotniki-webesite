@@ -10,7 +10,8 @@ const appState = {
   heightStart: '0%',
   heightStop: '0%',
   zIndex: '10',
-  ui: 'show'
+  ui: 'show',
+  menuHide: 'true'
 
 }
 

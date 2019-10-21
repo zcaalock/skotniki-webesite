@@ -9,6 +9,7 @@ import ContentPlaceholder from '../components/ContentPlaceholder'
 class MenuItem02 extends React.Component {
 
   componentDidMount() {
+    this.props.editState('false', 'menuHide')
     this.props.editState('Kontakt', 'activeItem')
     this.props.editState('86%', 'widthStop')
     this.props.editState('100%', 'heightStop')

@@ -38,9 +38,14 @@ class BottomMenu extends Component {
     })
   }
 
+  hideMenuBar() {
+    if (this.props.appState.menuHide === 'true') return {display: 'none'}
+    return {display: ''}
+  }
+
   render() {
     return (
-      <div className='bottomeNavBar'>
+      <div className='bottomeNavBar' style={this.hideMenuBar()}>
         <div className='menuBottom'>
           <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} />
           {this.renderMenu()}

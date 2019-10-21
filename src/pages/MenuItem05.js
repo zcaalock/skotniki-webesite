@@ -9,6 +9,7 @@ class MenuItem05 extends React.Component {
   state = { itemSelected: 'wawrzynca' }
 
   componentDidMount() {
+    this.props.editState('false', 'menuHide')
     this.props.editState('68%', 'widthStop')
     this.props.editState('84.3%', 'heightStop')
     this.props.editState('Doświadczenie', 'activeItem')

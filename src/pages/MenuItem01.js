@@ -9,11 +9,13 @@ import "react-image-gallery/styles/css/image-gallery.css"
 
 class MenuItem01 extends React.Component {
   componentDidMount() {
+    
     this.props.editState('0%', 'widthStop')
     this.props.editState('15.66%', 'heightStop')
     this.props.editState('Galeria', 'activeItem')
     this.props.editState('', 'secondaryTitle')
     this.props.editState('show', 'ui')
+    this.props.editState('false', 'menuHide')
   }
 
   render() {

@@ -16,6 +16,11 @@ class BottomMenu extends Component {
     this.props.fetchReservations()
 
   }
+  
+  hideMenuBar() {    
+    if (this.props.appState.menuHide === 'true') return 'none'
+    return 'flex'
+  }
 
   state = {
     menuNames: [
@@ -60,8 +65,8 @@ class BottomMenu extends Component {
   render() {    
     return (
       <Spring 
-      from= {{ width: '50px', height: '50px', overflow: 'hidden' }}
-      to= {{ width: this.state.width, height: this.state.height, }}>
+      from= {{ width: '50px', height: '50px', overflow: 'hidden'}}
+      to= {{ width: this.state.width, height: this.state.height }}>
         
      
     
