@@ -13,6 +13,17 @@ div ::-webkit-scrollbar {
   display: none;
 }
 
+.login{
+  position: absolute;
+  width:  330px;
+  
+  top: calc(50% - 100px);
+  left: calc(50% - 160px);
+  padding: 25px;
+  
+  background-color: #bcbdbd26
+}
+
 @media(min-width: 1540px){
   .image-gallery-image img {
     height: auto !important;
@@ -45,6 +56,13 @@ div ::-webkit-scrollbar {
   }
   .mobileNavBar {
     display: none
+  }
+
+  .adminPanelTitle {
+    display: flex;
+    padding-top: 15px;
+    color: #af0000;
+    justify-content: center;
   }
 
   .landingText {
