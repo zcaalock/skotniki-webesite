@@ -7,6 +7,7 @@ class LandingPage extends React.Component {
 
   componentDidMount() {
     this.props.editState('true', 'menuHide')
+    this.props.editState('', 'secondaryTitle')
     this.props.editState('', 'activeItem')
   }
   

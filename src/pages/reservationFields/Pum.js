@@ -4,7 +4,7 @@ import { editReservation } from '../../actions/reservations'
 import SingleInput from '../../forms/SingleInput'
 
 
-class Plot extends React.Component {
+class Pum extends React.Component {
   state = { itemEditable: false }
 
   removeEdit() {
@@ -16,7 +16,7 @@ class Plot extends React.Component {
   }
 
   onSubmit = (formValues) => {
-    this.props.editReservation(this.props.reservation.id, { plot: formValues })
+    this.props.editReservation(this.props.reservation.id, { pum: formValues })
     this.removeEdit()
   }
 
@@ -27,7 +27,7 @@ class Plot extends React.Component {
         <SingleInput
           propStyle={{ padding: '0' }}
           propChildStyle={{ padding: '5px' }}
-          initValue={this.props.reservation.plot}
+          initValue={this.props.reservation.pum}
           removeEdit={() => this.removeEdit()}
           onSubmit={this.onSubmit} />
       )
@@ -36,7 +36,7 @@ class Plot extends React.Component {
     if (this.state.itemEditable === false) {
       return (
         <div >
-          <div>{this.props.reservation.plot}</div>
+          <div>{this.props.reservation.pum}</div>
         </div>
       )
     }
@@ -55,4 +55,4 @@ class Plot extends React.Component {
   }
 }
 
-export default connect(null, { editReservation })(Plot)
+export default connect(null, { editReservation })(Pum)

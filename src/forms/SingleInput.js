@@ -1,6 +1,4 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-
 
 class SingleInput extends React.Component {
 
@@ -9,9 +7,7 @@ class SingleInput extends React.Component {
   componentDidMount() {
     this.setState({ value: this.props.initValue })
   }
-  
 
-  
   Cancel = (event) => {
 
     if (event.keyCode === 27) {
@@ -38,8 +34,6 @@ class SingleInput extends React.Component {
     )
   }
 }
-
-
 
 export default SingleInput
 

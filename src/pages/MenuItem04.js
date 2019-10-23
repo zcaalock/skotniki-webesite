@@ -10,7 +10,12 @@ import PdfAPrawy from '../documents/segment-prawy.pdf'
 import Area from '../components/Maps/Area'
 import { Placeholder } from 'semantic-ui-react'
 import { Table } from 'semantic-ui-react'
+
 import Plot from './reservationFields/Plot'
+import Pum from './reservationFields/Pum'
+import Price from './reservationFields/Price'
+import Type from './reservationFields/Type'
+import Status from './reservationFields/Status'
 
 class MenuItem04 extends React.Component {
   state = {
@@ -33,6 +38,11 @@ class MenuItem04 extends React.Component {
     if (this.props.appState.secondaryTitle === id) return { backgroundColor: '#efefef' }
   }
 
+  showPdf(type) {
+    if(type === 'left') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Segment lewy</a>
+    if(type === 'right') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Segment prawy</a>
+  }
+
   renderTableForUser() {
     //console.log('state: ', this.state.tableData)    
     if (this.props.appState.reservationLoading === 'false') {
@@ -44,7 +54,7 @@ class MenuItem04 extends React.Component {
             <Table.Cell>{data.plot}</Table.Cell>
             <Table.Cell>{data.pum}</Table.Cell>
             <Table.Cell>{data.price}</Table.Cell>
-            <Table.Cell><a href={PdfALewy} target="_blank" rel="noopener noreferrer">Zobacz PDF</a></Table.Cell>
+            <Table.Cell>{this.showPdf(data.type)}</Table.Cell>
           </Table.Row>
         )
       })
@@ -71,10 +81,10 @@ class MenuItem04 extends React.Component {
           <Table.Row style={this.selectArea(reservation.name)} id={reservation.name} key={reservation.name}>
             <Table.Cell >{reservation.name}</Table.Cell>
             <Table.Cell><Plot reservation={reservation} /></Table.Cell>
-            <Table.Cell>{reservation.pum}</Table.Cell>
-            <Table.Cell>{reservation.price}</Table.Cell>
-            <Table.Cell>{reservation.type}</Table.Cell>
-            <Table.Cell>{reservation.status}</Table.Cell>
+            <Table.Cell><Pum reservation={reservation} /></Table.Cell>
+            <Table.Cell><Price reservation={reservation} /></Table.Cell>
+            <Table.Cell><Type reservation={reservation} /></Table.Cell>
+            <Table.Cell><Status reservation={reservation} /></Table.Cell>
           </Table.Row>
         )
       })
