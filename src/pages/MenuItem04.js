@@ -39,8 +39,8 @@ class MenuItem04 extends React.Component {
   }
 
   showPdf(type) {
-    if(type === 'left') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Segment lewy</a>
-    if(type === 'right') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Segment prawy</a>
+    if(type === 'left') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Typ L</a>
+    if(type === 'right') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Typ P</a>
   }
 
   renderTableForUser() {
