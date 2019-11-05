@@ -12,23 +12,29 @@ class Area extends React.Component {
   }
 
   onEnter(area) {
-    if(this.props.reservations[area.id].status === 'blocked') this.props.editState('Etap II', 'secondaryTitle')
-    if(this.props.reservations[area.id].status === 'reserved') this.props.editState('Rezerwacja', 'secondaryTitle')
-    if(this.props.reservations[area.id].status === 'open')this.props.editState(area.name, 'secondaryTitle')
+    if (this.props.reservations[area.id].status === 'blocked') this.props.editState('Etap II', 'secondaryTitle')
+    if (this.props.reservations[area.id].status === 'reserved') this.props.editState('Rezerwacja', 'secondaryTitle')
+    if (this.props.reservations[area.id].status === 'open') this.props.editState(area.name, 'secondaryTitle')
 
   }
 
-  preFillColor(id) {
-    if (this.props.appState.reservationLoading === 'false')
-      {if (this.props.reservations[id].status === 'blocked') return 'rgba(210, 202, 200, 0.6)'
-      if (this.props.reservations[id].status === 'reserved') return 'rgba(55, 71, 80, 0.6)'}
+  preFillColor(id, name) {
+    //if (this.props.appState.secondaryTitle === name) return 'rgba(81, 122, 66, 0.7)'
+    if (this.props.appState.reservationLoading === 'false') {
       
+      if (this.props.reservations[id].status === 'blocked') return 'rgba(210, 202, 200, 0.6)'
+      if (this.props.reservations[id].status === 'reserved') return 'rgba(55, 71, 80, 0.6)'
+      if (this.props.reservations[id].status === 'disabled') return 'rgba(55, 71, 80, 0)'
+      
+    }
+    
     return 'rgba(210, 202, 200, 0)'
   }
 
   fillColor(id) {
     if (this.props.appState.reservationLoading === 'false')
-      if (this.props.reservations[id].status === 'blocked' || this.props.reservations[id].status === 'reserved') return 'rgba(81, 122, 66, 0)'
+      if (this.props.reservations[id].status === 'blocked' || this.props.reservations[id].status === 'reserved' || this.props.reservations[id].status === 'disabled') return 'rgba(81, 122, 66, 0)'
+      
     return 'rgba(81, 122, 66, 0.7)'
   }
 
@@ -45,26 +51,26 @@ class Area extends React.Component {
     const MAP = {
       name: "my-map",
       areas: [
-        { name: "A20", id:19, coords: [630,388,631,600,723,575,723,388], shape: "poly", preFillColor: this.preFillColor(19), fillColor: this.fillColor(19), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A19", id:18, coords: [538,388,630,389,631,600,538,623], shape: "poly", preFillColor: this.preFillColor(18), fillColor: this.fillColor(18), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A18", id:17, coords: [455,643,537,623,537,388,452,389], shape: "poly", preFillColor: this.preFillColor(17), fillColor: this.fillColor(17), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A17", id:16, coords: [364,419,385,389,451,387,454,645,390,659,364,647], shape: "poly", preFillColor: this.preFillColor(16), fillColor: this.fillColor(16), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A16", id:15, coords: [22, 150, 367, 153, 367, 227, 322, 226, 322, 249, 22, 250], shape: "poly", preFillColor: this.preFillColor(15), fillColor: this.fillColor(15), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A15", id:14, coords: [22, 345, 322, 250], shape: "rect", preFillColor: this.preFillColor(14), fillColor: this.fillColor(14), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A14", id:13, coords: [22, 438, 322, 345], shape: "rect", preFillColor: this.preFillColor(13), fillColor: this.fillColor(13), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A13", id:12, coords: [22, 527, 322, 438], shape: "rect", preFillColor: this.preFillColor(12), fillColor: this.fillColor(12), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A12", id:11, coords: [22, 616, 322, 527], shape: "rect", preFillColor: this.preFillColor(11), fillColor: this.fillColor(11), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A11", id:10, coords: [22, 697, 322, 616], shape: "rect", preFillColor: this.preFillColor(10), fillColor: this.fillColor(10), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A10", id:9, coords: [22,697, 22,1005, 241,956, 242,697], shape: "poly", preFillColor: this.preFillColor(9), fillColor: this.fillColor(9), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A09", id:8, coords: [242,697, 367,697, 368, 928, 241, 956], shape: "poly", preFillColor: this.preFillColor(8), fillColor: this.fillColor(8), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A08", id:7, coords: [369, 696, 447, 686, 502, 898, 371, 930], shape: "poly", preFillColor: this.preFillColor(7), fillColor: this.fillColor(7), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A07", id:6, coords: [451, 686, 548, 661, 603, 875, 503, 899], shape: "poly", preFillColor: this.preFillColor(6), fillColor: this.fillColor(6), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A06", id:5, coords: [549, 661, 608, 877, 702, 857, 652, 630], shape: "poly", preFillColor: this.preFillColor(5), fillColor: this.fillColor(5), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A05", id:4, coords: [706, 856, 806, 838, 752, 610, 656, 627], shape: "poly", preFillColor: this.preFillColor(4), fillColor: this.fillColor(4), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A04", id:3, coords: [754, 609, 807, 836, 903, 814, 850, 582], shape: "poly", preFillColor: this.preFillColor(3), fillColor: this.fillColor(3), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A03", id:2, coords: [905, 814, 989, 794, 947, 564, 922, 564, 852, 581], shape: "poly", preFillColor: this.preFillColor(2), fillColor: this.fillColor(2), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A02", id:1, coords: [950, 563, 988, 794, 1067, 780, 1045, 562], shape: "poly", preFillColor: this.preFillColor(1), fillColor: this.fillColor(1), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
-        { name: "A01", id:0, coords: [1070, 779, 1176, 761, 1174, 562, 1048, 562], shape: "poly", preFillColor: this.preFillColor(0), fillColor: this.fillColor(0), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() }
+        { name: "A20", id: 19, coords: [630, 388, 631, 600, 723, 575, 723, 388], shape: "poly", preFillColor: this.preFillColor(19,"A20"), fillColor: this.fillColor(19), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A19", id: 18, coords: [538, 388, 630, 389, 631, 600, 538, 623], shape: "poly", preFillColor: this.preFillColor(18,"A19"), fillColor: this.fillColor(18), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A18", id: 17, coords: [455, 643, 537, 623, 537, 388, 452, 389], shape: "poly", preFillColor: this.preFillColor(17,"A18"), fillColor: this.fillColor(17), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A17", id: 16, coords: [364, 419, 385, 389, 451, 387, 454, 645, 390, 659, 364, 647], shape: "poly", preFillColor: this.preFillColor(16,"A17"), fillColor: this.fillColor(16), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A16", id: 15, coords: [22, 150, 367, 153, 367, 227, 322, 226, 322, 249, 22, 250], shape: "poly", preFillColor: this.preFillColor(15,"A16"), fillColor: this.fillColor(15), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A15", id: 14, coords: [22, 345, 322, 250], shape: "rect", preFillColor: this.preFillColor(14,"A15"), fillColor: this.fillColor(14), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A14", id: 13, coords: [22, 438, 322, 345], shape: "rect", preFillColor: this.preFillColor(13,"A14"), fillColor: this.fillColor(13), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A13", id: 12, coords: [22, 527, 322, 438], shape: "rect", preFillColor: this.preFillColor(12,"A13"), fillColor: this.fillColor(12), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A12", id: 11, coords: [22, 616, 322, 527], shape: "rect", preFillColor: this.preFillColor(11,"A12"), fillColor: this.fillColor(11), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A11", id: 10, coords: [22, 697, 322, 616], shape: "rect", preFillColor: this.preFillColor(10,"A11"), fillColor: this.fillColor(10), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A10", id: 9, coords: [22, 697, 22, 1005, 241, 956, 242, 697], shape: "poly", preFillColor: this.preFillColor(9,"A10"), fillColor: this.fillColor(9), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A09", id: 8, coords: [242, 697, 367, 697, 368, 928, 241, 956], shape: "poly", preFillColor: this.preFillColor(8,"A09"), fillColor: this.fillColor(8), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A08", id: 7, coords: [369, 696, 447, 686, 502, 898, 371, 930], shape: "poly", preFillColor: this.preFillColor(7,"A08"), fillColor: this.fillColor(7), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A07", id: 6, coords: [451, 686, 548, 661, 603, 875, 503, 899], shape: "poly", preFillColor: this.preFillColor(6,"A07"), fillColor: this.fillColor(6), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A06", id: 5, coords: [549, 661, 608, 877, 702, 857, 652, 630], shape: "poly", preFillColor: this.preFillColor(5,"A06"), fillColor: this.fillColor(5), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A05", id: 4, coords: [706, 856, 806, 838, 752, 610, 656, 627], shape: "poly", preFillColor: this.preFillColor(4,"A05"), fillColor: this.fillColor(4), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A04", id: 3, coords: [754, 609, 807, 836, 903, 814, 850, 582], shape: "poly", preFillColor: this.preFillColor(3,"A04"), fillColor: this.fillColor(3), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A03", id: 2, coords: [905, 814, 989, 794, 947, 564, 922, 564, 852, 581], shape: "poly", preFillColor: this.preFillColor(2,"A03"), fillColor: this.fillColor(2), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A02", id: 1, coords: [950, 563, 988, 794, 1067, 780, 1045, 562], shape: "poly", preFillColor: this.preFillColor(1,"A02"), fillColor: this.fillColor(1), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() },
+        { name: "A01", id: 0, coords: [1070, 779, 1176, 761, 1174, 562, 1048, 562], shape: "poly", preFillColor: this.preFillColor(0,"A01"), fillColor: this.fillColor(0), strokeColor: this.strokeColor(), lineWidth: this.lineWidth() }
       ]
     }
     return (

@@ -46,10 +46,10 @@ class MenuItem04 extends React.Component {
   renderTableForUser() {
     //console.log('state: ', this.state.tableData)    
     if (this.props.appState.reservationLoading === 'false') {
-      let reservations = _.reject(this.props.reservations, { status: 'blocked' })
+      let reservations = _.chain(this.props.reservations).reject({ status: 'blocked' }).reject({ status: 'disabled' }).value()
       return reservations.map(data => {
         return (
-          <Table.Row style={this.selectArea(data.name)} id={data.name} key={data.name}>
+          <Table.Row onMouseEnter={()=>this.props.editState(data.name, 'secondaryTitle')} onMouseLeave={()=>this.props.editState('Plan Osiedla','secondaryTitle')} style={this.selectArea(data.name)} id={data.name} key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
             <Table.Cell>{data.plot}</Table.Cell>
             <Table.Cell>{data.pum}</Table.Cell>

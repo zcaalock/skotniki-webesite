@@ -16,7 +16,7 @@ class Status extends React.Component {
       <DropDownMenu
             onSave={(title) => this.saveField(title)}
             id={this.props.reservation.id}
-            values={['blocked', 'open', 'reserved']}
+            values={['blocked', 'open', 'reserved', 'disabled']}
             text={this.props.reservation.status} />
     )
   }

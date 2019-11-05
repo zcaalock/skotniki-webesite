@@ -10,7 +10,7 @@ import store from './reducers/index'
 import LeftMenu from './pages/LeftMenu'
 import PageTitle from './components/PageTitle'
 import MenuItem01 from './pages/MenuItem01'
-import LandingPage from './pages/LandingPage'
+//import LandingPage from './pages/LandingPage'
 import MenuItem02 from './pages/MenuItem02'
 import MenuItem03 from './pages/MenuItem03'
 import BottomMenu from './pages/BottomMenu'
@@ -60,8 +60,8 @@ class App extends React.Component {
             <MobileMenu />
               <PageTitle/>
               <Route>
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/LandingPage" component={LandingPage} />
+                <Route exact path="/" component={MenuItem01} />
+                {/* <Route exact path="/LandingPage" component={LandingPage} /> */}
                 <Route exact path="/MenuItem01" component={MenuItem01} />
                 <Route exact path="/MenuItem02" component={MenuItem02} />
                 <Route exact path="/MenuItem03" component={MenuItem03} />
