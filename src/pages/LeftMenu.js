@@ -32,7 +32,7 @@ class LeftMenu extends React.Component {
           <h3>Kontakt</h3>
           biuro@przyspacerowej.pl
           <br/>          
-          tel. +48 883 986 666
+          tel. +48 509 192 091
           <br/>
           tel. +48 12 628 08 00
           </div>
