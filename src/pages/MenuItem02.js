@@ -12,7 +12,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class MenuItem02 extends React.Component {
 
-  
+
   componentDidMount() {
     this.props.editState('false', 'menuHide')
     this.props.editState('Prezentacja', 'activeItem')
@@ -33,25 +33,25 @@ class MenuItem02 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText'>
-        <div dangerouslySetInnerHTML={{ __html: this.props.pages[1].content }}></div>
+        <div dangerouslySetInnerHTML={{ __html: this.props.pages[1].content }}></div><br/>
+        <a className='mobileMap' href='https://www.google.com/maps/@49.9973793,19.8688136,16z?hl=pl-PL' target="_blank" rel="noopener noreferrer">Zobacz Mapę</a><br/><br/>
         <a href={PdfUlotka} target="_blank" rel="noopener noreferrer">Zobacz Ulotkę</a>
       </div>
 
     )
     return (
       <div className='infoText'>
-        <ContentPlaceholder/>
+        <ContentPlaceholder />
       </div>
     )
   }
-  
+
   render() {
     return (
       <div className='pageContent' >
         <div className='localisation'>
-          <div className="localisationText">            
-            {this.renderContent()}
-          </div>
+          <div className="localisationText">
+            {this.renderContent()}</div>
           <div className="localisationMap">
             <div
               className="map"
