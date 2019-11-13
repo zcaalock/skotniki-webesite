@@ -58,6 +58,14 @@ div ::-webkit-scrollbar {
     display: none
   }
 
+  .mobilePlans {
+    display: none
+  }
+
+  .mobileMap {
+    display: none
+  }
+
   .adminPanelTitle {
     display: flex;
     padding-top: 15px;
@@ -324,6 +332,8 @@ div ::-webkit-scrollbar {
       margin: 0 auto 0 auto
       
       }
+
+    
 
     .legalInfo {
       display: none

@@ -18,13 +18,20 @@ import Type from './reservationFields/Type'
 import Status from './reservationFields/Status'
 
 class MenuItem04 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
   state = {
     tableData: [],
     isLoaded: 'false',
-    placeholder: ['full', 'very long', 'long', 'medium', 'short', 'very short']
+    placeholder: ['full', 'very long', 'long', 'medium', 'short', 'very short'],
+    width: 0, height: 0
   }
 
   componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
     this.props.fetchReservations()
     this.props.editState('false', 'menuHide')
     this.props.editState('48%', 'widthStop')
@@ -34,13 +41,26 @@ class MenuItem04 extends React.Component {
     this.props.editState('hide', 'ui')
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
   selectArea(id) {
     if (this.props.appState.secondaryTitle === id) return { backgroundColor: '#efefef' }
   }
 
+  mapSize() {
+    if (this.state.width < 905) return this.state.width - 10
+    return 550
+  }
+
   showPdf(type) {
-    if(type === 'left') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Typ L</a>
-    if(type === 'right') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Typ P</a>
+    if (type === 'left') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Typ L</a>
+    if (type === 'right') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Typ P</a>
   }
 
   renderTableForUser() {
@@ -49,7 +69,7 @@ class MenuItem04 extends React.Component {
       let reservations = _.chain(this.props.reservations).reject({ status: 'blocked' }).reject({ status: 'disabled' }).value()
       return reservations.map(data => {
         return (
-          <Table.Row onMouseEnter={()=>this.props.editState(data.name, 'secondaryTitle')} onMouseLeave={()=>this.props.editState('Plan Osiedla','secondaryTitle')} style={this.selectArea(data.name)} id={data.name} key={data.name}>
+          <Table.Row onMouseEnter={() => this.props.editState(data.name, 'secondaryTitle')} onMouseLeave={() => this.props.editState('Plan Osiedla', 'secondaryTitle')} style={this.selectArea(data.name)} id={data.name} key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
             <Table.Cell>{data.plot}</Table.Cell>
             <Table.Cell>{data.pum}</Table.Cell>
@@ -147,7 +167,7 @@ class MenuItem04 extends React.Component {
     )
   }
 
-  authCheck() {    
+  authCheck() {
     if (this.props.isAutenticated === true) return <>{this.showTableForAdmin()}</>
     if (this.props.isAutenticated === false) return <>{this.showTableForUser()}</>
   }
@@ -158,13 +178,17 @@ class MenuItem04 extends React.Component {
       <div className='pageContent'>
         <div className='localisation'>
           <div className="localisationText">
+            <div className="mobilePlans">
+              <Area deviceWidth={this.mapSize()} />
+            </div>
             <div className='infoText'>
               {this.authCheck()}
             </div>
+
           </div>
           <div className="plans">
             {/* <img className='plansAuto' src="/img/plany_mapa_kolor.jpg" alt="Typ A - lewy" /> */}
-            <Area />
+            <Area deviceWidth={this.mapSize()} />
           </div>
         </div>
       </div>

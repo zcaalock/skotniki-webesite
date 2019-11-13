@@ -75,7 +75,7 @@ class Area extends React.Component {
     }
     return (
 
-      <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Plan Osiedla')} style={{ margin: 'auto' }} imgWidth={1252} width={550} src={URL} map={MAP} />
+      <ImageMapper onMouseEnter={area => this.onEnter(area)} onMouseLeave={() => this.onLeave('Plan Osiedla')} style={{ margin: 'auto' }} imgWidth={1252} width={this.props.deviceWidth} src={URL} map={MAP} />
     )
   }
 }

@@ -12,7 +12,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class MenuItem02 extends React.Component {
 
-  
+
   componentDidMount() {
     this.props.editState('false', 'menuHide')
     this.props.editState('Prezentacja', 'activeItem')
@@ -33,25 +33,25 @@ class MenuItem02 extends React.Component {
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <div className='infoText'>
-        <div dangerouslySetInnerHTML={{ __html: this.props.pages[1].content }}></div>
+        <div dangerouslySetInnerHTML={{ __html: this.props.pages[1].content }}></div><br/>
+        <a className='mobileMap' href='https://www.google.com/maps/place/przyspacerowej.pl/@49.9973609,19.8681803,16.79z/data=!4m5!3m4!1s0x47165df95d77e089:0xeaf84c32f7785597!8m2!3d49.9971655!4d19.8685561?hl=pl' target="_blank" rel="noopener noreferrer">Zobacz Mapę</a><br/><br/>
         <a href={PdfUlotka} target="_blank" rel="noopener noreferrer">Zobacz Ulotkę</a>
       </div>
 
     )
     return (
       <div className='infoText'>
-        <ContentPlaceholder/>
+        <ContentPlaceholder />
       </div>
     )
   }
-  
+
   render() {
     return (
       <div className='pageContent' >
         <div className='localisation'>
-          <div className="localisationText">            
-            {this.renderContent()}
-          </div>
+          <div className="localisationText">
+            {this.renderContent()}</div>
           <div className="localisationMap">
             <div
               className="map"
