@@ -1,7 +1,7 @@
 import React from 'react'
 import ImageMapper from 'react-image-mapper';
 import { connect } from 'react-redux'
-import { editState } from '../../actions/appState'
+import { editState } from '../../actions/appState';
 
 
 
