@@ -51,10 +51,12 @@ div ::-webkit-scrollbar {
 
 
 @media(min-width: 903px) {
+
+  .icon:hover{color:rgba(81, 122, 66, 0.79)}
   .featureList {
-    position: absolute;
-    margin-top: 360px;
+    position: relative;    
     margin-left: 60px;
+    padding-top: 10px;
     z-index: 10
   }
 
