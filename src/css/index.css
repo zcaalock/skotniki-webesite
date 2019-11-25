@@ -51,6 +51,20 @@ div ::-webkit-scrollbar {
 
 
 @media(min-width: 903px) {
+  .featureList {
+    position: absolute;
+    margin-top: 360px;
+    margin-left: 60px;
+    z-index: 10
+  }
+
+  .listItems {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+  
   .mobileBottomBar {
     display: none !important
   }
@@ -417,7 +431,7 @@ div ::-webkit-scrollbar {
     }
      
     .pageContent div {
-      animation: fadein 1s;   
+      animation: fadein 2s;   
     }
     
     @keyframes fadein {
