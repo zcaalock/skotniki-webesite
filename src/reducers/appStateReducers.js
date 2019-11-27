@@ -1,6 +1,8 @@
 import * as types from '../actions/types'
 
 const appState = {
+  width: 0,
+  height: 0,
   activeItem: 'Galeria',
   secondaryTitle: '',
   loading: 'true',

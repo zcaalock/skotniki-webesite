@@ -50,7 +50,7 @@ div ::-webkit-scrollbar {
 
 
 
-@media(min-width: 903px) {
+@media(min-width: 905px) {
 
   .icon:hover{color:rgba(81, 122, 66, 0.79)}
   .featureList {
@@ -340,8 +340,8 @@ div ::-webkit-scrollbar {
 
   
   
-  @media(max-width: 903px) {
-
+  @media(max-width: 905px) {
+    .localisation{ padding: 10px}
     .menuLogo {
       width: 90%;
       padding: 0;
@@ -349,7 +349,20 @@ div ::-webkit-scrollbar {
       
       }
 
+      .icon:hover{color:rgba(81, 122, 66, 0.79)}
+      .featureList {
+        position: relative;    
+        margin-left: 10px;
+        padding-top: 10px;
+        z-index: 10
+      }
     
+      .listItems {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+      }
 
     .legalInfo {
       display: none
@@ -423,7 +436,7 @@ div ::-webkit-scrollbar {
     .pageContent {  
       height: calc(87vh - 50px);
       background-color: white;
-      padding: 18px;
+      /* padding: 18px; */
       overflow-y: scroll; 
       position: relative;
     }
@@ -457,7 +470,7 @@ div ::-webkit-scrollbar {
     .pageContent {  
       height: calc(95vh - 50px) !important;
       background-color: white;
-      padding: 18px;
+      /* padding: 18px; */
       overflow-y: scroll; 
       position: relative;
     }

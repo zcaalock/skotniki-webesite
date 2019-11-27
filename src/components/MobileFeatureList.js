@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import TextSpring from './TextSpring'
+import TextSpringMobile from './TextSpringMobile'
 
 
 export class FeatureList extends Component {
@@ -29,7 +29,7 @@ export class FeatureList extends Component {
 
   featureList(number, content) {
     const id = `item${number}`
-    if (this.state[id] === `show0${number}` && this.state.show === 'block' ) return <div className='featureList'><TextSpring content={content} widthStart={'0%'} widthStop={'100%'} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} /></div>
+    if (this.state[id] === `show0${number}` && this.state.show === 'block' ) return <div className='featureList'><TextSpringMobile content={content} widthStart={'0%'} widthStop={'100%'} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} /></div>
     return <div style={{displapy: 'none'}}></div>
   }
 
@@ -42,11 +42,11 @@ export class FeatureList extends Component {
 
   render() {
     return (
-      <div onMouseEnter={() => { this.setState({ hover: 'true' }) }} onMouseLeave={() => { this.setState({ hover: 'false' }) }} style={{ paddingTop: '100px', width: '700px', height: 'auto', display: this.state.show }}>
-        <div onClick={() => { this.setState({ 'item0': '', 'item1': '', 'item2': '', 'item3': '', 'item4': '', show:'none' }) }} className="featureList" style={{ color: `${this.hover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div>
+      <div onMouseEnter={() => { this.setState({ hover: 'true' }) }} onMouseLeave={() => { this.setState({ hover: 'false' }) }} style={{ paddingTop: '10px', width: '700px', height: 'auto', display: this.state.show }}>
+        {/* <div onClick={() => { this.setState({ 'item0': '', 'item1': '', 'item2': '', 'item3': '', 'item4': '', show:'none' }) }} className="featureList" style={{ color: `${this.hover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div> */}
         <div>{this.featureList(0, 'Ogrzewanie podłogowe na parterze')}</div>
         <div>{this.featureList(1, 'Dwie pełne kondygnacje')}</div>
-        <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny z zasobnikiem na wodę')}</div>
+        <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny z zasobnikiem')}</div>
         <div>{this.featureList(3, 'Okna trójszybowe')}</div>
         <div>{this.featureList(4, 'Funkcjonalna przestrzeń, duże przeszklenia')}</div>
       </div>

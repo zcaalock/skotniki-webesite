@@ -3,28 +3,33 @@ import { connect } from 'react-redux'
 import { editState } from '../actions/appState'
 
 import FeatureList from '../components/FeatureList'
+import MobileFeatureList from '../components/MobileFeatureList'
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/css/image-gallery.css"
 
 
 
 class MenuItem01 extends React.Component {
-
- 
-
-  componentDidMount() {    
+  componentDidMount() {
+    this.setState({ show: 'block' })
     this.props.editState('0%', 'widthStop')
     this.props.editState('15.66%', 'heightStop')
     this.props.editState('Galeria', 'activeItem')
     this.props.editState('', 'secondaryTitle')
     this.props.editState('show', 'ui')
     this.props.editState('false', 'menuHide')
+  }  
+
+  featurePC() {    
+    if (this.props.appState.width > 905) return <FeatureList />
+    return <div style={{display: 'none'}}></div>
   }
 
-  
+  featureMobile() {
+    if (this.props.appState.width <= 905) return <MobileFeatureList />
+  }
 
   render() {
-    console.log('number: ', this.state)
     const images = [
       {
         original: 'img/v19a (Duży).jpg'
@@ -41,10 +46,11 @@ class MenuItem01 extends React.Component {
     ]
     return (
       <div className='pageContent'>
-        <FeatureList/>
-        <div className='homeGallery'>          
+        {this.featurePC()}
+        <div className='homeGallery'>
           <ImageGallery showThumbnails={false} showBullets={true} items={images} />
         </div>
+        {this.featureMobile()}
       </div>
     )
   }

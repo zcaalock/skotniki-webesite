@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class MobileBottomBar extends React.Component {
 
   uiCheck() {
-    if(this.props.appState.ui === 'show' && window.innerWidth<904) return (
+    if(this.props.appState.ui === 'show' && this.props.appState.width<904 && this.props.appState.height>570) return (
       <div className='mobileBottomBar' style={{display: 'flex', position: 'absolute', bottom: '0'}}>
         <div style={{width: '36%', padding: '10px', backgroundColor: '#efefef'}}>
           <img className='menuLogo' src="/img/logo.png" alt="Skotniki logo" />
@@ -15,13 +15,13 @@ class MobileBottomBar extends React.Component {
         <div style={{backgroundColor: 'rgba(81, 122, 66, 0.79)', padding: '10px', width: '64%'}}>
           <strong>Kontakt</strong><br/> 
           biuro@przyspacerowej.pl<br/>          
-          tel. +48 883 986 666<br/>
+          tel. +48 509 192 091<br/>
           tel. +48 12 628 08 00
           </div>
       </div>
     )
 
-    return <div></div>
+    return <div style={{display: 'none'}}></div>
   }
   render() {
     return (

@@ -7,6 +7,26 @@ import history from '../history'
 
 class LeftMenu extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);  
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {    
+    this.props.editState( window.innerWidth, 'width' );
+    this.props.editState( window.innerHeight, 'height')
+  }
+  
+
   showAdminPanel() {
     
     if(this.props.user.authenticated === true) return (

@@ -12,7 +12,6 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class MenuItem02 extends React.Component {
 
-
   componentDidMount() {
     this.props.editState('false', 'menuHide')
     this.props.editState('Prezentacja', 'activeItem')
