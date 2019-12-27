@@ -142,9 +142,10 @@ div ::-webkit-scrollbar {
 
   .contentContainer {
     display: flex;
-    width:80%;    
+    width:100%;    
     flex-direction: column;
-    background-color: #efefef
+    background-color: #efefef;
+    z-index: 0
   }
 
   .localisation {
@@ -448,6 +449,8 @@ div ::-webkit-scrollbar {
     .pageContent div {
       animation: fadein 2s;   
     }
+
+    
     
     @keyframes fadein {
       from {

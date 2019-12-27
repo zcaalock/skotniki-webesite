@@ -36,7 +36,7 @@ class BottomMenu extends Component {
   }
 
   hideMenuBar() {
-    if (this.props.appState.menuHide === 'true') return {display: 'none'}
+    if (this.props.appState.menuHide === 'true' || this.props.appState.landingPage === 'true') return {display: 'none'}
     return {display: ''}
   }
 

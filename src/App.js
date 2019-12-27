@@ -9,14 +9,16 @@ import store from './reducers/index'
 
 import LeftMenu from './pages/LeftMenu'
 import PageTitle from './components/PageTitle'
+import BottomMenu from './pages/BottomMenu'
+
 import MenuItem01 from './pages/MenuItem01'
-//import LandingPage from './pages/LandingPage'
 import MenuItem02 from './pages/MenuItem02'
 import MenuItem03 from './pages/MenuItem03'
-import BottomMenu from './pages/BottomMenu'
 import MenuItem04 from './pages/MenuItem04'
 import MenuItem05 from './pages/MenuItem05'
 import MenuItem06 from './pages/MenuItem06'
+import W19 from './pages/W19Page'
+
 import LegalInfoBar from './pages/LegalInfoBar'
 import Login from './forms/Login'
 
@@ -60,8 +62,7 @@ class App extends React.Component {
             <MobileMenu />
               <PageTitle/>
               <Route>
-                <Route exact path="/" component={MenuItem01} />
-                {/* <Route exact path="/LandingPage" component={LandingPage} /> */}
+                <Route exact path="/" component={MenuItem01} />                
                 <Route exact path="/MenuItem01" component={MenuItem01} />
                 <Route exact path="/MenuItem02" component={MenuItem02} />
                 <Route exact path="/MenuItem03" component={MenuItem03} />
@@ -69,6 +70,7 @@ class App extends React.Component {
                 <Route exact path="/MenuItem05" component={MenuItem05} />
                 <Route exact path="/MenuItem06" component={MenuItem06} />
                 <Route exact path="/admin" component={Login} />
+                <Route exact path="/w19" component={W19} />
               </Route>
               <BottomMenu />
             <MobileBottomBar />

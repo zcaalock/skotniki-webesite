@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class MobileBottomBar extends React.Component {
 
   uiCheck() {
-    if(this.props.appState.ui === 'show' && this.props.appState.width<904 && this.props.appState.height>570) return (
+    if(this.props.appState.ui === 'show' && this.props.appState.width<904 && this.props.appState.height>570 && this.props.appState.landingPage === 'false') return (
       <div className='mobileBottomBar' style={{display: 'flex', position: 'absolute', bottom: '0'}}>
         <div style={{width: '36%', padding: '10px', backgroundColor: '#efefef'}}>
           <img className='menuLogo' src="/img/logo.png" alt="Skotniki logo" />

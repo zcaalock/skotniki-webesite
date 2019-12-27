@@ -31,7 +31,7 @@ class MenuItem05 extends React.Component {
       <>
         <img className='imageAutoHeight' src="/img/w19-02.jpg" alt="wawrzynca19" />
         <img className='imageAutoHeight' src="/img/w19-01.jpg" alt="wawrzynca19" />
-        <a style={{ marginBottom: '15px' }} href='http://www.wawrzynca19.pl' target="_blank" rel="noopener noreferrer" alt="wawrzynca19">wawrzynca19.pl</a>
+        <a style={{ marginBottom: '15px' }} href='/w19' alt="wawrzynca19">wawrzynca19.pl</a>
       </>)
 
     if (this.state.itemSelected === 'skotniki') return (

@@ -13,6 +13,7 @@ const appState = {
   heightStop: '0%',
   zIndex: '10',
   ui: 'show',
+  landingPage: 'false',
   menuHide: 'true'
 
 }

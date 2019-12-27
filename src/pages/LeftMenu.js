@@ -42,7 +42,7 @@ class LeftMenu extends React.Component {
   }
 
   render() {
-    return (
+    if(this.props.appState.landingPage === 'false') return (
       <div className='leftMenu'>
         <div className='menuTop'>
           <div className='menuGreenBar'>{this.showAdminPanel()}</div>
@@ -58,6 +58,7 @@ class LeftMenu extends React.Component {
           </div>
       </div>
     )
+    return <div></div>
   }
 }
 

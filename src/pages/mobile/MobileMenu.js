@@ -63,13 +63,10 @@ class BottomMenu extends Component {
   }
   
   render() {    
-    return (
+    if(this.props.appState.landingPage === 'false') return (      
       <Spring 
       from= {{ width: '50px', height: '50px', overflow: 'hidden'}}
-      to= {{ width: this.state.width, height: this.state.height }}>
-        
-     
-    
+      to= {{ width: this.state.width, height: this.state.height }}>   
     {props  => <div className='mobileNavBar' style={props}>
       <div onClick={()=>this.toggleMenu()}><h3>
         <div style={{top: '0', left: '0', width: '50px',height: '50px', position: "absolute", backgroundColor: 'rgb(115, 147, 103)', zIndex: -1}}></div>
@@ -80,11 +77,9 @@ class BottomMenu extends Component {
         </div>
         {/* <div style={{ backgroundColor: '#517A42', width: '30%' }}></div> */}
     </div> }
-
-
     </Spring>
-
     )
+    return <div></div>
   }
 }
 
