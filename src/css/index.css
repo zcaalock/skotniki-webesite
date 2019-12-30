@@ -101,12 +101,13 @@ div ::-webkit-scrollbar {
   }
 
   .AppContainer {
-    display: flex !important;
-    margin: auto;
+    display: flex !important;    
     flex-direction: row !important;
     padding: 0px !important;  
     max-width: 1600px;
-    background-color: white !important;
+    background-color: white; 
+    margin:auto;
+    overflow: hidden;
   }
 
   .pageContent {  
