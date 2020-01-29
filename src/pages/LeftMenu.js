@@ -1,7 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { editState } from '../actions/appState'
 import { logoutUser } from '../actions/users'
 import history from '../history'
 import windowSize from '../components/widnowSize'
