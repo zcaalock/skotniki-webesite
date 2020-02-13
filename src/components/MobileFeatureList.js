@@ -46,7 +46,7 @@ export class FeatureList extends Component {
         {/* <div onClick={() => { this.setState({ 'item0': '', 'item1': '', 'item2': '', 'item3': '', 'item4': '', show:'none' }) }} className="featureList" style={{ color: `${this.hover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div> */}
         <div>{this.featureList(0, 'Ogrzewanie podłogowe na parterze')}</div>
         <div>{this.featureList(1, 'Dwie pełne kondygnacje')}</div>
-        <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny z zasobnikiem')}</div>
+        <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny')}</div>
         <div>{this.featureList(3, 'Okna trójszybowe')}</div>
         <div>{this.featureList(4, 'Funkcjonalna przestrzeń, duże przeszklenia')}</div>
       </div>
