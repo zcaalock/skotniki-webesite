@@ -39,8 +39,9 @@ class MenuItem04 extends React.Component {
   }
 
   mapSize() {
-    if (this.props.appState.width < 905) return this.state.width - 10
+    if (this.props.appState.width < 905) return 370 
     return 550
+    
   }
 
   showPdf(type) {
