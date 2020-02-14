@@ -52,6 +52,9 @@ class MenuItem02 extends React.Component {
           <div className="localisationText">
             {this.renderContent()}</div>
           <div className="localisationMap">
+            <div className='map'>
+              <img style={{width: '100%'}} src='/svg/big_map.svg'></img>
+            </div>
             <div
               className="map"
             //style={{ height: '100%', width: '100%', paddingTop: '49px' }}
