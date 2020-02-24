@@ -21,10 +21,10 @@ class MenuItem04 extends React.Component {
   state = {
     tableData: [],
     isLoaded: 'false',
-    placeholder: ['full', 'very long', 'long', 'medium', 'short', 'very short'],    
+    placeholder: ['full', 'very long', 'long', 'medium', 'short', 'very short'],
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     this.props.fetchReservations()
     this.props.editState('false', 'menuHide')
     this.props.editState('48%', 'widthStop')
@@ -32,16 +32,23 @@ class MenuItem04 extends React.Component {
     this.props.editState('Wybierz Dom', 'activeItem')
     this.props.editState('Plan Osiedla', 'secondaryTitle')
     this.props.editState('hide', 'ui')
-  }  
+  }
 
   selectArea(id) {
     if (this.props.appState.secondaryTitle === id) return { backgroundColor: '#efefef' }
   }
 
+  reserverdArea(id) {
+    const num = parseInt(id.slice(-2), 10)-1
+    if (this.props.reservations[num].status === 'reserved') return { backgroundColor: '#ffedba' } 
+    if (this.props.reservations[num].status === 'sold') return { backgroundColor: '#6b849e' }
+       
+  }
+
   mapSize() {
-    if (this.props.appState.width < 905) return 370 
+    if (this.props.appState.width < 905) return 370
     return 550
-    
+
   }
 
   showPdf(type) {
@@ -55,7 +62,13 @@ class MenuItem04 extends React.Component {
       let reservations = _.chain(this.props.reservations).reject({ status: 'blocked' }).reject({ status: 'disabled' }).value()
       return reservations.map(data => {
         return (
-          <Table.Row onMouseEnter={() => this.props.editState(data.name, 'secondaryTitle')} onMouseLeave={() => this.props.editState('Plan Osiedla', 'secondaryTitle')} style={this.selectArea(data.name)} id={data.name} key={data.name}>
+          <Table.Row
+            onMouseEnter={() => this.props.editState(data.name, 'secondaryTitle')}
+            onMouseLeave={() => this.props.editState('Plan Osiedla', 'secondaryTitle')}
+            //style={this.selectArea(data.name)} 
+            style={this.reserverdArea(data.name)} 
+            id={data.name}
+            key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
             <Table.Cell>{data.plot}</Table.Cell>
             <Table.Cell>{data.pum}</Table.Cell>
