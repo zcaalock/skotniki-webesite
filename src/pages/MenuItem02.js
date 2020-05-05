@@ -67,7 +67,7 @@ class MenuItem02 extends React.Component {
                 <AnyReactComponent
                   lat={49.9970347}
                   lng={19.8673887}
-                  text="osiedle PrzySpacerowej Faza II - ul. ks. Trockiego"
+                  text="osiedle PrzySpacerowej Etap II - ul. ks. Trockiego"
                 />
               </GoogleMapReact>
             </div>
