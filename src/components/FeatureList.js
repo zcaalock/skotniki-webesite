@@ -24,9 +24,9 @@ export class FeatureList extends Component {
     setTimeout(() => {
       this.setState({ 'item4': 'show04' })
     }, 3500);
-    // setTimeout(() => {
-    //   this.setState({ show:'none' })
-    // }, 10500);
+     setTimeout(() => {
+       this.setState({ show:'none' })
+     }, 10500);
   }
   
 

@@ -10,7 +10,7 @@ class MenuItem05 extends React.Component {
 
   componentDidMount() {
     this.props.editState('false', 'menuHide')
-    this.props.editState('68%', 'widthStop')
+    this.props.editState('58%', 'widthStop')
     this.props.editState('84.3%', 'heightStop')
     this.props.editState('Doświadczenie', 'activeItem')
     this.props.editState('Wawrzyńca 19', 'secondaryTitle')

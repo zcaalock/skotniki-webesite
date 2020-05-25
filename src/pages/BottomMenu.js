@@ -21,6 +21,7 @@ class BottomMenu extends Component {
       { title: 'Dostępne Domy', id: 'MenuItem04' },
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
+      { title: 'Dziennik', id: 'MenuItem07' },
     ]
   }
 

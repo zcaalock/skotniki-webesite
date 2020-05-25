@@ -27,7 +27,7 @@ class MenuItem04 extends React.Component {
   componentDidMount() {
     this.props.fetchReservations()
     this.props.editState('false', 'menuHide')
-    this.props.editState('48%', 'widthStop')
+    this.props.editState('40%', 'widthStop')
     this.props.editState('66.64%', 'heightStop')
     this.props.editState('Wybierz Dom', 'activeItem')
     this.props.editState('Plan Osiedla', 'secondaryTitle')

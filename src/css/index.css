@@ -47,9 +47,6 @@ div ::-webkit-scrollbar {
   
 }
 
-
-
-
 @media(min-width: 905px) {
 
   .icon:hover{color:rgba(81, 122, 66, 0.79)}
