@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { connect } from 'react-redux'
-
+import GreenSpring from '../components/GeenSpringProgress'
 import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
 
@@ -77,14 +77,22 @@ class MenuItem07 extends React.Component {
     return <div></div>
   }
 
+  renderProgress() {
+    if (this.props.appState.secondaryTitle === 'Rozpoczęcie Budowy') return '20px'
+    if (this.props.appState.secondaryTitle === '01 maja 2020') return '95px'
+    if (this.props.appState.secondaryTitle === 'Zakończenie Budowy') return '95px'
+    return '20px'
+  }
+
   renderContent() {
     if (this.props.appState.loading === 'false') return (
       <>
         <div className='ProgressBarContainer' >
           <div className='ProgressBar' >
-            {this.renderDot('0.5%', 'Rozpoczęcie Budowy', '01.10.2019')}
+          <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
+            {this.renderDot('2.5%', 'Rozpoczęcie Budowy', '01.10.2019')}
             {this.renderDot('12%', '01 maja 2020', '01.05.2020')}
-            {this.renderDot('77%', 'Zakończenie Budowy', '30.06.2022')}
+            {this.renderDot('81%', 'Zakończenie Budowy', '30.06.2022')}
           </div>
         </div>        
         {this.renderImages()}
