@@ -14,7 +14,8 @@ const appState = {
   zIndex: '10',
   ui: 'show',
   landingPage: 'false',
-  menuHide: 'true'
+  menuHide: 'true',
+  scroll: undefined
 
 }
 
