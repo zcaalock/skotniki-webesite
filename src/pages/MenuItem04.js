@@ -42,6 +42,7 @@ class MenuItem04 extends React.Component {
     const num = parseInt(id.slice(-2), 10)-1
     if (this.props.reservations[num].status === 'reserved') return { backgroundColor: '#ffedba' } 
     if (this.props.reservations[num].status === 'sold') return { backgroundColor: '#6b849e' }
+    if (this.props.reservations[num].status === 'blocked') return { backgroundColor: '#ffcaba' }
        
   }
 
@@ -59,7 +60,7 @@ class MenuItem04 extends React.Component {
   renderTableForUser() {
     //console.log('state: ', this.state.tableData)    
     if (this.props.appState.reservationLoading === 'false') {
-      let reservations = _.chain(this.props.reservations).reject({ status: 'blocked' }).reject({ status: 'disabled' }).value()
+      let reservations = _.chain(this.props.reservations).reject({ status: 'disabled' }).value()
       return reservations.map(data => {
         return (
           <Table.Row
