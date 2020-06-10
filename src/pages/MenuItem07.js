@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import GreenSpring from '../components/GeenSpringProgress'
 import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
-import { ScrollTo, ScrollArea } from "react-scroll-to";
+
 
 
 
 class MenuItem07 extends Component {
 
-  myRef = React.createRef();
+
+  myRef = React.createRef()
+  myRef01 = React.createRef()
+
   componentDidMount() {
     this.props.editState(1800, 'scroll')
     this.props.editState('false', 'menuHide')
@@ -28,44 +31,18 @@ class MenuItem07 extends Component {
   //budowa 1000 dni
   //1 zdjęcie 213 dzien
 
-  renderDot(margin, title, date, scroll) {
+  renderDot(margin, title, date, scroll, ref) {
     let pDate = this.renderTextwidth(title)
     return (
-      <ScrollTo>
-        {({ scroll }) => {          
-          return (
-            <div
-              className='Dot'
-              style={{ marginLeft: margin, backgroundColor: this.renderDotColor(title)[0], zIndex: this.renderDotColor(title)[1] }}
-              onClick={() => { this.onEnter(title); this.props.editState(scroll, 'scroll'); scroll({ ref: this.myRef, x: 20, y: 500}) }}
-            >
-              <div className='ProgressDate' style={{ width: pDate[0], color: pDate[1], backgroundColor: pDate[2], zIndex: 10 }}>
-                <div style={{ padding: '2px' }}>{date}</div>
-              </div>
-            </div>
-          )
-        }}
-      </ScrollTo>
-
-    )
-  }
-
-
-  renderPhotos() {
-    return (
-
-      <ScrollArea id='scrollTop' onScroll={this.listenToScroll} className='TimeContent'>
-        <img onMouseOver={() => { this.props.editState('Rozpoczęcie Budowy', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/01.jpg" alt="trockiego01" />
-        <img onMouseOver={() => { this.props.editState('Rozpoczęcie Budowy', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/02.jpg" alt="trockiego02" />
-        <div ref={this.myRef}>My Element</div>
-        <img onMouseOver={() => { this.props.editState('01.05.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/03.jpg" alt="trockiego03" />
-        <img onMouseOver={() => { this.props.editState('01.05.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/04.jpg" alt="trockiego04" />
-        <img onMouseOver={() => { this.props.editState('01.05.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/05.jpg" alt="trockiego05" />
-        
-        <img onMouseOver={() => { this.props.editState('08.06.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/06.jpg" alt="trockiego06" />
-        <img onMouseOver={() => { this.props.editState('08.06.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/07.jpg" alt="trockiego07" />
-        <img onMouseOver={() => { this.props.editState('08.06.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/08.jpg" alt="trockiego08" />
-      </ScrollArea>
+      <div
+        className='Dot'
+        style={{ marginLeft: margin, backgroundColor: this.renderDotColor(title)[0], zIndex: this.renderDotColor(title)[1] }}
+        onClick={() => { this.onEnter(title); this.props.editState(scroll, 'scroll'); this.scrollToMyRef(ref) }}
+      >
+        <div className='ProgressDate' style={{ width: pDate[0], color: pDate[1], backgroundColor: pDate[2], zIndex: 10 }}>
+          <div style={{ padding: '2px' }}>{date}</div>
+        </div>
+      </div>
     )
   }
 
@@ -89,31 +66,31 @@ class MenuItem07 extends Component {
     return '20px'
   }
 
+  scrollToMyRef(ref) {
+    if (this.myRef.current && ref === 'myRef') {
+      document.querySelector('#scrollTop').scrollTo({
+        top:this.myRef.current.offsetTop, 
+        behavior: "smooth" 
+    })
+    }
 
+    if (this.myRef.current && ref === 'myRef01') {
+      document.querySelector('#scrollTop').scrollTo({
+        top:this.myRef01.current.offsetTop, 
+        behavior: "smooth"
+    })
+    }
+  }
 
   renderContent() {
 
     if (this.props.appState.loading === 'false') return (
-      <ScrollTo>
-      {({ scroll }) => (
-        <>
-        <div className='ProgressBarContainer' >
-          <div className='ProgressBar' >
-            <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
-            {this.renderDot('2.5%', 'Rozpoczęcie Budowy', '01.10.2019', 0), scroll}
-            {this.renderDot('12%', '01 maja 2020', '01.05.2020', 1800, scroll)}
-            {this.renderDot('13%', '08 czerwca 2020', '08.06.2020', 4500, scroll)}
-            {this.renderDot('81%', 'Zakończenie Budowy', '30.06.2022', 4500, scroll)}
 
-          </div>
-        </div>
-        {this.renderPhotos()}
-        </>
-      )}
-    </ScrollTo>
-        
-      
+      <>
 
+
+
+      </>
     )
     return (
       <div className='infoText' style={{ width: '50%' }}>
@@ -124,13 +101,35 @@ class MenuItem07 extends Component {
 
 
   render() {
-    console.log(this.myRef)
+
     return (
       <div className='pageContent' >
         <div className='DziennikContainer'>
 
-          {this.renderContent()}
 
+          <div className='ProgressBarContainer' >
+            <div className='ProgressBar'>
+              <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
+              {this.renderDot('2.5%', 'Rozpoczęcie Budowy', '01.10.2019', 0, 'myRef')}
+              {this.renderDot('12%', '01 maja 2020', '01.05.2020', 1800, 'myRef01')}
+              {this.renderDot('13%', '08 czerwca 2020', '08.06.2020', 4500)}
+              {this.renderDot('81%', 'Zakończenie Budowy', '30.06.2022', 4500)}
+            </div>
+          </div>
+
+          <div id='scrollTop' className='TimeContent'  >
+            <div ref={this.myRef}></div>
+            <img onMouseOver={() => { this.props.editState('Rozpoczęcie Budowy', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/01.jpg" alt="trockiego01" />
+            <img onMouseOver={() => { this.props.editState('Rozpoczęcie Budowy', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/02.jpg" alt="trockiego02" />
+            <div ref={this.myRef01}></div>
+            <img onMouseOver={() => { this.props.editState('01.05.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/03.jpg" alt="trockiego03" />
+            <img onMouseOver={() => { this.props.editState('01.05.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/04.jpg" alt="trockiego04" />
+            <img onMouseOver={() => { this.props.editState('01.05.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/05.jpg" alt="trockiego05" />
+
+            <img onMouseOver={() => { this.props.editState('08.06.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/06.jpg" alt="trockiego06" />
+            <img onMouseOver={() => { this.props.editState('08.06.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/07.jpg" alt="trockiego07" />
+            <img onMouseOver={() => { this.props.editState('08.06.2020', 'secondaryTitle'); this.props.editState(undefined, 'scroll') }} className='TimePhoto' src="/img//dziennik/08.jpg" alt="trockiego08" />
+          </div>
         </div>
       </div>
     )

@@ -2,8 +2,11 @@
   background-color: rgba(115, 147, 103, 0.04)
 }
 
+html { height: 100%; overflow:auto; }
+
+
 body {
-  
+  height: 100%;
   margin: 0px;
   padding: 0px;  
   /* font-family: 'Open Sans', sans-serif !important; */
