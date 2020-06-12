@@ -35,7 +35,8 @@ class MenuItem07 extends Component {
     this.props.editState('Dziennik Budowy', 'activeItem')
     this.props.editState('87%', 'widthStop')
     this.props.editState('100%', 'heightStop')
-    this.props.editState('01 maja 2020', 'secondaryTitle')
+    this.props.editState('8 czerwca 2020', 'secondaryTitle')
+    this.props.editState('myRef2', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -109,7 +110,7 @@ class MenuItem07 extends Component {
     return select.map(arr=> {     
               
       return (
-        <img key={arr.link} onMouseOver={() => { this.props.editState(arr.name, 'secondaryTitle'); this.props.editState(arr.group, 'scroll') }} className='TimePhoto' src={`/img//dziennik/${arr.link}`} alt="trockiego" />       
+        <img key={arr.link} onMouseOver={() => { this.props.editState(arr.title, 'secondaryTitle'); this.props.editState(arr.group, 'scroll') }} className='TimePhoto' src={`/img/dziennik/${arr.link}`} alt="trockiego" />       
       )
     })
   }
