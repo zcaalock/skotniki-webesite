@@ -15,7 +15,8 @@ const appState = {
   ui: 'show',
   landingPage: 'false',
   menuHide: 'true',
-  scroll: undefined
+  scroll: 'myRef0',
+  scrollHeight: 0
 
 }
 
