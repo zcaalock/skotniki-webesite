@@ -48,7 +48,7 @@ export class FeatureList extends Component {
         <div>{this.featureList(1, 'Dwie pełne kondygnacje')}</div>
         <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny')}</div>
         <div>{this.featureList(3, 'Okna trójszybowe')}</div>
-        <div>{this.featureList(4, 'Funkcjonalna przestrzeń, duże przeszklenia')}</div>
+        <div>{this.featureList(4, 'Domy przygotowane pod fotowoltaikę')}</div>
       </div>
     )
   }
