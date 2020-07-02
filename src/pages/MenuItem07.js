@@ -14,7 +14,10 @@ const photos = [
   { link: '05.jpg', group: 'myRef1', date: '01.05.2020', title: '1 maja 2020' },
   { link: '06.jpg', group: 'myRef2', date: '08.06.2020', title: '8 czerwca 2020' },
   { link: '07.jpg', group: 'myRef2', date: '08.06.2020', title: '8 czerwca 2020' },
-  { link: '08.jpg', group: 'myRef2', date: '08.06.2020', title: '8 czerwca 2020' }
+  { link: '08.jpg', group: 'myRef2', date: '08.06.2020', title: '8 czerwca 2020' },
+  { link: '09.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
+  { link: '10.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
+  { link: '11.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' }
 ]
 
 
@@ -35,8 +38,8 @@ class MenuItem07 extends Component {
     this.props.editState('Dziennik Budowy', 'activeItem')
     this.props.editState('87%', 'widthStop')
     this.props.editState('100%', 'heightStop')
-    this.props.editState('8 czerwca 2020', 'secondaryTitle')
-    this.props.editState('myRef2', 'scroll')
+    this.props.editState('1 lipca 2020', 'secondaryTitle')
+    this.props.editState('myRef3', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -50,7 +53,7 @@ class MenuItem07 extends Component {
     return select.map(arr=> {      
       i = i + 1
       let pDate = this.renderTextwidth(arr.group)
-      let margin = `${select.length * i / 615*10000 / i}%`
+      let margin = i===0 ? '10px' : `${750 / (select.length)}px`
       let title = arr.title
       let ref = arr.group
       let date = arr.date      
