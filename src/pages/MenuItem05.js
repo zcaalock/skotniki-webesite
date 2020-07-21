@@ -31,14 +31,14 @@ class MenuItem05 extends React.Component {
       <>
         <img className='imageAutoHeight' src="/img/w19-02.jpg" alt="wawrzynca19" />
         <img className='imageAutoHeight' src="/img/w19-01.jpg" alt="wawrzynca19" />
-        <a style={{ marginBottom: '15px' }} href='/w19' alt="wawrzynca19">wawrzynca19.pl</a>
+        <a style={{ marginBottom: '15px' }} href='/w19' alt="wawrzynca19">otwórz galerię</a>
       </>)
 
     if (this.state.itemSelected === 'skotniki') return (
       <>
-        <img className='imageAutoHeight' src="/img/skotniki_01.jpg" alt="skotniki" />
-        <img className='imageAutoHeight' src="/img/skotniki_02.jpg" alt="skotniki" />
-        <a style={{ marginBottom: '15px' }} href='http://www.przyspacerowej.pl' target="_blank" rel="noopener noreferrer" alt="wawrzynca19">przyspacerowej.pl</a>
+        <img className='imageAutoHeight' src="img/101/dron.jpg" alt="skotniki" />
+        <img className='imageAutoHeight' src="img/101/01.jpg" alt="skotniki" />
+        <a style={{ marginBottom: '15px' }} href='/s101' target="_blank" rel="noopener noreferrer" alt="wawrzynca19">otwórz galerię</a>
       </>)
 
     if (this.state.itemSelected === 'tyniecka') return (
