@@ -35,7 +35,7 @@ class W19 extends React.Component {
               <img className='item-img' src='img/101/01.jpg' alt='w19' />
               <div className='item-description left'>
                 <div className='item-description-box'>
-                Każdy z sześciu budynków podzielony jest na dwa niezależne segmenty mieszkalne, o powierzchni użytkowej od 105 do 109 m2
+               Powierzchnia użytowa domu wynosi od 105 do 109 m2
               </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ class W19 extends React.Component {
               <img className='item-img' src='img/101/02.jpg' alt='w19' />
               <div className='item-description right'>
                 <div className='item-description-box'>
-                Na parterze segmentu znajduje się pokój dzienny z aneksem kuchennym i wyjściem na ogród, toaleta, pomieszczenie gospodarcze oraz garaż. Na I piętrze znajdują 3 sypialnie oraz łazienka. Kondygnacja I piętra jest pełnej wysokości, 
+                Na parterze znajduje się pokój dzienny z aneksem kuchennym i wyjściem na ogród, toaleta, pomieszczenie gospodarcze oraz garaż. Na I piętrze znajdują 3 sypialnie oraz łazienka. Kondygnacja I piętra jest pełnej wysokości, 
               </div>
               </div>
             </div>
