@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { editState } from '../actions/appState'
-import '../css/s101.css'
+
 
 
 class W19 extends React.Component {

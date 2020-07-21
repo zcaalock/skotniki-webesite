@@ -31,9 +31,7 @@ class MenuItem07 extends Component {
       //console.log('ble', i)
       this[`myRef${i}`] = React.createRef()
     }
-  }
-
-  componentDidMount() {
+  
     this.props.editState('false', 'menuHide')
     this.props.editState('Dziennik Budowy', 'activeItem')
     this.props.editState('87%', 'widthStop')
@@ -157,7 +155,7 @@ class MenuItem07 extends Component {
 
 
   render() {
-    const { myRef } = this.props;    
+   // const { myRef } = this.props;    
     return (
       <div className='pageContent' >
         <div className='DziennikContainer'>

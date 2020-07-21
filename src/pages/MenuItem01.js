@@ -10,7 +10,8 @@ import "react-image-gallery/styles/css/image-gallery.css"
 
 
 class MenuItem01 extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     this.setState({ show: 'block' })
     this.props.editState('0%', 'widthStop')
     this.props.editState('15.66%', 'heightStop')

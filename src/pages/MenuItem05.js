@@ -8,7 +8,8 @@ class MenuItem05 extends React.Component {
 
   state = { itemSelected: 'wawrzynca' }
 
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     this.props.editState('false', 'menuHide')
     this.props.editState('58%', 'widthStop')
     this.props.editState('84.3%', 'heightStop')
@@ -43,8 +44,8 @@ class MenuItem05 extends React.Component {
 
     if (this.state.itemSelected === 'tyniecka') return (
       <>
-        <img className='imageAutoHeight' src="/img/tyniecka_01.jpg" alt="tyniecka" />
-        <img className='imageAutoHeight' src="/img/tyniecka_02.jpg" alt="tyniecka" />
+        <img className='imageAutoHeight' src="/img/159/dron1.jpg" alt="tyniecka" />
+        <img className='imageAutoHeight' src="/img/159/01.jpg" alt="tyniecka" />
         <a style={{ marginBottom: '15px' }} href='http://www.przytynieckiej.pl' target="_blank" rel="noopener noreferrer" alt="wawrzynca19">przytynieckiej.pl</a>
       </>)
   }

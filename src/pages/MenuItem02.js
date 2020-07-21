@@ -12,7 +12,8 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class MenuItem02 extends React.Component {
 
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     this.props.editState('false', 'menuHide')
     this.props.editState('Prezentacja', 'activeItem')
     this.props.editState('11%', 'widthStop')
@@ -53,7 +54,7 @@ class MenuItem02 extends React.Component {
             {this.renderContent()}</div>
           <div className="localisationMap">
             <div className='map'>
-              <img style={{width: '100%'}} src='/svg/big_map.svg'></img>
+              <img style={{width: '100%'}} src='/svg/big_map.svg' alt='map'></img>
             </div>
             <div
               className="map"

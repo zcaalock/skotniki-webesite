@@ -24,7 +24,8 @@ class MenuItem04 extends React.Component {
     placeholder: ['full', 'very long', 'long', 'medium', 'short', 'very short'],
   }
 
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     this.props.fetchReservations()
     this.props.editState('false', 'menuHide')
     this.props.editState('40%', 'widthStop')
