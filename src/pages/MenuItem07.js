@@ -17,7 +17,9 @@ const photos = [
   { link: '08.jpg', group: 'myRef2', date: '08.06.2020', title: '8 czerwca 2020' },
   { link: '09.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
   { link: '10.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
-  { link: '11.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' }
+  { link: '11.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
+  { link: '12.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' },
+  { link: '13.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' }
 ]
 
 
@@ -31,13 +33,13 @@ class MenuItem07 extends Component {
       //console.log('ble', i)
       this[`myRef${i}`] = React.createRef()
     }
-  
+
     this.props.editState('false', 'menuHide')
     this.props.editState('Dziennik Budowy', 'activeItem')
     this.props.editState('87%', 'widthStop')
     this.props.editState('100%', 'heightStop')
     this.props.editState('1 lipca 2020', 'secondaryTitle')
-    this.props.editState('myRef3', 'scroll')
+    this.props.editState('myRef4', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -48,13 +50,13 @@ class MenuItem07 extends Component {
   renderDot() {
     var select = _.uniqBy(photos, 'group')
     var i = -1
-    return select.map(arr=> {      
+    return select.map(arr => {
       i = i + 1
       let pDate = this.renderTextwidth(arr.group)
-      let margin = i===0 ? '10px' : `${750 / (select.length)}px`
+      let margin = i === 0 ? '10px' : `${700 / (select.length)}px`
       let title = arr.title
       let ref = arr.group
-      let date = arr.date      
+      let date = arr.date
       return (
         <div
           key={arr.link}
@@ -63,12 +65,12 @@ class MenuItem07 extends Component {
           onClick={() => { this.onEnter(title); this.props.editState(ref, 'scroll'); this.scrollToMyRef(ref) }}
         >
           <div className='ProgressDate' style={{ width: pDate[0], color: pDate[1], backgroundColor: pDate[2], zIndex: 10 }}>
-            <div style={{ paddingTop: '4px',  paddingLeft: '2px' }}>{date}</div>
+            <div style={{ paddingTop: '4px', paddingLeft: '2px' }}>{date}</div>
           </div>
-        </div>        
+        </div>
       )
     })
-    
+
   }
 
   renderDotColor(source) {
@@ -86,7 +88,7 @@ class MenuItem07 extends Component {
   renderProgress() {
     var count = _.uniqBy(photos, 'group')
     for (var i = 0; i < count.length; i++) {
-      
+
       if (this.props.appState.scroll === `myRef${i}`) return `${595 / (count.length - 1) * i}px`
     }
     return '0px'
@@ -104,28 +106,28 @@ class MenuItem07 extends Component {
     }
 
   }
-  
-  renderPhotoDivs(ref){
-    var select = _.filter(photos, {group: ref})   
-    
-    return select.map(arr=> {     
-              
+
+  renderPhotoDivs(ref) {
+    var select = _.filter(photos, { group: ref })
+
+    return select.map(arr => {
+
       return (
-        <img key={arr.link} onMouseOver={() => { this.props.editState(arr.title, 'secondaryTitle'); this.props.editState(arr.group, 'scroll') }} className='TimePhoto' src={`/img/dziennik/${arr.link}`} alt="trockiego" />       
+        <img key={arr.link} onMouseOver={() => { this.props.editState(arr.title, 'secondaryTitle'); this.props.editState(arr.group, 'scroll') }} className='TimePhoto' src={`/img/dziennik/${arr.link}`} alt="trockiego" />
       )
     })
   }
 
-  renderPhotoRefs(){
+  renderPhotoRefs() {
     var select = _.uniqBy(photos, 'group').reverse()
-    
-    return select.map(arr=> {      
-               
+
+    return select.map(arr => {
+
       return (
         <div key={arr.group}>
-        <div ref={this[arr.group]}></div> 
-        {this.renderPhotoDivs(arr.group)}
-        </div>        
+          <div ref={this[arr.group]}></div>
+          {this.renderPhotoDivs(arr.group)}
+        </div>
       )
     })
   }
@@ -137,12 +139,12 @@ class MenuItem07 extends Component {
         <div className='ProgressBarContainer' >
           <div className='ProgressBar'>
             <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
-            {this.renderDot()}            
+            {this.renderDot()}
           </div>
         </div>
 
         <div id='scrollTop' className='TimeContent'  >
-          {this.renderPhotoRefs()}          
+          {this.renderPhotoRefs()}
         </div>
       </>
     )
@@ -155,7 +157,7 @@ class MenuItem07 extends Component {
 
 
   render() {
-   // const { myRef } = this.props;    
+    // const { myRef } = this.props;    
     return (
       <div className='pageContent' >
         <div className='DziennikContainer'>
