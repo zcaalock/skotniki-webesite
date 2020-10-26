@@ -1,38 +1,66 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
-export default class BottomMenu extends Component {
-  
+import history from '../history'
+import { editState } from '../actions/appState'
+import { fetchPages } from '../actions/pages'
+import GreenSpring from '../components/GeenSpring'
+
+
+class BottomMenu extends Component {
+
+  componentDidMount() {
+    this.props.fetchPages() 
+  }
+
+  state = {
+    menuNames: [
+      { title: 'Galeria', id: 'MenuItem01' },
+      { title: 'Prezentacja', id: 'MenuItem02' },
+      { title: 'Twój Dom', id: 'MenuItem03' },
+      { title: 'Dostępne Domy', id: 'MenuItem04' },
+      { title: 'Doświadczenie', id: 'MenuItem05' },
+      { title: 'Kontakt', id: 'MenuItem06' },
+      { title: 'Dziennik', id: 'MenuItem07' },
+    ]
+  }
+
+  handleClick(id) {    
+    history.push(`/${id}`)
+  }
+
+  renderMenu() {
+    const pages = this.state.menuNames
+    return pages.map(page => {
+      return <div onClick={() => this.handleClick(page.id)} key={page.id} className='menuItem'>{page.title}</div>
+    })
+  }
+
+  hideMenuBar() {
+    if (this.props.appState.menuHide === 'true' || this.props.appState.landingPage === 'true') return {display: 'none'}
+    return {display: ''}
+  }
 
   render() {
-    const { activeItem } = this.props.state
-
     return (
-      <div className='menuBottom'>
-        <Menu style={{height: '7vh'}} color={'green'}>
-          <Menu.Item name='galeria' active={activeItem === 'galeria'} onClick={this.props.handleItemClick} />          
-          <Menu.Item
-            name='informacje'
-            active={activeItem === 'informacje'}
-            onClick={this.props.handleItemClick}
-          />
-          <Menu.Item
-            name='plany'
-            active={activeItem === 'plany'}
-            onClick={this.props.handleItemClick}
-          />          
-          <Menu.Item
-            name='rezerwacje'
-            active={activeItem === 'rezerwacje'}
-            onClick={this.props.handleItemClick}
-          /> 
-          <Menu.Item
-            name='inwestor'
-            active={activeItem === 'inwestor'}
-            onClick={this.props.handleItemClick}
-          />              
-        </Menu>       
+      <div className='bottomeNavBar' style={this.hideMenuBar()}>
+        <div className='menuBottom'>
+          <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} />
+          {this.renderMenu()}
+        </div>
+        <div style={{ backgroundColor: 'rgba(81, 122, 66, 0.79)', width: '30%' }}></div>
+   
       </div>
+
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    pages: Object.values(state.pages),
+    appState: state.appState
+  }
+}
+
+export default connect(mapStateToProps, { editState, fetchPages })(BottomMenu)

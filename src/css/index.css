@@ -1,61 +1,177 @@
 #root {
-  background-color: #bfbfbf
+  background-color: rgba(115, 147, 103, 0.04)
 }
+
+html { height: 100%; overflow:auto; }
+
 
 body {
-  
+  height: 100%;
   margin: 0px;
   padding: 0px;  
-  font-family: 'Open Sans', sans-serif !important;
+  /* font-family: 'Open Sans', sans-serif !important; */
 }
 
-@media(min-width: 980px) {
+div ::-webkit-scrollbar {
+  display: none;
+}
+
+.login{
+  position: absolute;
+  width:  330px;
+  
+  top: calc(50% - 100px);
+  left: calc(50% - 160px);
+  padding: 25px;
+  
+  background-color: #bcbdbd26
+}
+
+@media(min-width: 1540px){
+  .image-gallery-image img {
+    height: auto !important;
+    width: 100% !important
+  }
+  
+}
+
+@media screen and (min-width: 903px) and (max-width: 1540px){
+  .image-gallery-image img {
+    height: 80vh;
+    width: auto !important
+  } 
+  
+}
+
+@media (max-width: 1200px){
+  .landingText {
+    font-size: 2rem !important
+  }
+  
+}
+
+@media(min-width: 905px) {
+
+  .icon:hover{color:rgba(81, 122, 66, 0.79)}
+  .featureList {
+    position: relative;    
+    margin-left: 60px;
+    padding-top: 10px;
+    z-index: 10
+  }
+
+  .listItems {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .mobileBottomBar {
+    display: none !important
+  }
+  .mobileNavBar {
+    display: none
+  }
+
+  .mobilePlans {
+    display: none
+  }
+
+  .mobileMap {
+    display: none
+  }
+
+  .adminPanelTitle {
+    display: flex;
+    padding-top: 15px;
+    color: #af0000;
+    justify-content: center;
+  }
+
+  .landingText {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    width: 100%;
+    background: #ffffffde;
+    text-align: center;
+    height: 100px;
+    font-size: 4rem;
+  }
+
   .AppContainer {
-    display: flex !important;
-    margin: auto;
+    display: flex !important;    
     flex-direction: row !important;
     padding: 0px !important;  
-    
-    background-color: #efefef !important;
+    max-width: 1600px;
+    background-color: white; 
+    margin:auto;
+    overflow: hidden;
   }
 
   .pageContent {  
-    height: 80vh;
+    height: calc(80vh - 50px);
     background-color: white;
     overflow: hidden; 
     position: relative;
+  }
+
+   
+  .pageContent div {
+    animation: fadein 1s;   
+  }
+  
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
   }
 
   .leftMenu {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 35%;
-    min-width: 215px
+    width: 20%;
+    max-width: 500px;
+    min-width: 215px;
+    background-color: #efefef
   }
 
   .contentContainer {
     display: flex;
-    width:100%;
-    max-width: 1400px;
-    flex-direction: column
+    width:100%;    
+    flex-direction: column;
+    background-color: #efefef;
+    z-index: 0
   }
 
   .localisation {
     display: flex;
     flex-direction: row; 
-    height: 100%;   
+    height: 99%; 
+    overflow: auto   
     
   }
 
   .localisationText {    
     width: 50%;
-    overflow: auto;    
+    min-width: 480px;
+    overflow: auto   
   }
+
+  
 
   .localisationMap {
     width: 50%;
     padding: 15px    
+  }
+
+  .bottomeNavBar{
+    display: flex
   }
 
   .menuBottomLeft {
@@ -66,28 +182,44 @@ body {
     padding-top: 20px
   }
 
-  .rightBar {
-    width: 10%; 
+  .menuBottom {    
+    width: 70%;
+    min-width: 650px;
+    margin: 0;
     display: flex;
-    background-color: #517A42;
+    height: 7vh;
+    position: relative;
+    display: flex;
+    /* background-color: #517A42 !important   */
+    background-color: rgba(81, 122, 66, 0.79)
+  } 
+
+  .menuItem {
+    cursor: pointer;
+    z-index: 9;
+    padding: 15px;
+    margin: auto
+  }
+
+  .rightBar {
+    width: 5%; 
+    display: flex;
+    background-color: #EFEFEF;
     flex-direction: column 
   }
 
-  .menuBottom {
-    padding-left: 65px;
-    margin-top: auto;
-    margin-bottom: auto
-  }  
+   
 
   .homeGallery {  
-    padding-top: 50px;
     position: absolute;
     bottom: 0;  
-    width: 100%;   
+     
   }
 
+  
+
   .imageAuto {
-    height: 94%;
+    height: 90%;
     padding: 15px
    }
 
@@ -97,7 +229,7 @@ body {
    }
 
    .imageAutoHeight {
-    height: 45%;
+    height: 43%;
     padding: 15px;
     margin: auto
   }
@@ -108,150 +240,67 @@ body {
    }
 
    .plans {    
-    padding-top: 50px;
+    
     text-align: center;
     width: 50%;
   }
 
+  .plans div {
+    margin: auto
+  }
+
   .devImages { 
-    width: 45%;  
+    width: 50%;      
     padding-top: 50px;
     text-align: center;    
     display: flex;
     flex-direction: column
   }
 
+  
+
   .infoText {
-    padding: 100px 63px 25px !important;
+    padding: 50px 63px 25px !important;
+    
   }
 
   .map{
-    padding-top: 49px;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media(max-width: 980px) {
-  .AppContainer {
-    display: flex !important;
-    margin: auto;
-    flex-direction: column !important;
-    padding: 0px !important;  
     
-    background-color: #efefef !important;
+    width: 100%;
+    height: 50%;
   }
 
-  .pageContent {      
-    background-color: white;
-    overflow: hidden; 
-    position: relative;
-    order: 2
+  .mobilePlans{
+    display: none
   }
 
-  .leftMenu {
-    display: none;
-    flex-direction: column;
-    text-align: center;
-    width: 100%
+  .devNavButtons {
+    display: flex; 
+    margin: auto
   }
 
-  .contentContainer {
+  .legalInfo {
     display: flex;
-    width:100%;
-    flex-direction: column
+    padding-left:15px;
+    padding-right:15px;      
+    position: absolute;
+    bottom: 0;
+    justify-content: space-between;
+    font-size: 10px
   }
 
-  .localisation {
-    display: flex;
-    flex-direction: column; 
-    height: 100%;   
+  .menuLogo {
+    width: 90%;
+    padding: 40px 20px 20px 20px;
+    margin: 0 auto 0 auto
     
-  }
-
-  .localisationText { 
-    height: 50vh;   
-    width: 100%;
-    overflow: auto;    
-  }
-
-  .localisationMap {
-    height: 50vh;
-    width: 100%;
-    padding: 15px    
-  }
-
-  .menuBottom {
-    min-width: 350px;
-    padding-left: 0px;    
-  }
-  
-  .menuBottom a {
-    
-    padding: 10px !important
-  }
-  .rightBar {
-    display: none !important;
-    width: 10%; 
-    display: flex;
-    background-color: #517A42;
-    flex-direction: column 
-  }
-  .homeGallery {  
-    padding-top: 50px;    
-    bottom: 0;  
-    width: 100%;    
-  }
-
-  .imageAuto {
-    width: 100%;
-    padding: 15px
-   }
-
-   .imageAutoHeight {
-    height: 45%;
-    padding: 15px
-  }
- 
-   .plansAuto {
-     width: 100%;
-     padding: 10px
-   }
-
-   .plans {        
-    text-align: center;
-    width: 100%;
-  }
-  
-
-  .devImages {    
-    padding-top: 15px;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column
-  }
-
-  .imageAutoHeight {
-     padding: 15px;
-     width: 100%
-  }
-
-  .infoText {
-    padding: 100px 60px 10px !important;
-  }
-
-  .map{
-    padding: 5px;
-    width: 100%;
-    height: 100%;
-  }
+    }
 }
 
 
 
 .title {
-  position: absolute;
+  display: flex;
   background-color: #efefef;
   width: 100%;
   height: 50px;
@@ -260,35 +309,176 @@ body {
   z-index: 10;
 }
 
+.titleItem {
+  width: calc(50% - 10px)
+}
 
-
-
-
-
-
-
-
+.titleItemSecondary {
+  text-align: center;
+  width: calc(50% - 10px)
+}
 
 
 .menuGreenBar {
   height: 50px;
   width: 100%;
-  background-color: #517A42
+  background-color: rgba(81, 122, 66, 0.79) 
 }
 
-.menuLogo {
-  width: 90%;
-  margin: 0 auto 0 auto
-  
-  }
+
 
   .menuTop {
     height: 80vh;
   }
 
- 
+  .imgMenu{    
+    margin: auto !important;
+    padding-bottom: 5px         
+  }
+  
+  .ui.button {
+    margin: 3px
+  }
 
   
+  
+  @media(max-width: 905px) {
+    .localisation{ padding: 10px}
+    .menuLogo {
+      width: 90%;
+      padding: 0;
+      margin: 0 auto 0 auto
+      
+      }
+
+      .icon:hover{color:rgba(81, 122, 66, 0.79)}
+      .featureList {
+        position: relative;    
+        margin-left: 10px;
+        padding-top: 10px;
+        z-index: 10
+      }
+    
+      .listItems {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+      }
+
+    .legalInfo {
+      display: none
+    }
+
+    .imageAutoWidth {
+      width: 100%;
+      padding: 15px
+    }
+
+    .imageAutoHeight {
+      padding-top: 10px;
+      height: auto;
+      width: 100%
+    }
+
+    .devNavButtons {
+      display: flex; 
+      flex-direction: column;
+      margin: auto
+    }
+
+    .infoText {
+      
+    padding-bottom: 20px 
+    }
+
+    .plans {
+      display: none
+    }
+
+    .image-gallery-image img {
+      height: auto;
+      width: 100%
+    }
+
+    .leftMenu {
+      display: none
+    }
+
+    .bottomeNavBar {
+      display: none
+    }    
+
+    .mobileNavBar{
+      display: flex;
+      width: 100%;
+      margin-bottom: -50px;
+      padding: 15px;
+      position: relative;
+      z-index: 10;
+      background-color: #efefef;      
+    }
+
+    .mobileMenu {
+      margin-top: -15px;
+      padding-left: 5px;
+    }
+
+    .menuItem {
+      cursor: pointer;
+      z-index: 9;
+      padding: 15px;
+      margin: auto
+    }
+
+    .titleItemSecondary {
+      display: none
+    }
+
+    .pageContent {  
+      height: calc(87vh - 50px);
+      background-color: white;
+      /* padding: 18px; */
+      overflow-y: scroll; 
+      position: relative;
+    }
+  
+    .mobileBottomBar {
+      z-index: 10;
+    }
+     
+    .pageContent div {
+      animation: fadein 2s;   
+    }
+
+    
+    
+    @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+    }
+
+    
+  
+  }
+  
+  @media only screen and (min-width : 420px) and (max-width : 850px)  {
+    .mobileBottomBar {
+      display: none !important
+    }
+  
+    .pageContent {  
+      height: calc(95vh - 50px) !important;
+      background-color: white;
+      /* padding: 18px; */
+      overflow-y: scroll; 
+      position: relative;
+    }
+  }
 
   
 
