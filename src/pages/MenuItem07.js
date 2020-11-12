@@ -19,7 +19,9 @@ const photos = [
   { link: '10.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
   { link: '11.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
   { link: '12.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' },
-  { link: '13.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' }
+  { link: '13.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' },
+  { link: '14.jpg', group: 'myRef5', date: '01.11.2020', title: '1 listopada 2020' },
+  { link: '15.jpg', group: 'myRef5', date: '01.11.2020', title: '1 listopada 2020' },
 ]
 
 
@@ -38,8 +40,8 @@ class MenuItem07 extends Component {
     this.props.editState('Dziennik Budowy', 'activeItem')
     this.props.editState('87%', 'widthStop')
     this.props.editState('100%', 'heightStop')
-    this.props.editState('1 lipca 2020', 'secondaryTitle')
-    this.props.editState('myRef4', 'scroll')
+    this.props.editState('1 listopada 2020', 'secondaryTitle')
+    this.props.editState('myRef5', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -53,7 +55,7 @@ class MenuItem07 extends Component {
     return select.map(arr => {
       i = i + 1
       let pDate = this.renderTextwidth(arr.group)
-      let margin = i === 0 ? '10px' : `${700 / (select.length)}px`
+      let margin = i === 0 ? '10px' : `${665 / (select.length)}px`
       let title = arr.title
       let ref = arr.group
       let date = arr.date
