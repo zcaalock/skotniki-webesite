@@ -47,7 +47,7 @@ export class FeatureList extends Component {
     return (
       <div onMouseEnter={() => { this.setState({ hover: 'true' }) }} onMouseLeave={() => { this.setState({ hover: 'false' }) }} style={{ paddingTop: '100px', width: '700px', height: 'auto', display: this.state.show }}>
         <div onClick={() => { this.setState({ 'item0': '', 'item1': '', 'item2': '', 'item3': '', 'item4': '', show:'none' }) }} className="featureList" style={{ color: `${this.hover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div>
-        <div style={{color:'#ffcaba'}}>{this.featureList(0, 'Osiedlowa oczyszczalnia ścieków')}</div>
+        <div style={{color:'rgb(219 91 52)'}}>{this.featureList(0, 'Osiedlowa oczyszczalnia ścieków')}</div>
         <div>{this.featureList(1, 'Ogrzewanie podłogowe na parterze')}</div>
         <div>{this.featureList(2, 'Dwie pełne kondygnacje')}</div>
         <div>{this.featureList(3, 'Kocioł gazowy kondensacyjny')}</div>
