@@ -24,9 +24,9 @@ export class FeatureList extends Component {
     setTimeout(() => {
       this.setState({ 'item4': 'show04' })
     }, 3500);
-     setTimeout(() => {
-       this.setState({ show:'none' })
-     }, 10500);
+    //  setTimeout(() => {
+    //    this.setState({ show:'none' })
+    //  }, 10500);
   }
   
 
@@ -47,11 +47,11 @@ export class FeatureList extends Component {
     return (
       <div onMouseEnter={() => { this.setState({ hover: 'true' }) }} onMouseLeave={() => { this.setState({ hover: 'false' }) }} style={{ paddingTop: '100px', width: '700px', height: 'auto', display: this.state.show }}>
         <div onClick={() => { this.setState({ 'item0': '', 'item1': '', 'item2': '', 'item3': '', 'item4': '', show:'none' }) }} className="featureList" style={{ color: `${this.hover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div>
-        <div>{this.featureList(0, 'Ogrzewanie podłogowe na parterze')}</div>
-        <div>{this.featureList(1, 'Dwie pełne kondygnacje')}</div>
-        <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny')}</div>
-        <div>{this.featureList(3, 'Okna trójszybowe')}</div>
-        <div>{this.featureList(4, 'Domy przygotowane pod fotowoltaikę')}</div>
+        <div style={{color:'#ffcaba'}}>{this.featureList(0, 'Osiedlowa oczyszczalnia ścieków')}</div>
+        <div>{this.featureList(1, 'Ogrzewanie podłogowe na parterze')}</div>
+        <div>{this.featureList(2, 'Dwie pełne kondygnacje')}</div>
+        <div>{this.featureList(3, 'Kocioł gazowy kondensacyjny')}</div>
+        <div>{this.featureList(4, 'Okna trójszybowe')}</div>        
       </div>
     )
   }
