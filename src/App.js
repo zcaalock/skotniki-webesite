@@ -49,42 +49,37 @@ if (token) {
   }
 };
 
-class App extends React.Component {
-  
-
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  render() {
-    return (
-      <div className="AppContainer">
-        <Provider store={store}>
-          <LeftMenu />
-          <div className='contentContainer'>
-            <Router history={history}>
+function App() {
+  //const handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  return (
+    <div className="AppContainer">
+      <Provider store={store}>
+        <LeftMenu />
+        <div className='contentContainer'>
+          <Router history={history}>
             <MobileMenu />
-              <PageTitle/>
-              <Route>
-                <Route exact path="/" component={MenuItem01} />                
-                <Route exact path="/MenuItem01" component={MenuItem01} />
-                <Route exact path="/MenuItem02" component={MenuItem02} />
-                <Route exact path="/MenuItem03" component={MenuItem03} />
-                <Route exact path="/MenuItem04" component={MenuItem04} />
-                <Route exact path="/MenuItem05" component={MenuItem05} />
-                <Route exact path="/MenuItem06" component={MenuItem06} />
-                <Route exact path="/MenuItem07" component={MenuItem07} />
-                <Route exact path="/admin" component={Login} />
-                <Route exact path="/w19" component={W19} />
-                <Route exact path="/s101" component={S101} />
-              </Route>
-              <BottomMenu />
+            <PageTitle />
+            <Route>
+              <Route exact path="/" component={MenuItem01} />
+              <Route exact path="/MenuItem01" component={MenuItem01} />
+              <Route exact path="/MenuItem02" component={MenuItem02} />
+              <Route exact path="/MenuItem03" component={MenuItem03} />
+              <Route exact path="/MenuItem04" component={MenuItem04} />
+              <Route exact path="/MenuItem05" component={MenuItem05} />
+              <Route exact path="/MenuItem06" component={MenuItem06} />
+              <Route exact path="/MenuItem07" component={MenuItem07} />
+              <Route exact path="/admin" component={Login} />
+              <Route exact path="/w19" component={W19} />
+              <Route exact path="/s101" component={S101} />
+            </Route>
+            <BottomMenu />
             <MobileBottomBar />
-            <LegalInfoBar />  
-            </Router>
-          </div>
-        </Provider>
-      </div>
-    );
-  }
+            <LegalInfoBar />
+          </Router>
+        </div>
+      </Provider>
+    </div>
+  );
 }
 
 export default App;

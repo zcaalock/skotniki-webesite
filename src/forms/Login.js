@@ -1,90 +1,70 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, {useState, useEffect} from 'react'
+import { useDispatch, useSelector } from "react-redux"
+
 import { Button, Form, Message } from 'semantic-ui-react'
 import { loginUser } from '../actions/users'
 import { editState } from '../actions/appState'
 
-class Login extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      email: '',
-      password: '',
-      errors: {}
-    }
-  }
+function Login (props) {  
 
-  componentDidMount(){
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  
+  const UI = useSelector(state=>state.UI) 
+
+  useEffect(()=>{
     localStorage.removeItem("state")
-    this.props.editState('Admin panel', 'activeItem')
-  }
+    dispatch(editState('Admin panel', 'activeItem'))
+  },[]) 
 
-  componentWillReceiveProps(nextProps) {
-    
-    if (nextProps.UI.errors) {
-      this.setState({ errors: nextProps.UI.errors })
-    }
-  }  
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
-      email: this.state.email,
-      password: this.state.password
+      email: email,
+      password: password
     };
     
-    this.props.loginUser(userData, this.props.history);
+    dispatch(loginUser(userData, props.history))
     
   };
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+  const handleChange = (event) => {
+    if(event.target.name === 'email') setEmail(event.target.value)
+    if(event.target.name === 'password') setPassword(event.target.value)    
   };
 
-  handleCredentialError(){
-    if(this.state.errors.general) 
+  const handleCredentialError =() =>{
+    if(UI.errors) 
      return <Message
      error
      header='Wrong Credentials'
      content='Wrong email or password please try again'
    />
-  }
-
-    
-  render() {
-    //console.log('login state: ', this.state)
-    const { errors } = this.state;
+  }         
     
     return (
-      <div>
-        
+      <div>        
         <div className='login'>
-          <Form error onSubmit={this.handleSubmit} >
+          <Form error onSubmit={handleSubmit} >
             <Form.Input
               id="email"
               name="email"
               type="email"
-              label="Email"
-              //helperText={errors.email}
-              //error={errors.email ? true : false}
-              error={errors.email ? errors.email : false}
+              label="Email"              
               fluid
-              value={this.state.email}
-              onChange={this.handleChange}
+              value={email}
+              onChange={handleChange}
             />
             <Form.Input
               id="password"
               name="password"
               type="password"
-              label="Password"
-              //helperText={errors.password}
-              error={errors.password ? errors.password : false}
+              label="Password"              
               fluid
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={password}
+              onChange={handleChange}
             />
-            {this.handleCredentialError()}
+            {handleCredentialError()}
             <Button
               type="submit"              
             >
@@ -94,15 +74,7 @@ class Login extends React.Component {
         </div>
       </div>
 
-    )
-  }
+    ) 
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    UI: state.UI
-  }
-}
-
-export default connect(mapStateToProps, { loginUser, editState })(Login)
+export default Login

@@ -207,16 +207,13 @@ div ::-webkit-scrollbar {
     background-color: #EFEFEF;
     flex-direction: column 
   }
-
    
 
   .homeGallery {  
     position: absolute;
     bottom: 0;  
      
-  }
-
-  
+  }  
 
   .imageAuto {
     height: 90%;

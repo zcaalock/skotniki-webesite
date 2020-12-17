@@ -1,32 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import _ from 'lodash'
-import { connect } from 'react-redux'
-
 import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
 
 
-class MenuItem02 extends React.Component {
+function MenuItem02 () {
 
-  constructor(props) {
-    super(props)
-    this.props.editState('false', 'menuHide')
-    this.props.editState('Kontakt', 'activeItem')
-    this.props.editState('75%', 'widthStop')
-    this.props.editState('100%', 'heightStop')
-    this.props.editState('', 'secondaryTitle')
-    this.props.editState('hide', 'ui')
-  }
+  const dispatch = useDispatch()
+  const appState = useSelector(state => state.appState)
+  const pages = useSelector(state => _.keyBy(Object.values(state.pages), 'id'))
 
-  
+  useEffect(() => {
+    dispatch(editState('false', 'menuHide'))
+    dispatch(editState('Kontakt', 'activeItem'))
+    dispatch(editState('75%', 'widthStop'))
+    dispatch(editState('100%', 'heightStop'))
+    dispatch(editState('', 'secondaryTitle'))
+    dispatch(editState('hide', 'ui'))
+  }, [])  
 
-  renderContent() {
-    if (this.props.appState.loading === 'false') return (
+  function renderContent() {
+    if (appState.loading === 'false') return (
       <div className='infoText' >
-        <div dangerouslySetInnerHTML={{ __html: this.props.pages[5].content }}></div>
-        
+        <div dangerouslySetInnerHTML={{ __html: pages[5].content }}></div>        
       </div>
-
     )
     return (
       <div className='infoText'style={{width: '50%'}}>
@@ -35,29 +33,14 @@ class MenuItem02 extends React.Component {
     )
   }
 
-
-  render() {
     return (
       <div className='pageContent' >
-        <div className='localisation'>
-          
-            
-            {this.renderContent()}
-          </div>
-          {/* <div className="localisationMap">
-            
-          </div> */}
-        
+        <div className='localisation'>             
+            {renderContent()}
+          </div>        
       </div>
-    )
-  }
+    )  
 }
 
-const mapStateToProps = (state) => {
-  return {
-    pages: _.keyBy(Object.values(state.pages), 'id'),
-    appState: state.appState
-  }
-}
 
-export default connect(mapStateToProps, { editState })(MenuItem02)
+export default MenuItem02

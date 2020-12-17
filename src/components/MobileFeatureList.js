@@ -1,63 +1,66 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from "react-redux"
 import TextSpringMobile from './TextSpringMobile'
 
+function FeatureList() {
 
-export class FeatureList extends Component {
-  
-  state = { 'item0': 'hide', 'item1': 'hide', 'item2': 'hide', 'item3': 'hide', 'item4': 'hide', 'item5': 'hide', hover: 'false', show: 'none' }
+  const [item0, setItem0] = useState('hide')
+  const [item1, setItem1] = useState('hide')
+  const [item2, setItem2] = useState('hide')
+  const [item3, setItem3] = useState('hide')
+  const [item4, setItem4] = useState('hide')
+  const [item5, setItem5] = useState('hide')
+  const [show, setShow] = useState('none')
 
-  componentDidMount() {    
-    this.setState({show:'block' })
+  const appState = useSelector(state => state.appState)
+
+  useEffect(() => {
+    setShow('block')
     setTimeout(() => {
-      this.setState({ 'item0': 'show00'})
+      setItem0('show00')
     }, 1500);
     setTimeout(() => {
-      this.setState({ 'item1': 'show01' })
+      setItem1('show01')
     }, 2000);
     setTimeout(() => {
-      this.setState({ 'item2': 'show02' })
+      setItem2('show02')
     }, 2500);
     setTimeout(() => {
-      this.setState({ 'item3': 'show03' })
+      setItem3('show03')
     }, 3000);
     setTimeout(() => {
-      this.setState({ 'item4': 'show04' })
+      setItem4('show04')
     }, 3500);
-  }
-  
+    setTimeout(() => {
+      setItem5('show05')
+    }, 4000);
+    return () => {
+      setItem0('hide')
+      setItem1('hide')
+      setItem2('hide')
+      setItem3('hide')
+      setItem4('hide')
+      setItem5('hide')
+      setShow('none')
+    }
+  }, [])
 
-  featureList(number, content) {
-    const id = `item${number}`
-    if (this.state[id] === `show0${number}` && this.state.show === 'block' ) return <div className='featureList'><TextSpringMobile content={content} widthStart={'0%'} widthStop={'100%'} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} /></div>
-    return <div style={{displapy: 'none'}}></div>
+  function featureList(number, content) {
+    const id = eval(`item${number}`)
+    if (id === `show0${number}` && show === 'block') return <div className='featureList'><TextSpringMobile content={content} widthStart={'0%'} widthStop={'100%'} height={'100%'} color={'#efefef'} zIndex={appState.zIndex} /></div>
+    return <div style={{ displapy: 'none' }}></div>
   }
 
-  hover() {
-    if (this.state.hover === 'true') return 'black'
-    if (this.state.hover === 'false') return 'rgba(0,0,0,0)'
-    return 'none'
-  }
-
-
-  render() {
-    return (
-      <div onMouseEnter={() => { this.setState({ hover: 'true' }) }} onMouseLeave={() => { this.setState({ hover: 'false' }) }} style={{ paddingTop: '10px', width: '700px', height: 'auto', display: this.state.show }}>
-        {/* <div onClick={() => { this.setState({ 'item0': '', 'item1': '', 'item2': '', 'item3': '', 'item4': '', show:'none' }) }} className="featureList" style={{ color: `${this.hover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div> */}
-        <div>{this.featureList(0, 'Ogrzewanie podłogowe na parterze')}</div>
-        <div>{this.featureList(1, 'Dwie pełne kondygnacje')}</div>
-        <div>{this.featureList(2, 'Kocioł gazowy kondensacyjny')}</div>
-        <div>{this.featureList(3, 'Okna trójszybowe')}</div>
-        <div>{this.featureList(4, 'Domy przygotowane pod fotowoltaikę')}</div>
-      </div>
-    )
-  }
+  return (
+    <div style={{ paddingTop: '10px', width: '700px', height: 'auto', display: show }}>      
+      <div style={{ color: '#dc6969' }}>{featureList(0, 'Osiedlowa oczyszczalnia ścieków')}</div>
+      <div>{featureList(1, 'Ogrzewanie podłogowe na parterze')}</div>
+      <div>{featureList(2, 'Dwie pełne kondygnacje')}</div>
+      <div>{featureList(3, 'Kocioł gazowy kondensacyjny')}</div>
+      <div>{featureList(4, 'Okna trójszybowe')}</div>
+      <div>{featureList(5, 'Domy przygotowane pod fotowoltaikę')}</div>
+    </div>
+  )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    appState: state.appState
-  }
-}
-
-export default connect(mapStateToProps)(FeatureList)
+export default FeatureList

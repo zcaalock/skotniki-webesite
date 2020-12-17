@@ -1,38 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-class SingleInput extends React.Component {
+function SingleInput(props) {
 
-  state = { value: '' }
+  const [value, setvalue] = useState(props.initialValue)
 
-  componentDidMount() {
-    this.setState({ value: this.props.initValue })
-  }
-
-  Cancel = (event) => {
+  const Cancel = (event) => {
 
     if (event.keyCode === 27) {
-      this.props.removeEdit()
+      props.removeEdit()
     }
   }
 
-  render() {
-
-    return (
-      <form
-        onBlur={() => this.props.removeEdit()}
-        onKeyDown={this.Cancel}
-        onSubmit={(e)=>{e.preventDefault();this.props.onSubmit(this.state.value)}}
-        className="ui form error">
-        <input
-        autoFocus={true} 
-        style={this.props.propChildStyle} 
-        name="title" 
-        value={this.state.value} 
-        onChange={e=>this.setState({value: e.target.value})}
-        />
-      </form>
-    )
-  }
+  return (
+    <form
+      onBlur={() => props.removeEdit()}
+      onKeyDown={Cancel}
+      onSubmit={(e) => { e.preventDefault(); props.onSubmit(value) }}
+      className="ui form error">
+      <input
+        autoFocus={true}
+        style={props.propChildStyle}
+        //defaultValue={props.initialValue}
+        name="title"
+        value={value}
+        onChange={e => setvalue(e.target.value)}
+      />
+    </form>
+  )
 }
 
 export default SingleInput
