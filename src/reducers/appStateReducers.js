@@ -1,6 +1,6 @@
 import * as types from '../actions/types'
 
-const appState = {
+const appState = {  
   width: 0,
   height: 0,
   activeItem: 'Galeria',

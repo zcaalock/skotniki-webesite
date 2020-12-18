@@ -4,8 +4,10 @@ import { editState } from '../actions/appState'
 import { fetchReservations } from '../actions/reservations'
 import _ from 'lodash'
 
-import PdfALewy from '../documents/segment-lewy.pdf'
-import PdfAPrawy from '../documents/segment-prawy.pdf'
+import PdfALewy from '../documents/segment-A01-A12-lewy.pdf'
+import PdfAPrawy from '../documents/segment-A01-A12-prawy.pdf'
+import PdfBLewy from '../documents/segment-B1-B4-lewy.pdf'
+import PdfBPrawy from '../documents/segment-B1-B4-prawy.pdf'
 
 import Area from '../components/Maps/Area'
 import { Placeholder } from 'semantic-ui-react'
@@ -30,8 +32,8 @@ function MenuItem04() {
   useEffect(() => {
     dispatch(fetchReservations())
     dispatch(editState('false', 'menuHide'))
-    dispatch(editState('40%', 'widthStop'))
-    dispatch(editState('66.64%', 'heightStop'))
+    dispatch(editState('34%', 'widthStop'))
+    dispatch(editState('49.64%', 'heightStop'))
     dispatch(editState('Wybierz Dom', 'activeItem'))
     dispatch(editState('Plan Osiedla', 'secondaryTitle'))
     dispatch(editState('hide', 'ui'))
@@ -46,6 +48,7 @@ function MenuItem04() {
     if (reservations[num].status === 'reserved') return { backgroundColor: '#ffedba' }
     if (reservations[num].status === 'sold') return { backgroundColor: '#6b849e' }
     if (reservations[num].status === 'blocked') return { backgroundColor: '#ffcaba' }
+    if (reservations[num].status === 'sold') return { backgroundColor: 'rgba(80, 55, 55, 0.6)' }
 
   }
 
@@ -55,8 +58,10 @@ function MenuItem04() {
   }
 
   function showPdf(type) {
-    if (type === 'left') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Typ L</a>
-    if (type === 'right') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Typ P</a>
+    if (type === 'Aleft') return <a href={PdfALewy} target="_blank" rel="noopener noreferrer">Typ A: lewy</a>
+    if (type === 'Aright') return <a href={PdfAPrawy} target="_blank" rel="noopener noreferrer">Typ A: prawy</a>
+    if (type === 'Bleft') return <a href={PdfBLewy} target="_blank" rel="noopener noreferrer">Typ B: lewy</a>
+    if (type === 'Bright') return <a href={PdfBPrawy} target="_blank" rel="noopener noreferrer">Typ B: prawy</a>
   }
 
   function renderTableForUser() {

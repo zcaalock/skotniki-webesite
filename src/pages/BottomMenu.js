@@ -23,6 +23,7 @@ function BottomMenu() {
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
       { title: 'Dziennik', id: 'MenuItem07' },
+      { title: 'Finansowanie', id: 'MenuItem08' }
     ]
   }
 

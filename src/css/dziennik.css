@@ -1,69 +1,93 @@
-.DziennikContainer {
-    height: calc(80vh - 50px);
-}
-
-.DziennikOverflow {
-    height: calc(80vh - 100px);
+@media(min-width: 905px) {
+    .DziennikContainer {
+        height: calc(80vh - 50px);
+    }
     
-}
+    .DziennikOverflow {
+        height: calc(80vh - 100px);
+        
+    }
 
-.ProgressBarContainer{
-    margin-top: 15px;
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;   
-}
+    .TimeContent { 
+        height: calc(80vh - 180px);            
+        overflow: auto;    
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+    }
 
-.ProgressBar{    
-    display: flex;
-    border: 2px solid rgba(81, 122, 66, 0.79);
-    border-radius: 25px;
-    height: 15px;
-    width: 100%;
-}
-
-.Dot{    
-    height: 10px;
-    margin-left: 1px;
-    margin-top: 15px;
-    border-radius: 25px;
-    width: 4px;
-    background-color: rgba(81, 122, 66, 0.79);
-    /* border: 2px solid #D0D1D3; */
-    cursor: pointer;
-    z-index: 10;
-}
-.Dot:hover {
-    background-color: #504137;
-    z-index: 30;
-    /* border: 2px solid rgba(81, 122, 66, 0.79) */
+    .ProgressBarContainer{
+        margin-top: 15px;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;   
+    }
     
-}
-
-.ProgressDate {
-    margin-top: 15px;
-    padding-left: 5px;
-    margin-left: -9px;
-    background-color: #EFEFEF;
-    overflow: hidden;
-    border-radius: 25px;
-    width: 24px;
-    height: 24px;
-    transition: width 1s;
-    color: #EFEFEF;
+    .ProgressBar{    
+        display: flex;
+        border: 2px solid rgba(81, 122, 66, 0.79);
+        border-radius: 25px;
+        height: 15px;
+        width: 100%;
+    }
     
+    .Dot{    
+        height: 10px;
+        margin-left: 1px;
+        margin-top: 15px;
+        border-radius: 25px;
+        width: 4px;
+        background-color: rgba(81, 122, 66, 0.79);
+        /* border: 2px solid #D0D1D3; */
+        cursor: pointer;
+        z-index: 10;
+    }
+    .Dot:hover {
+        background-color: #504137;
+        z-index: 30;
+        /* border: 2px solid rgba(81, 122, 66, 0.79) */
+        
+    }
+    
+    .ProgressDate {
+        margin-top: 15px;
+        padding-left: 5px;
+        margin-left: -9px;
+        background-color: #EFEFEF;
+        overflow: hidden;
+        border-radius: 25px;
+        width: 24px;
+        height: 24px;
+        transition: width 1s;
+        color: #EFEFEF;
+        
+    }
+    
+    .ProgressDate:hover {
+        width: 85px;
+        color: black;
+        background-color: #739367;
+    }
+    
+    
+    
+    
+    
+    .TimePhoto {
+        width: 100%;
+    }
+
 }
 
-.ProgressDate:hover {
-    width: 85px;
-    color: black;
-    background-color: #739367;
-}
+@media(max-width: 905px) {
 
-
+    .DziennikContainer {
+        top:10px
+    }
 
 .TimeContent { 
-    height: calc(80vh - 180px);    
+      
     overflow: auto;    
     width: 90%;
     margin-left: auto;
@@ -73,4 +97,12 @@
 
 .TimePhoto {
     width: 100%;
+}
+
+
+
+
+
+
+
 }

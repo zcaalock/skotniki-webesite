@@ -15,7 +15,7 @@ function Status(props) {
     <DropDownMenu
       onSave={(title) => saveField(title)}
       id={props.reservation.id}
-      values={['blocked', 'open', 'reserved', 'disabled']}
+      values={['blocked', 'open', 'reserved', 'disabled', 'sold']}
       text={props.reservation.status} />
   )
 }

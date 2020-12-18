@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
     return (
       <div className='pageContent'>        
         <img style={{padding: '0', width: '100%', height: 'auto'}} className='imageAutoHeight' src="/img/v19a (Duży).jpg" alt="Skotniki2" />
-        <div className='landingText'><div style={{marginTop: '40px'}}>Nowe domy na sprzedaż już wkrótce!</div></div>
+        <div className='landingText'><div style={{marginTop: '40px'}}>Prace serwisowe - aby uzyskać informacje dotyczące domów na sprzedaż zadzwoń: +48 509 192 091</div></div>
       </div>
     )
   }

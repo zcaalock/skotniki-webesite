@@ -15,6 +15,11 @@ export const SET_USER = 'SET_USER';
 export const LOADING_USER = 'LOADING_USER';
 export const MARK_NOTIFICATIONS_READ = 'MARK_NOTIFICATIONS_READ';
 
+//settings
+export const FETCH_SETTINGS = 'FETCH_SETTINGS'
+export const EDIT_SETTING = 'EDIT_SETTING'
+
+
 //UI
 export const SET_ERRORS = 'SET_ERRORS';
 export const LOADING_UI = 'LOADING_UI';

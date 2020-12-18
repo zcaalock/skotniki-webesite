@@ -5,7 +5,7 @@ import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
 
 
-function MenuItem02 () {
+function MenuItem08 () {
 
   const dispatch = useDispatch()
   const appState = useSelector(state => state.appState)
@@ -13,9 +13,9 @@ function MenuItem02 () {
 
   useEffect(() => {
     dispatch(editState('false', 'menuHide'))
-    dispatch(editState('Kontakt', 'activeItem'))
-    dispatch(editState('65%', 'widthStop'))
-    dispatch(editState('74%', 'heightStop'))
+    dispatch(editState('Finansowanie', 'activeItem'))
+    dispatch(editState('86%', 'widthStop'))
+    dispatch(editState('100%', 'heightStop'))
     dispatch(editState('', 'secondaryTitle'))
     dispatch(editState('hide', 'ui'))
   }, [])  
@@ -23,7 +23,7 @@ function MenuItem02 () {
   function renderContent() {
     if (appState.loading === 'false') return (
       <div className='infoText' >
-        <div dangerouslySetInnerHTML={{ __html: pages[5].content }}></div>        
+        <div dangerouslySetInnerHTML={{ __html: pages[6].content }}></div>        
       </div>
     )
     return (
@@ -43,4 +43,4 @@ function MenuItem02 () {
 }
 
 
-export default MenuItem02
+export default MenuItem08

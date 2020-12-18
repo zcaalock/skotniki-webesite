@@ -14,7 +14,7 @@ function Type(props) {
     <DropDownMenu
       onSave={(title) => saveField(title)}
       id={props.reservation.id}
-      values={['left', 'right']}
+      values={['Aleft', 'Aright','Bleft', 'Bright']}
       text={props.reservation.type} />
   )
 }

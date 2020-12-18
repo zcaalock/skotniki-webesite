@@ -31,6 +31,8 @@ function MobileMenu() {
       { title: 'Wybierz Dom', id: 'MenuItem04' },
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
+      { title: 'Dziennik', id: 'MenuItem07' },
+      { title: 'Finansowanie', id: 'MenuItem08' }
     ],
     showMenu: 'false',
     width: '50px',
@@ -60,7 +62,7 @@ function MobileMenu() {
 
   function toggleMenu() {
     if (state.showMenu === 'true') setState({ ...state, showMenu: 'false', width: '50px', height: '50px' })
-    if (state.showMenu === 'false') setState({ ...state, showMenu: 'true', width: `${window.innerWidth}px`, height: '320px' })
+    if (state.showMenu === 'false') setState({ ...state, showMenu: 'true', width: `${window.innerWidth}px`, height: '430px' })
   }
 
   if (appState.landingPage === 'false') return (

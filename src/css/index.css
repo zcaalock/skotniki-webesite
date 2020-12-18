@@ -477,6 +477,12 @@ div ::-webkit-scrollbar {
     }
   }
 
+
+  .ui button{
+    padding: '2px 15px' !important;
+    height: '30px' !important;
+  }
+
   
 
   

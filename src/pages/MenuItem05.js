@@ -13,8 +13,8 @@ function MenuItem05() {
 
   useEffect(() => {
     dispatch(editState('false', 'menuHide'))
-    dispatch(editState('58%', 'widthStop'))
-    dispatch(editState('84.3%', 'heightStop'))
+    dispatch(editState('50%', 'widthStop'))
+    dispatch(editState('61.3%', 'heightStop'))
     dispatch(editState('Doświadczenie', 'activeItem'))
     dispatch(editState('Wawrzyńca 19', 'secondaryTitle'))
     dispatch(editState('hide', 'ui'))

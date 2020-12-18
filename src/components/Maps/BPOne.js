@@ -3,7 +3,7 @@ import ImageMapper from 'react-image-mapper';
 import { useDispatch } from "react-redux"
 import { editState } from '../../actions/appState'
 
-const URL = "img/plany_domow/A_prawy_plan_pietro.png"
+const URL = "img/plany_domow/B_prawy_plan_pietro.png"
 const MAP = {
   name: "my-map",
   areas: [
@@ -27,7 +27,7 @@ function POne(props) {
   }
 
   return (
-    <ImageMapper onMouseEnter={area => onEnter(area)} onMouseLeave={() => onLeave('Typ A: Piętro')} style={{ margin: 'auto' }} imgWidth={594} width={props.width} src={URL} map={MAP} />  )
+    <ImageMapper onMouseEnter={area => onEnter(area)} onMouseLeave={() => onLeave('Typ B: Piętro')} style={{ margin: 'auto' }} imgWidth={594} width={props.width} src={URL} map={MAP} />  )
 }
 
 export default POne

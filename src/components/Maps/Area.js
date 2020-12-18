@@ -18,6 +18,7 @@ function Area (props) {
     if (reservations[area.id].status === 'blocked') dispatch(editState('Etap II', 'secondaryTitle'))
     if (reservations[area.id].status === 'reserved') dispatch(editState('Rezerwacja', 'secondaryTitle'))
     if (reservations[area.id].status === 'open') dispatch(editState(area.name, 'secondaryTitle'))
+    if (reservations[area.id].status === 'sold') dispatch(editState('Sprzedane', 'secondaryTitle'))
 
   }
 
@@ -28,6 +29,7 @@ function Area (props) {
       if (reservations[id].status === 'blocked') return 'rgba(210, 202, 200, 0.6)'
       if (reservations[id].status === 'reserved') return 'rgba(55, 71, 80, 0.6)'
       if (reservations[id].status === 'disabled') return 'rgba(55, 71, 80, 0)'
+      if (reservations[id].status === 'sold') return 'rgba(80, 55, 55, 0.6)'
 
     }
 

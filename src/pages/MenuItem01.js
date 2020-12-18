@@ -15,7 +15,7 @@ function MenuItem01() {
   
   useEffect(() => {
     dispatch(editState('0%', 'widthStop'))
-    dispatch(editState('15.66%', 'heightStop'))
+    dispatch(editState('12%', 'heightStop'))
     dispatch(editState('Galeria', 'activeItem'))
     dispatch(editState('', 'secondaryTitle'))
     dispatch(editState('show', 'ui'))

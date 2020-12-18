@@ -4,7 +4,7 @@ import ImageMapper from 'react-image-mapper';
 import { editState } from '../../actions/appState'
 
 
-const URL = "img/plany_domow/A_prawy_plan_parter.png"
+const URL = "img/plany_domow/B_prawy_plan_parter.png"
 const MAP = {
   name: "my-map",
   areas: [
@@ -31,7 +31,7 @@ function PZero(props) {
   }
 
   return (
-    <ImageMapper onMouseEnter={area => onEnter(area)} onMouseLeave={() => onLeave('Typ A: Parter')} style={{ margin: 'auto' }} imgWidth={594} width={props.width} src={URL} map={MAP} />
+    <ImageMapper onMouseEnter={area => onEnter(area)} onMouseLeave={() => onLeave('Typ B: Parter')} style={{ margin: 'auto' }} imgWidth={594} width={props.width} src={URL} map={MAP} />
   )
 }
 

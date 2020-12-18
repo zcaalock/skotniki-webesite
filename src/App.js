@@ -18,6 +18,7 @@ import MenuItem04 from './pages/MenuItem04'
 import MenuItem05 from './pages/MenuItem05'
 import MenuItem06 from './pages/MenuItem06'
 import MenuItem07 from './pages/MenuItem07'
+import MenuItem08 from './pages/MenuItem08'
 import W19 from './pages/W19Page'
 import S101 from './pages/101Page'
 
@@ -68,6 +69,7 @@ function App() {
               <Route exact path="/MenuItem05" component={MenuItem05} />
               <Route exact path="/MenuItem06" component={MenuItem06} />
               <Route exact path="/MenuItem07" component={MenuItem07} />
+              <Route exact path="/MenuItem08" component={MenuItem08} />
               <Route exact path="/admin" component={Login} />
               <Route exact path="/w19" component={W19} />
               <Route exact path="/s101" component={S101} />

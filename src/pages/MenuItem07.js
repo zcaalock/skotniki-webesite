@@ -39,10 +39,10 @@ class MenuItem07 extends Component {
 
     this.props.editState('false', 'menuHide')
     this.props.editState('Dziennik Budowy', 'activeItem')
-    this.props.editState('87%', 'widthStop')
-    this.props.editState('100%', 'heightStop')
-    this.props.editState('1 lipca 2020', 'secondaryTitle')
-    this.props.editState('myRef4', 'scroll')
+    this.props.editState('75%', 'widthStop')
+    this.props.editState('87%', 'heightStop')
+    this.props.editState('8 listopada 2020', 'secondaryTitle')
+    this.props.editState('myRef6', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -135,16 +135,22 @@ class MenuItem07 extends Component {
     })
   }
 
+  mobileCheck() {
+    if(this.props.appState.width>900) return <div className='ProgressBarContainer' >
+    <div className='ProgressBar'>
+      <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
+      {this.renderDot()}
+    </div>
+  </div>
+  }
+
+
+
   renderContent() {
 
     if (this.props.appState.loading === 'false') return (
       <>
-        <div className='ProgressBarContainer' >
-          <div className='ProgressBar'>
-            <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
-            {this.renderDot()}
-          </div>
-        </div>
+        {this.mobileCheck()}
 
         <div id='scrollTop' className='TimeContent'  >
           {this.renderPhotoRefs()}
@@ -157,6 +163,8 @@ class MenuItem07 extends Component {
       </div>
     )
   }
+
+  
 
 
   render() {
