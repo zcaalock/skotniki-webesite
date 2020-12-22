@@ -11,8 +11,13 @@ export const fetchSettings = () => async dispatch => {
 
 export const editSettings = (id, formValues) => async dispatch => { 
   //console.log('edit reservation value: ', formValues) 
-  const responce = await axios.patch(`/settings/${id}`, formValues)
-  //console.log('edit reservation responce: ', responce.data.reservation)    
-  dispatch({type: types.EDIT_SETTING, payload: responce.data.setting})
-  
+  await axios.patch(`/settings/${id}`, formValues)
+  .then(response =>{
+    dispatch({type: types.EDIT_SETTING, payload: response.data.setting})
+    dispatch(fetchSettings())
+  })
+  .catch((err) => {
+    dispatch(editState(404, 'responseStatus'))
+    console.log(err)
+  })   
 }

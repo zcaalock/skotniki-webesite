@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Router, Route } from 'react-router-dom'
-import axios from 'axios'
+import { useSelector, useDispatch } from "react-redux"
+import {fetchSettings} from './actions/settings'
 
 import history from './history'
 
-import { Provider } from 'react-redux'
-import store from './reducers/index'
-
+import LandingPage from './pages/LandingPage'
 import LeftMenu from './pages/LeftMenu'
 import PageTitle from './components/PageTitle'
 import BottomMenu from './pages/BottomMenu'
@@ -29,58 +28,57 @@ import MobileMenu from './pages/mobile/MobileMenu'
 import MobileBottomBar from './pages/mobile/MobileBottomBar'
 
 
-import jwtDecode from 'jwt-decode';
-import { SET_AUTHENTICATED } from './actions/types'
-import { logoutUser, getUserData } from './actions/users'
-
-
-//AIzaSyB6sPvWL4Rj_oXN9EUma7bY6nPveHKdBMk
-axios.defaults.baseURL = 'https://europe-west2-przyspacerowej.cloudfunctions.net/api/'
-
-const token = localStorage.FBIdToken;
-if (token) {
-  const decodedToken = jwtDecode(token);
-  if (decodedToken.exp * 1000 < Date.now()) {
-    store.dispatch(logoutUser());
-    window.location.href = '/admin';
-  } else {
-    store.dispatch({ type: SET_AUTHENTICATED });
-    axios.defaults.headers.common['Authorization'] = token;
-    store.dispatch(getUserData());
-  }
-};
-
 function App() {
-  //const handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  const settings = useSelector(state => state.settings[0])
+  const authenticated = useSelector(state => state.user.authenticated)
+  console.log(history)  
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchSettings())
+  }, [])
+
+  
+
+  function renderService() {  
+    if (settings && settings.service === true && authenticated === false && history.location.pathname !== '/admin') return <LandingPage/>
+    return null
+  }
+
+
   return (
-    <div className="AppContainer">
-      <Provider store={store}>
-        <LeftMenu />
-        <div className='contentContainer'>
-          <Router history={history}>
-            <MobileMenu />
-            <PageTitle />
-            <Route>
-              <Route exact path="/" component={MenuItem01} />
-              <Route exact path="/MenuItem01" component={MenuItem01} />
-              <Route exact path="/MenuItem02" component={MenuItem02} />
-              <Route exact path="/MenuItem03" component={MenuItem03} />
-              <Route exact path="/MenuItem04" component={MenuItem04} />
-              <Route exact path="/MenuItem05" component={MenuItem05} />
-              <Route exact path="/MenuItem06" component={MenuItem06} />
-              <Route exact path="/MenuItem07" component={MenuItem07} />
-              <Route exact path="/MenuItem08" component={MenuItem08} />
-              <Route exact path="/admin" component={Login} />
-              <Route exact path="/w19" component={W19} />
-              <Route exact path="/s101" component={S101} />
-            </Route>
-            <BottomMenu />
-            <MobileBottomBar />
-            <LegalInfoBar />
-          </Router>
-        </div>
-      </Provider>
-    </div>
+
+    <>
+      <LeftMenu />
+      <div className='contentContainer'>
+        <Router history={history}>
+          {renderService()}
+          <MobileMenu />
+          <PageTitle />
+          <Route>
+            <Route exact path="/" component={MenuItem01} />
+            <Route exact path="/MenuItem01" component={MenuItem01} />
+            <Route exact path="/MenuItem02" component={MenuItem02} />
+            <Route exact path="/MenuItem03" component={MenuItem03} />
+            <Route exact path="/MenuItem04" component={MenuItem04} />
+            <Route exact path="/MenuItem05" component={MenuItem05} />
+            <Route exact path="/MenuItem06" component={MenuItem06} />
+            <Route exact path="/MenuItem07" component={MenuItem07} />
+            <Route exact path="/MenuItem08" component={MenuItem08} />
+            <Route exact path="/admin" component={Login} />
+            <Route exact path="/w19" component={W19} />
+            <Route exact path="/s101" component={S101} />
+          </Route>
+          <BottomMenu />
+          <MobileBottomBar />
+          <LegalInfoBar />
+        </Router>
+      </div>
+    </>
+
+
   );
 }
 

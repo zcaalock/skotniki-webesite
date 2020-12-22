@@ -1,14 +1,29 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/users'
+import { fetchSettings, editSettings} from '../actions/settings'
 import history from '../history'
 import windowSize from '../components/widnowSize'
+import {Checkbox} from 'semantic-ui-react'
 
 export default function LeftMenu() {
   windowSize()
   const authenticated = useSelector(state => state.user.authenticated)
   const landingPage = useSelector(state => state.appState.landingPage)
+  const settings = useSelector(state => state.settings[0])
   const dispatch = useDispatch()
+
+  useEffect(()=>{
+    if (authenticated === true) dispatch(fetchSettings())
+  },[])
+  
+ 
+
+  function showSettings() {
+    if (authenticated === true && settings ) return <div>
+      <Checkbox toggle checked={settings.service} onChange={()=>dispatch(editSettings('settings', {service: !settings.service}))} label='Serwis'/>
+    </div>
+  }
 
   const showAdminPanel = () => {
 
@@ -29,6 +44,7 @@ export default function LeftMenu() {
       <div className='menuTop'>
         <div className='menuGreenBar'>{showAdminPanel()}</div>
         <img className='menuLogo' src="/img/logo.svg" alt="Skotniki logo" />
+        {showSettings()}
       </div>
       <div className='menuBottomLeft'>
         <h3>Kontakt</h3>

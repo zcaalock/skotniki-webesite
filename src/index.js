@@ -5,10 +5,10 @@ import './css/dziennik.css';
 import './css/s101.css'
 import './css/w19.css'
 import 'semantic-ui-css/semantic.min.css'
-import App from './App';
+import Provider from './Provider';
 
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider />, document.getElementById('root'));
 
 
