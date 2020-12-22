@@ -12,7 +12,7 @@ function BottomMenu() {
 
   useEffect(() => {
     dispatch(fetchPages())
-  })
+  },[])
 
   const state = {
     menuNames: [

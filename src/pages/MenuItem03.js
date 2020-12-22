@@ -41,7 +41,7 @@ function MenuItem03() {
   }, [])
 
   useEffect(() => {
-    console.log('typeA: ', typeA, ' typeB: ', typeB, ' left:', left, ' right: ', right, 'zero: ', zero, 'first: ', first)
+    //console.log('typeA: ', typeA, ' typeB: ', typeB, ' left:', left, ' right: ', right, 'zero: ', zero, 'first: ', first)
   }, [typeA, typeB, left, right, zero, first])
 
 

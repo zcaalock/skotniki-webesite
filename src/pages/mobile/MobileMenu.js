@@ -16,7 +16,7 @@ function MobileMenu() {
     dispatch(fetchPages())
     dispatch(fetchReservations())
 
-  }, [dispatch])
+  }, [])
 
   // function hideMenuBar() {
   //   if (appState.menuHide === 'true') return 'none'

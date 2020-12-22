@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Router, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
-import {fetchSettings} from './actions/settings'
+import { fetchSettings } from './actions/settings'
 
 import history from './history'
 
@@ -27,29 +27,23 @@ import Login from './forms/Login'
 import MobileMenu from './pages/mobile/MobileMenu'
 import MobileBottomBar from './pages/mobile/MobileBottomBar'
 
-
 function App() {
 
   const settings = useSelector(state => state.settings[0])
   const authenticated = useSelector(state => state.user.authenticated)
-  console.log(history)  
 
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(fetchSettings())
   }, [])
 
-  
-
-  function renderService() {  
-    if (settings && settings.service === true && authenticated === false && history.location.pathname !== '/admin') return <LandingPage/>
+  function renderService() {
+    if (settings && settings.service === true && authenticated === false && history.location.pathname !== '/admin') return <LandingPage />
     return null
   }
 
 
   return (
-
     <>
       <LeftMenu />
       <div className='contentContainer'>
@@ -77,8 +71,6 @@ function App() {
         </Router>
       </div>
     </>
-
-
   );
 }
 

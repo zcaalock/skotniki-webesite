@@ -7,7 +7,7 @@ import windowSize from '../components/widnowSize'
 import {Checkbox} from 'semantic-ui-react'
 
 export default function LeftMenu() {
-  windowSize()
+  
   const authenticated = useSelector(state => state.user.authenticated)
   const landingPage = useSelector(state => state.appState.landingPage)
   const settings = useSelector(state => state.settings[0])
@@ -16,6 +16,10 @@ export default function LeftMenu() {
   useEffect(()=>{
     if (authenticated === true) dispatch(fetchSettings())
   },[])
+
+  
+    windowSize()
+  
   
  
 
