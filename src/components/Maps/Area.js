@@ -15,7 +15,7 @@ function Area (props) {
   }
 
   function onEnter(area) {
-    if (reservations[area.id].status === 'blocked') dispatch(editState('Etap II', 'secondaryTitle'))
+    if (reservations[area.id].status === 'blocked') dispatch(editState('Niedostępne', 'secondaryTitle'))
     if (reservations[area.id].status === 'reserved') dispatch(editState('Rezerwacja', 'secondaryTitle'))
     if (reservations[area.id].status === 'open') dispatch(editState(area.name, 'secondaryTitle'))
     if (reservations[area.id].status === 'sold') dispatch(editState('Sprzedane', 'secondaryTitle'))
@@ -55,14 +55,14 @@ function Area (props) {
   const MAP = {
     name: "my-map",
     areas: [
-      { name: "A20", id: 19, coords: [343.620, 155.940, 343.620, 243.040, 310.900, 250.910, 310.900, 155.940, 343.620, 155.940], shape: "poly", preFillColor: preFillColor(19, "A20"), fillColor: fillColor(19), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A19", id: 18, coords: [310.900, 155.940, 310.460, 251.040, 272.990, 260.290, 272.990, 155.940, 310.900, 155.940], shape: "poly", preFillColor: preFillColor(18, "A19"), fillColor: fillColor(18), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A18", id: 17, coords: [272.990, 155.940, 272.990, 260.290, 235.270, 269.690, 235.090, 155.940, 272.990, 155.940], shape: "poly", preFillColor: preFillColor(17, "A18"), fillColor: fillColor(17), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A17", id: 16, coords: [206.630, 155.940, 235.120, 156.030, 235.270, 269.610, 206.630, 276.820, 193.880, 263.320, 193.980, 167.480, 206.630, 155.940], shape: "poly", preFillColor: preFillColor(16, "A17"), fillColor: fillColor(16), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A16", id: 15, coords: [194.700, 99.350, 44.260, 98.420, 44.260, 53.330, 194.700, 53.330, 194.700, 99.350], shape: "poly", preFillColor: preFillColor(15, "A16"), fillColor: fillColor(15), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A15", id: 14, coords: [186.570, 139.210, 44.260, 138.480, 44.260, 98.640, 186.570, 99.350, 186.570, 139.210], shape: "poly", preFillColor: preFillColor(14, "A15"), fillColor: fillColor(14), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A14", id: 13, coords: [177.950, 178.630, 44.260, 177.880, 44.260, 138.490, 177.950, 139.270, 177.950, 178.630], shape: "poly", preFillColor: preFillColor(13, "A14"), fillColor: fillColor(13), strokeColor: strokeColor(), lineWidth: lineWidth() },
-      { name: "A13", id: 12, coords: [177.950, 217.510, 44.260, 217.510, 44.260, 177.880, 177.950, 178.570, 177.950, 217.510], shape: "poly", preFillColor: preFillColor(12, "A13"), fillColor: fillColor(12), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "C4", id: 19, coords: [343.620, 155.940, 343.620, 243.040, 310.900, 250.910, 310.900, 155.940, 343.620, 155.940], shape: "poly", preFillColor: preFillColor(19, "A20"), fillColor: fillColor(19), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "C3", id: 18, coords: [310.900, 155.940, 310.460, 251.040, 272.990, 260.290, 272.990, 155.940, 310.900, 155.940], shape: "poly", preFillColor: preFillColor(18, "A19"), fillColor: fillColor(18), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "C2", id: 17, coords: [272.990, 155.940, 272.990, 260.290, 235.270, 269.690, 235.090, 155.940, 272.990, 155.940], shape: "poly", preFillColor: preFillColor(17, "A18"), fillColor: fillColor(17), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "C1", id: 16, coords: [206.630, 155.940, 235.120, 156.030, 235.270, 269.610, 206.630, 276.820, 193.880, 263.320, 193.980, 167.480, 206.630, 155.940], shape: "poly", preFillColor: preFillColor(16, "A17"), fillColor: fillColor(16), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "B4", id: 15, coords: [194.700, 99.350, 44.260, 98.420, 44.260, 53.330, 194.700, 53.330, 194.700, 99.350], shape: "poly", preFillColor: preFillColor(15, "A16"), fillColor: fillColor(15), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "B3", id: 14, coords: [186.570, 139.210, 44.260, 138.480, 44.260, 98.640, 186.570, 99.350, 186.570, 139.210], shape: "poly", preFillColor: preFillColor(14, "A15"), fillColor: fillColor(14), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "B2", id: 13, coords: [177.950, 178.630, 44.260, 177.880, 44.260, 138.490, 177.950, 139.270, 177.950, 178.630], shape: "poly", preFillColor: preFillColor(13, "A14"), fillColor: fillColor(13), strokeColor: strokeColor(), lineWidth: lineWidth() },
+      { name: "B1", id: 12, coords: [177.950, 217.510, 44.260, 217.510, 44.260, 177.880, 177.950, 178.570, 177.950, 217.510], shape: "poly", preFillColor: preFillColor(12, "A13"), fillColor: fillColor(12), strokeColor: strokeColor(), lineWidth: lineWidth() },
       { name: "A12", id: 11, coords: [177.950, 256.890, 44.260, 256.890, 44.260, 217.510, 177.950, 218.290, 177.950, 256.890], shape: "poly", preFillColor: preFillColor(11, "A12"), fillColor: fillColor(11), strokeColor: strokeColor(), lineWidth: lineWidth() },
       { name: "A11", id: 10, coords: [177.950, 292.410, 44.260, 292.410, 44.260, 256.890, 177.950, 257.600, 177.950, 292.410], shape: "poly", preFillColor: preFillColor(10, "A11"), fillColor: fillColor(10), strokeColor: strokeColor(), lineWidth: lineWidth() },
       { name: "A10", id: 9, coords: [195.640, 299.210, 143.370, 299.210, 142.570, 407.300, 44.260, 429.090, 44.260, 292.410, 195.640, 292.410, 195.640, 299.210], shape: "poly", preFillColor: preFillColor(9, "A10"), fillColor: fillColor(9), strokeColor: strokeColor(), lineWidth: lineWidth() },

@@ -66,14 +66,14 @@ function MenuItem04() {
 
   function renderTableForUser() {
     if (appState.reservationLoading === 'false') {
-      let reservationsCol = _.chain(reservations).reject({ status: 'disabled' }).value()
-      return reservationsCol.map(data => {
+      let reservationsCol = _.chain(reservations).reject({ status: 'disabled' }).value()      
+      return _.sortBy(reservationsCol, 'id').map(data => {
         return (
           <Table.Row
             onMouseEnter={() => dispatch(editState(data.name, 'secondaryTitle'))}
             onMouseLeave={() => dispatch(editState('Plan Osiedla', 'secondaryTitle'))}
             //style={this.selectArea(data.name)} 
-            style={reserverdArea(data.name)}
+            //style={reserverdArea(data.name)}
             id={data.name}
             key={data.name}>
             <Table.Cell >{data.name}</Table.Cell>
@@ -100,9 +100,12 @@ function MenuItem04() {
 
   function renderTableForAdmin() {
     if (appState.reservationLoading === 'false') {
-      return reservations.map(reservation => {
+      return _.sortBy(reservations, 'id').map(reservation => {
         return (
-          <Table.Row style={selectArea(reservation.name)} id={reservation.name} key={reservation.name}>
+          <Table.Row 
+          //style={selectArea(reservation.name)} 
+          id={reservation.name} 
+          key={reservation.name}>
             <Table.Cell ><EditName selector='name' reservation={reservation} /></Table.Cell>
             <Table.Cell ><EditName selector='plot' reservation={reservation} /></Table.Cell>
             <Table.Cell ><EditName selector='pum' reservation={reservation} /></Table.Cell>
