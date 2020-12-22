@@ -5,6 +5,7 @@ import PdfALewy from '../documents/segment-A01-A12-lewy.pdf'
 import PdfAPrawy from '../documents/segment-A01-A12-prawy.pdf'
 import PdfBLewy from '../documents/segment-B1-B4-lewy.pdf'
 import PdfBPrawy from '../documents/segment-B1-B4-prawy.pdf'
+import PdfStandar from '../documents/standard_wykonczenia.pdf'
 import { editState } from '../actions/appState'
 import ContentPlaceholder from '../components/ContentPlaceholder'
 
@@ -100,17 +101,17 @@ function MenuItem03() {
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '10px' }}>
           <div>
-            <div className='imgMenu' ><b>Segment lewy:</b></div>
-            <div style={{ display: 'flex' }}>
-              <button className='ui tiny button' onClick={() => handleClick(null, 'left', 'zero')} style={handleStyleSide(left, zero)}><b> Parter</b></button>
-              <button className='ui tiny button' onClick={() => handleClick(null, 'left', 'first')} style={handleStyleSide(left, first)}><b> Piętro</b></button>
-            </div>
-          </div>
-          <div>
-            <div className='imgMenu' ><b>Typ:</b></div>
+          <div className='imgMenu' ><b>Typ:</b></div>
             <div style={{ display: 'flex' }}>
               <button className='ui tiny button' onClick={() => handleClick('typeA')} style={handleStyleType(typeA)}><b> Typ A</b></button>
               <button className='ui tiny button' onClick={() => handleClick('typeB')} style={handleStyleType(typeB)}><b> Typ B</b></button>
+            </div>            
+          </div>
+          <div>
+          <div className='imgMenu' ><b>Segment lewy:</b></div>
+            <div style={{ display: 'flex' }}>
+              <button className='ui tiny button' onClick={() => handleClick(null, 'left', 'zero')} style={handleStyleSide(left, zero)}><b> Parter</b></button>
+              <button className='ui tiny button' onClick={() => handleClick(null, 'left', 'first')} style={handleStyleSide(left, first)}><b> Piętro</b></button>
             </div>
           </div>
           <div>
@@ -131,6 +132,7 @@ function MenuItem03() {
     if (appState.loading === 'false') return (
       <div className='infoText'>
         <div dangerouslySetInnerHTML={{ __html: pages[2].content }}></div>
+        <div style={{paddingTop: '10px'}}><a href={PdfStandar} target="_blank" rel="noopener noreferrer">Zobacz standard wykończenia</a></div>
       </div>
     )
     return <div className='infoText'><ContentPlaceholder /></div>
