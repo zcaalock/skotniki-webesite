@@ -33,16 +33,16 @@ function FeatureList() {
     setTimeout(() => {
       setItem4('show04')
     }, 3500);
-    setTimeout(() => {
-      setItem5('show05')
-    }, 4000);
+    // setTimeout(() => {
+    //   setItem5('show05')
+    // }, 4000);
     return () => {
       setItem0('hide')
       setItem1('hide')
       setItem2('hide')
       setItem3('hide')
       setItem4('hide')
-      setItem5('hide')
+      // setItem5('hide')
       setShow('none')
     }
   }, [])
@@ -63,12 +63,12 @@ function FeatureList() {
   return (
     <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ paddingTop: '100px', width: '700px', height: 'auto', display: show }}>
       <div onClick={() => { setItem0(''); setItem1(''); setItem2(''); setItem3(''); setItem4(''); setItem5(''); setShow('none') }} className="featureList" style={{ color: `${onHover()}`, paddingLeft: '10px', cursor: 'pointer' }}><i className="x icon" /></div>
-      <div style={{ color: '#dc6969' }}>{featureList(0, 'Osiedlowa oczyszczalnia ścieków')}</div>
-      <div>{featureList(1, 'Ogrzewanie podłogowe na parterze')}</div>
-      <div>{featureList(2, 'Dwie pełne kondygnacje')}</div>
-      <div>{featureList(3, 'Kocioł gazowy kondensacyjny')}</div>
-      <div>{featureList(4, 'Okna trójszybowe')}</div>
-      <div>{featureList(5, 'Domy przygotowane pod fotowoltaikę')}</div>
+      {/* <div style={{ color: '#dc6969' }}>{featureList(0, 'Osiedlowa oczyszczalnia ścieków')}</div> */}
+      <div>{featureList(0, 'Ogrzewanie podłogowe na parterze')}</div>
+      <div>{featureList(1, 'Dwie pełne kondygnacje')}</div>
+      <div>{featureList(2, 'Kocioł gazowy kondensacyjny')}</div>
+      <div>{featureList(3, 'Okna trójszybowe')}</div>
+      <div>{featureList(4, 'Domy przygotowane pod fotowoltaikę')}</div>
     </div>
   )
 }

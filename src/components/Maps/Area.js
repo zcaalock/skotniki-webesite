@@ -27,7 +27,7 @@ function Area (props) {
     if (appState.reservationLoading === 'false') {
 
       if (reservations[id].status === 'blocked') return 'rgba(210, 202, 200, 0.6)'
-      if (reservations[id].status === 'reserved') return 'rgba(55, 71, 80, 0.6)'
+      if (reservations[id].status === 'reserved') return 'rgba(100, 100, 48, 0.6)'
       if (reservations[id].status === 'disabled') return 'rgba(55, 71, 80, 0)'
       if (reservations[id].status === 'sold') return 'rgba(80, 55, 55, 0.6)'
 
