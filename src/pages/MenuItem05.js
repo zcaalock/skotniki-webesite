@@ -69,15 +69,16 @@ function MenuItem05() {
     <div className='pageContent'>
       <div className='localisation'>
         <div className="localisationText">
-          {renderContent()}
+          {renderContent()} 
         </div>
         <div className="devImages">
           <div className='devNavButtons' style={{ marginBottom: '20px' }}>
             <button className='ui button' onClick={() => { handleClick('wawrzynca'); dispatch(editState('Wawrzyńca 19', 'secondaryTitle')) }} style={handleStyle('wawrzynca')}><b>Wawrzyńca 19</b></button>
             <button className='ui button' onClick={() => { handleClick('skotniki'); dispatch(editState('Spacerowa 101', 'secondaryTitle')) }} style={handleStyle('skotniki')}><b>Spacerowa 101</b></button>
             <button className='ui button' onClick={() => { handleClick('tyniecka'); dispatch(editState('Tyniecka 159', 'secondaryTitle')) }} style={handleStyle('tyniecka')}><b>Tyniecka 159</b></button>
+            
           </div>
-          {renderImg()}
+          <div className='devNavButtons' style={{flexDirection: 'column'}}>{renderImg()}</div>
         </div>
       </div>
     </div>

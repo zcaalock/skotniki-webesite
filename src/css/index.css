@@ -12,9 +12,9 @@ body {
   /* font-family: 'Open Sans', sans-serif !important; */
 }
 
-div ::-webkit-scrollbar {
+/* div ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .login{
   position: absolute;
@@ -238,9 +238,9 @@ div ::-webkit-scrollbar {
    }
 
    .imageAutoHeight {
-    height: 43%;
+    height: 28vh;
     padding: 15px;
-    margin: auto
+    /* margin: auto */
   }
  
    .plansAuto {
@@ -385,9 +385,8 @@ div ::-webkit-scrollbar {
     }
 
     .imageAutoHeight {
-      padding-top: 10px;
-      height: auto;
-      width: 100%
+      padding-top: 10px;      
+      height: 28vh;
     }
 
     .devNavButtons {
