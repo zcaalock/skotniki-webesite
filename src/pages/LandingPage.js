@@ -1,31 +1,23 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, {useEffect} from 'react'
+import { useDispatch, useSelector } from "react-redux"
+import {Modal} from 'semantic-ui-react'
 import { editState } from '../actions/appState'
 
 
-class LandingPage extends React.Component {
+function LandingPage () {
 
-  componentDidMount() {
-    this.props.editState('true', 'menuHide')
-    this.props.editState('', 'secondaryTitle')
-    this.props.editState('', 'activeItem')
-  }
+  const dispatch = useDispatch()
+  const appState = useSelector(state => state.appState)  
+
   
-
-  render() {
     
     return (
-      <div className='pageContent'>        
-        <img style={{padding: '0', width: '100%', height: 'auto'}} className='imageAutoHeight' src="/img/v19a (Duży).jpg" alt="Skotniki2" />
-        <div className='landingText'><div style={{marginTop: '40px'}}>Nowe domy na sprzedaż już wkrótce!</div></div>
-      </div>
-    )
-  }
-}
-const mapStateToProps = (state) => {
-  return {
-    appState: state.appState
-  }
+      <Modal open={true}>        
+        <img style={{padding: '0', width: '100%', height: 'auto'}} className='imageAutoHeight' src="/img/galeria/typA.jpg" alt="Skotniki2" />
+        <div className='landingText'><div >Prace serwisowe - aby uzyskać informacje dotyczące domów na sprzedaż zadzwoń: +48 509 192 091</div></div>
+      </Modal>
+    )  
 }
 
-export default connect(mapStateToProps, { editState })(LandingPage)
+
+export default LandingPage

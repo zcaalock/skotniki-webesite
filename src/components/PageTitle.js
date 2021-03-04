@@ -1,22 +1,16 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { useSelector } from "react-redux"
 
-export class PageTitle extends Component {
-  render() {
-    if(this.props.appState.landingPage === 'false') return (
-      <div className='title'>
-        <div className='titleItem' ><h3>{this.props.appState.activeItem}</h3></div>
-        <div className='titleItemSecondary'><h3>{this.props.appState.secondaryTitle}</h3></div>
-      </div>
-    ) 
-    return <div></div>
-  }
+function PageTitle() {
+  const appState = useSelector(state => state.appState)
+
+  if (appState.landingPage === 'false') return (
+    <div className='title'>
+      <div className='titleItem' ><h3>{appState.activeItem}</h3></div>
+      <div className='titleItemSecondary'><h3>{appState.secondaryTitle}</h3></div>
+    </div>
+  )
+  return <div></div>
 }
 
-const mapStateToProps = (state) => {
-  return {
-    appState: state.appState
-  }
-}
-
-export default connect(mapStateToProps)(PageTitle)
+export default PageTitle

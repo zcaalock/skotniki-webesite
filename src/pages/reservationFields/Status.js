@@ -1,25 +1,23 @@
 import React from 'react'
-
-import { connect } from 'react-redux'
+import { useDispatch } from "react-redux"
 import { editReservation } from '../../actions/reservations'
 import DropDownMenu from '../../forms/DropDownMenu'
 
-class Status extends React.Component {  
+function Status(props) {
 
-  saveField(name) {
-    this.props.editReservation(this.props.reservation.id, { status: name })
-  }  
+  const dispatch = useDispatch()
 
-  render() {
-    //console.log('users: ', this.props.users)
-    return (
-      <DropDownMenu
-            onSave={(title) => this.saveField(title)}
-            id={this.props.reservation.id}
-            values={['blocked', 'open', 'reserved', 'disabled']}
-            text={this.props.reservation.status} />
-    )
+  function saveField(name) {
+    dispatch(editReservation(props.reservation.id, { status: name }))
   }
+
+  return (
+    <DropDownMenu
+      onSave={(title) => saveField(title)}
+      id={props.reservation.id}
+      values={['blocked', 'open', 'reserved', 'disabled', 'sold']}
+      text={props.reservation.status} />
+  )
 }
 
-export default connect(null, { editReservation })(Status)
+export default Status

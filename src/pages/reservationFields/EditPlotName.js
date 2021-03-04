@@ -1,49 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useDispatch } from "react-redux"
+
 import _ from 'lodash'
-import { connect } from 'react-redux'
-import { editReservation} from '../../actions/reservations'
+import { editReservation } from '../../actions/reservations'
 import SingleInput from '../../forms/SingleInput'
 
-class EditPlotName extends React.Component {    
+function EditPlotName(props) {
+  const dispatch = useDispatch()
 
-  onSubmit = (formValues) => {
-    this.props.editReservation(this.props.reservation.id, {plot: formValues})
-    
-    this.props.removeEdit()
-  }  
- 
+  const [itemEditable, setItemeditable] = useState({[props.selector]:false})  
 
-  renderEditPlot() {
-    //console.log('init: ', _.pick(this.props.reservation, 'plot') )
-    
-    if (this.props.editState.itemEditable === true) {
+  const onSubmit = (formValues) => {
+    //console.log(formValues)
+    dispatch(editReservation(props.reservation.id, { [props.selector]: formValues }))
+    setItemeditable({[props.selector]:false})
+  }
+
+  function renderEditPlot() {
+
+    if (itemEditable[props.selector] === true) {
       return (
-        <SingleInput 
-        propStyle={{padding: '0'}} 
-        propChildStyle={{ padding: '5px'}}
-        initValue={this.props.reservation.plot} 
-        removeEdit={()=>this.props.removeEdit()} 
-        onSubmit={this.onSubmit} />
+        <SingleInput
+          propStyle={{ padding: '0' }}
+          propChildStyle={{ padding: '5px' }}
+          initialValue={props.reservation[props.selector]}
+          removeEdit={() => setItemeditable({[props.selector]:false})}
+          onSubmit={onSubmit} />
       )
     }
 
-    if (this.props.editState.itemEditable === false) {
+    if (itemEditable[props.selector] === false) {
       return (
-        <div >            
-          <div>{this.props.reservation.plot}</div>          
+        <div >
+          <div>{props.reservation[props.selector]}</div>
         </div>
       )
     }
   }
 
-  render() {
-
-    return (
-      <div style={{width: '100%'}}>      
-        {this.renderEditPlot()}
-      </div>
-    )
-  }
+  return (
+    <div onDoubleClick={()=>setItemeditable({[props.selector]:true})} style={{ width: '100%' }}>
+      {renderEditPlot()}
+    </div>
+  )
 }
 
-export default connect(null, { editReservation })(EditPlotName)
+export default EditPlotName

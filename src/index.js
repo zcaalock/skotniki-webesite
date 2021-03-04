@@ -4,9 +4,11 @@ import './css/index.css'
 import './css/dziennik.css';
 import './css/s101.css'
 import './css/w19.css'
-import App from './App';
+import 'semantic-ui-css/semantic.min.css'
+import Provider from './Provider';
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Provider />, document.getElementById('root'));
 
 

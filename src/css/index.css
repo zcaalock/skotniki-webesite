@@ -12,9 +12,9 @@ body {
   /* font-family: 'Open Sans', sans-serif !important; */
 }
 
-div ::-webkit-scrollbar {
+/* div ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .login{
   position: absolute;
@@ -45,7 +45,15 @@ div ::-webkit-scrollbar {
 
 @media (max-width: 1200px){
   .landingText {
-    font-size: 2rem !important
+    position: absolute;
+    z-index: 10;
+    top: 40%;
+    width: 100%;
+    background: #ffffffde;
+    text-align: center;
+    height: 34px;
+    margin-top: 0px;
+    
   }
   
 }
@@ -92,12 +100,16 @@ div ::-webkit-scrollbar {
   .landingText {
     position: absolute;
     z-index: 10;
-    top: 50%;
+    top: 40%;
     width: 100%;
     background: #ffffffde;
     text-align: center;
-    height: 100px;
-    font-size: 4rem;
+    height: 100px;    
+    margin-top: 20px; 
+    padding: 24px 136px;
+    font-size: x-large
+    
+
   }
 
   .AppContainer {
@@ -207,16 +219,13 @@ div ::-webkit-scrollbar {
     background-color: #EFEFEF;
     flex-direction: column 
   }
-
    
 
   .homeGallery {  
     position: absolute;
     bottom: 0;  
      
-  }
-
-  
+  }  
 
   .imageAuto {
     height: 90%;
@@ -229,9 +238,9 @@ div ::-webkit-scrollbar {
    }
 
    .imageAutoHeight {
-    height: 43%;
+    height: 28vh;
     padding: 15px;
-    margin: auto
+    /* margin: auto */
   }
  
    .plansAuto {
@@ -376,9 +385,8 @@ div ::-webkit-scrollbar {
     }
 
     .imageAutoHeight {
-      padding-top: 10px;
-      height: auto;
-      width: 100%
+      padding-top: 10px;      
+      height: 28vh;
     }
 
     .devNavButtons {
@@ -480,6 +488,14 @@ div ::-webkit-scrollbar {
     }
   }
 
+
+  .ui button{
+    padding: '2px 15px' !important;
+    height: '30px' !important;
+  }
+
+
+  .dimmer { background-color: white !important }
   
 
   

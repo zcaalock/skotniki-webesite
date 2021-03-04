@@ -1,10 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { editState } from '../actions/appState'
+import { useSelector } from "react-redux"
 
-class LegalInfoBar extends React.Component {
-  render() {
-    if(this.props.appState.landingPage === 'false') return (
+function LegalInfoBar () {
+
+  const appState = useSelector(state => state.appState) 
+  
+    if(appState.landingPage === 'false') return (
       <div className='legalInfo'>
         <div >
           Informujemy, że wszystkie informacje zawarte na stronie internetowej nie stanowią oferty w rozumieniu przepisów Kodeksu Cywilnego i mają wyłącznie cel informacyjny.
@@ -15,14 +16,7 @@ class LegalInfoBar extends React.Component {
         </div>
       </div>
     ) 
-    return <div style={{display: 'none'}}></div>
-  }
+    return <div style={{display: 'none'}}></div> 
 }
 
-const mapStateToProps = (state) => {
-  return {
-    appState: state.appState    
-  }
-}
-
-export default connect(mapStateToProps, { editState})(LegalInfoBar)
+export default LegalInfoBar

@@ -20,8 +20,14 @@ const photos = [
   { link: '11.jpg', group: 'myRef3', date: '01.07.2020', title: '1 lipca 2020' },
   { link: '12.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' },
   { link: '13.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' },
-  { link: '14.jpg', group: 'myRef5', date: '01.11.2020', title: '1 listopada 2020' },
-  { link: '15.jpg', group: 'myRef5', date: '01.11.2020', title: '1 listopada 2020' },
+  { link: '14.jpg', group: 'myRef5', date: '04.11.2020', title: '4 listopada 2020' },
+  { link: '15.jpg', group: 'myRef5', date: '04.11.2020', title: '4 listopada 2020' },
+  { link: '16.jpg', group: 'myRef6', date: '08.12.2020', title: '8 listopada 2020' },
+  { link: '17.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '18.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '19.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '20.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '21.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' }  
 ]
 
 
@@ -38,10 +44,10 @@ class MenuItem07 extends Component {
 
     this.props.editState('false', 'menuHide')
     this.props.editState('Dziennik Budowy', 'activeItem')
-    this.props.editState('87%', 'widthStop')
-    this.props.editState('100%', 'heightStop')
-    this.props.editState('1 listopada 2020', 'secondaryTitle')
-    this.props.editState('myRef5', 'scroll')
+    this.props.editState('75%', 'widthStop')
+    this.props.editState('87%', 'heightStop')
+    this.props.editState('8 listopada 2020', 'secondaryTitle')
+    this.props.editState('myRef7', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -55,7 +61,7 @@ class MenuItem07 extends Component {
     return select.map(arr => {
       i = i + 1
       let pDate = this.renderTextwidth(arr.group)
-      let margin = i === 0 ? '10px' : `${665 / (select.length)}px`
+      let margin = i === 0 ? '10px' : `${625 / (select.length)}px`
       let title = arr.title
       let ref = arr.group
       let date = arr.date
@@ -134,16 +140,22 @@ class MenuItem07 extends Component {
     })
   }
 
+  mobileCheck() {
+    if(this.props.appState.width>900) return <div className='ProgressBarContainer' >
+    <div className='ProgressBar'>
+      <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
+      {this.renderDot()}
+    </div>
+  </div>
+  }
+
+
+
   renderContent() {
 
     if (this.props.appState.loading === 'false') return (
       <>
-        <div className='ProgressBarContainer' >
-          <div className='ProgressBar'>
-            <GreenSpring style={{ zIndex: 0 }} widthStart={'20px'} widthStop={this.renderProgress()} height={'20px'} color={'#efefef'} />
-            {this.renderDot()}
-          </div>
-        </div>
+        {this.mobileCheck()}
 
         <div id='scrollTop' className='TimeContent'  >
           {this.renderPhotoRefs()}
@@ -156,6 +168,8 @@ class MenuItem07 extends Component {
       </div>
     )
   }
+
+  
 
 
   render() {

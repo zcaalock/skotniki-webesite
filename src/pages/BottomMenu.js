@@ -1,19 +1,20 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
+import React, { useEffect} from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import history from '../history'
-import { editState } from '../actions/appState'
 import { fetchPages } from '../actions/pages'
 import GreenSpring from '../components/GeenSpring'
 
 
-class BottomMenu extends Component {
+function BottomMenu() {
 
-  componentDidMount() {
-    this.props.fetchPages() 
-  }
+  const dispatch = useDispatch()
+  const appState = useSelector(state => state.appState)  
 
-  state = {
+  useEffect(() => {
+    dispatch(fetchPages())
+  },[])
+
+  const state = {
     menuNames: [
       { title: 'Galeria', id: 'MenuItem01' },
       { title: 'Prezentacja', id: 'MenuItem02' },
@@ -22,45 +23,37 @@ class BottomMenu extends Component {
       { title: 'Doświadczenie', id: 'MenuItem05' },
       { title: 'Kontakt', id: 'MenuItem06' },
       { title: 'Dziennik', id: 'MenuItem07' },
+      { title: 'Finansowanie', id: 'MenuItem08' }
     ]
   }
 
-  handleClick(id) {    
+  function handleClick(id) {
     history.push(`/${id}`)
   }
 
-  renderMenu() {
-    const pages = this.state.menuNames
+  function renderMenu() {
+    const pages = state.menuNames
     return pages.map(page => {
-      return <div onClick={() => this.handleClick(page.id)} key={page.id} className='menuItem'>{page.title}</div>
+      return <div onClick={() => handleClick(page.id)} key={page.id} className='menuItem'>{page.title}</div>
     })
   }
 
-  hideMenuBar() {
-    if (this.props.appState.menuHide === 'true' || this.props.appState.landingPage === 'true') return {display: 'none'}
-    return {display: ''}
+  function hideMenuBar() {
+    if (appState.menuHide === 'true' || appState.landingPage === 'true') return { display: 'none' }
+    return { display: '' }
   }
 
-  render() {
-    return (
-      <div className='bottomeNavBar' style={this.hideMenuBar()}>
-        <div className='menuBottom'>
-          <GreenSpring style={{ zIndex: this.props.appState.zIndex }} widthStart={this.props.appState.widthStart} widthStop={this.props.appState.widthStop} height={'100%'} color={'#efefef'} zIndex={this.props.appState.zIndex} />
-          {this.renderMenu()}
-        </div>
-        <div style={{ backgroundColor: 'rgba(81, 122, 66, 0.79)', width: '30%' }}></div>
-   
+  return (
+    <div className='bottomeNavBar' style={hideMenuBar()}>
+      <div className='menuBottom'>
+        <GreenSpring style={{ zIndex: appState.zIndex }} widthStart={appState.widthStart} widthStop={appState.widthStop} height={'100%'} color={'#efefef'} zIndex={appState.zIndex} />
+        {renderMenu()}
       </div>
-
-    )
-  }
+      <div style={{ backgroundColor: 'rgba(81, 122, 66, 0.79)', width: '30%' }}></div>
+    </div>
+  )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    pages: Object.values(state.pages),
-    appState: state.appState
-  }
-}
 
-export default connect(mapStateToProps, { editState, fetchPages })(BottomMenu)
+
+export default BottomMenu

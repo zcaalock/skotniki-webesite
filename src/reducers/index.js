@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 import pagesReducers from './pagesReducers'
 import appStateReducers from './appStateReducers'
 import reservationReducers from './reservationReducers'
+import settingReducers from './settingReducers'
 import uiReducers from './uiReducers';
 import usersReducers from './usersReducers'
 
@@ -18,7 +19,8 @@ const reducers = combineReducers({
   reservations: reservationReducers,
   appState: appStateReducers,
   UI: uiReducers,
-  user: usersReducers
+  user: usersReducers,
+  settings: settingReducers
 })
 
 
