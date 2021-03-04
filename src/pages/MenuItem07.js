@@ -22,7 +22,12 @@ const photos = [
   { link: '13.jpg', group: 'myRef4', date: '01.10.2020', title: '1 października 2020' },
   { link: '14.jpg', group: 'myRef5', date: '04.11.2020', title: '4 listopada 2020' },
   { link: '15.jpg', group: 'myRef5', date: '04.11.2020', title: '4 listopada 2020' },
-  { link: '16.jpg', group: 'myRef6', date: '08.12.2020', title: '8 listopada 2020' }
+  { link: '16.jpg', group: 'myRef6', date: '08.12.2020', title: '8 listopada 2020' },
+  { link: '17.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '18.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '19.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '20.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' },
+  { link: '21.jpg', group: 'myRef7', date: '04.03.2021', title: '3 marca 2021' }  
 ]
 
 
@@ -42,7 +47,7 @@ class MenuItem07 extends Component {
     this.props.editState('75%', 'widthStop')
     this.props.editState('87%', 'heightStop')
     this.props.editState('8 listopada 2020', 'secondaryTitle')
-    this.props.editState('myRef6', 'scroll')
+    this.props.editState('myRef7', 'scroll')
     this.props.editState('hide', 'ui')
   }
 
@@ -56,7 +61,7 @@ class MenuItem07 extends Component {
     return select.map(arr => {
       i = i + 1
       let pDate = this.renderTextwidth(arr.group)
-      let margin = i === 0 ? '10px' : `${650 / (select.length)}px`
+      let margin = i === 0 ? '10px' : `${625 / (select.length)}px`
       let title = arr.title
       let ref = arr.group
       let date = arr.date
